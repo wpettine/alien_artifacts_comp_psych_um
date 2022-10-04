@@ -71,7 +71,6 @@ function serverUpdate() {
 
 }
 
-
 function hideAllElements() {
     document.querySelectorAll('div').forEach(div => {
         div.style.display = 'none';
@@ -114,18 +113,17 @@ function scrub(dirty){
 
 function resultsSummary() {
     hideAllElements()
+
     let summary = document.querySelector(`#results_summary`);
-    summary.innerHTML = 'This block you earned ' + block_earned + ' of ' + block_possible +
-        ' possible. In total, you have earned ' + total_earned + ' of ' + total_possible + ' possible.';
+    if (feedback_bool) {
+        summary.innerHTML = 'This block you earned ' + block_earned + ' of ' + block_possible +
+            ' possible. In total, you have earned ' + total_earned + ' of ' + total_possible + ' possible.';
+    } else {
+        summary.innerHTML = "Storing the energy you've collected!"
+    }
     summary.style.display = 'block';
 
     serverUpdate()
-
-    // setTimeout( function() {
-    //     serverUpdate()
-    // },
-    //     500 // 4000
-    // )
 
     }
 
@@ -152,11 +150,6 @@ function feedback(key_pressed) {
     setTimeout( () => {
             if (block_trial_number == scrub(hues).length-1) {
                 resultsSummary();
-                // if (last) {
-                //     location.href = goodbyeurl;
-                // } else {
-                //     resultsSummary();
-                // }
             } else {
                 block_trial_number++;
                 showStimulus();
@@ -164,6 +157,29 @@ function feedback(key_pressed) {
         }
     , 1000);
 }
+
+function nofeedback(key_pressed) {
+    hideAllElements()
+
+    const clean = scrub(hues)
+    let outcome = clean[block_trial_number][valid_keys.indexOf(key_pressed)]
+
+    total_possible += Math.max.apply(Math, clean[block_trial_number]);
+    block_possible += Math.max.apply(Math, clean[block_trial_number]);
+    total_earned += outcome;
+    block_earned += outcome;
+
+    if (block_trial_number == scrub(hues).length-1) {
+            resultsSummary();
+            // setTimeout( () => {
+            //     resultsSummary();
+            // }, 500);
+        } else {
+            block_trial_number++;
+            showStimulus();
+        }
+}
+
 
 document.addEventListener('DOMContentLoaded', function () {
     hideAllElements()
@@ -176,7 +192,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 listening = false
                 end_times.push(Date.now())
                 responses.push(key_pressed)
-                feedback(key_pressed)
+                if (feedback_bool) {
+                    feedback(key_pressed)
+                } else {
+                    nofeedback(key_pressed)
+                }
+
             }
         }
         showStimulus()

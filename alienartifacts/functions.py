@@ -18,6 +18,7 @@ from datetime import datetime
 from django.core.files import File
 import numpy as np
 from glob import glob
+import psycopg2
 import os, logging
 import copy
 from .global_variables import *
@@ -167,22 +168,33 @@ def createPlanetIntros(valid_keys,key_actions,task='context-generalization'):
     if 'context-generalization' in task:
         planet_intros = [
             f'Welcome to Planet Waz-up, home to the long-deceased Waz civilization. Here you will find artifacts that ' +
-            f"are activated with either a {key_actions[0][0]} (press '{valid_keys[0][0]}') or a  {key_actions[0][1]} " +
+            f"are activated with either a {key_actions[0][0].lower()} (press '{valid_keys[0][0]}') or a  {key_actions[0][1].lower()} " +
             f"(press '{valid_keys[0][1]}'). You'll have to figure out what works!",
 
             f"Your work on Planet Waz-up is complete!\n\n"
             f"After hopping in your spaceship, you traveled to Planet Oh-Kay. " +
             f"Here once lived the proud species Oh. Their artifacts operate completely differently, and " +
             f"are activated with either a " +
-            f"{key_actions[1][0]} (press '{valid_keys[1][0]}') or a  {key_actions[1][1]} (press '{valid_keys[1][1]}'). " +
-            f"Forget what you learned on Planet Waz-up. Planet Oh-Kay's artifacts have their own rules!",
-
-            f"Good work space pirate!\n\n" +
-            f"You learned of planet Blabla, the only place in the galaxy where both the Waz and Oh once lived! Here you " +
-            f"discover artifacts from both civilizations. That means you can {key_actions[0][0]} (press " +
-            f"'{valid_keys[0][0]}'), {key_actions[0][1]} (press '{valid_keys[0][1]}'), {key_actions[1][0]} (press " +
-            f"'{valid_keys[1][0]}') or {key_actions[1][1]} (press '{valid_keys[1][1]}'). Go collect some energy!"
-        ]
+            f"{key_actions[1][0].lower()} (press '{valid_keys[1][0]}') or a  {key_actions[1][1].lower()} (press '{valid_keys[1][1]}'). " +
+            f"Set aside what you learned on Planet Waz-up. Planet Oh-Kay's artifacts have their own rules!"]
+        if GENERALIZATION_FEEDBACK:
+            planet_intros += [
+                f"Good work space pirate!\n\n" +
+                f"You learned of planet Blabla, the only place in the galaxy where both the Waz and Oh once lived! Here you " +
+                f"discover artifacts from both civilizations. That means you can {key_actions[0][0].lower()} (press " +
+                f"'{valid_keys[0][0]}'), {key_actions[0][1].lower()} (press '{valid_keys[0][1]}'), {key_actions[1][0].lower()} (press " +
+                f"'{valid_keys[1][0]}') or {key_actions[1][1].lower()} (press '{valid_keys[1][1]}'). Go collect some energy!"
+            ]
+        else:
+            planet_intros += [
+                f"Good work space pirate!\n\n" +
+                f"You learned of planet Blabla, the only place in the galaxy where both the Waz and Oh once lived! Here you " +
+                f"discover artifacts from both civilizations. That means you can {key_actions[0][0].lower()} (press " +
+                f"'{valid_keys[0][0]}'), {key_actions[0][1].lower()} (press '{valid_keys[0][1]}'), {key_actions[1][0].lower()} (press " +
+                f"'{valid_keys[1][0]}') or {key_actions[1][1].lower()} (press '{valid_keys[1][1]}'). \n\nUnfortunately, " +\
+                "your sensor for detecting activation broke. The artifacts are still collecting energy (and your " +\
+                "reward is being tracked), but you won't receive feedback. Go collect!"
+            ]
     elif task == 'example-generalization':
         planet_intro = 'You stumbled upon a treasure trove of alien artifacts! To activate the alien artifacts, you might'
         for k in range(len(valid_keys)):
@@ -775,6 +787,7 @@ if TASK == 'example-generalization':
 
     TRIALS_PER_STIM_BLOCK_0 = 16 # 16  # 10 #If trial order is structured
     TRIALS_PER_STIM_BLOCK_1 = 5 #5  # 5 #If trial order is structured
+
     STIMULUS_COMBINATIONS_BLOCK_0 = stimulusCombinations(STIMULI_BLOCK_0,reward_rules=REWARD_RULES)
     STIMULUS_COMBINATIONS_BLOCK_1 = stimulusCombinations(STIMULI_BLOCK_1,reward_rules=REWARD_RULES)
     STIMULUS_COMBINATIONS = [STIMULUS_COMBINATIONS_BLOCK_0 + STIMULUS_COMBINATIONS_BLOCK_1] * 2
@@ -976,9 +989,14 @@ elif (TASK == 'context-generalization') or (TASK == 'context-generalization_v1')
                 },
         }
 
-    TRIALS_PER_STIM_BLOCK_0 = 12 #12  # 10 #If trial order is structured
-    TRIALS_PER_STIM_BLOCK_1 = 12 #12  # 5 #If trial order is structured
-    TRIALS_PER_STIM_BLOCK_2 = 10 #10  # 5 #If trial order is structured
+    # TRIALS_PER_STIM_BLOCK_0 = 12 #12  # 10 #If trial order is structured
+    # TRIALS_PER_STIM_BLOCK_1 = 12 #12  # 5 #If trial order is structured
+    # TRIALS_PER_STIM_BLOCK_2 = 10 #10  # 5 #If trial order is structured
+
+    TRIALS_PER_STIM_BLOCK_0 = 2  # 12  # 10 #If trial order is structured
+    TRIALS_PER_STIM_BLOCK_1 = 2  # 12  # 5 #If trial order is structured
+    TRIALS_PER_STIM_BLOCK_2 = 2  # 10  # 5 #If trial order is structured
+
     STIMULUS_COMBINATIONS_BLOCK_0 = stimulusCombinations(STIMULI_BLOCK_0,reward_rules=REWARD_RULES)
     STIMULUS_COMBINATIONS_BLOCK_1 = stimulusCombinations(STIMULI_BLOCK_1,reward_rules=REWARD_RULES)
     STIMULUS_COMBINATIONS_BLOCK_2 = stimulusCombinations(STIMULI_BLOCK_2,reward_rules=REWARD_RULES)
@@ -1005,6 +1023,48 @@ elif (TASK == 'context-generalization') or (TASK == 'context-generalization_v1')
 else:
     raise ValueError(f'{TASK} is invalid for TASK parameter')
 
+
+## PROLIFIC INTEGRATION
+
+def connectAlineartifacts():
+    try:
+        host = "alienartifacts-postgres-server.postgres.database.azure.com"
+        dbname = "alienartifactsdb"
+        user = "wpettine@alienartifacts-postgres-server"
+        password = "publishThePaper#5"
+        sslmode = "require"
+
+        # Construct connection string
+        conn_string = "host={0} user={1} dbname={2} password={3} sslmode={4}".format(host, user, dbname, password, sslmode)
+        conn = psycopg2.connect(conn_string)
+        print("Connection established")
+
+        cursor = conn.cursor()
+        # Print PostgreSQL Connection properties
+        print ( conn.get_dsn_parameters(),"\n")
+
+        # Print PostgreSQL version
+        cursor.execute("SELECT version();")
+        record = cursor.fetchone()
+        print("You are connected to - ", record,"\n")
+
+    except (Exception, psycopg2.Error) as error :
+        print ("Error while connecting to PostgreSQL", error)
+        return 1
+    return cursor, conn
+
+
+def addSubjectToProlificStudy(study_id, prolific_id):
+
+    url_post_study_publish = 'https://api.prolific.co/api/v1/studies/%s/transition/'
+
+    params = {
+        "action": "PUBLISH"
+    }
+
+    study_id = '62aba632cfcfb42dede75bed'
+
+    # r_publish_draft = requests.post(url_post_study_publish % (study_id), headers=header, json=params)
 
 ## FUNCTIONS REQUIRED THE VARIABLES JUST DEFINED
 

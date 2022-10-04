@@ -76,68 +76,80 @@ def welcome(request):
                         subject.save()
                     #Create a new Session
                     # subject.sessions.add(session)
-                    if TASK == 'example-generalization':
-                        conditioning, generalization = checkSessionAtts(task=TASK,STIMULI_BLOCK_0=STIMULI_BLOCK_0,
-                                                                        STIMULI_BLOCK_1=STIMULI_BLOCK_1)
-                        reward_rules, valid_keys, conversion = assignKeys(REWARD_RULES, POSSIBLE_KEYS,
-                                                                          BLOCK_CATEGORIES)
+                    # If they're just answering questionnaires
+                    if WEBAPP_USE == 'screen':
                         session = Session(start_time=start_time, end_time=end_time, payment_token=payment_token,
-                                          subject=subject, conditioning_attributes=conditioning,
-                                          generalization_attributes=generalization, key_conversion=conversion)
-                        session.task = TASK
+                                          subject=subject)
+                        session.task = 'screen'
                         session.save()
-                        #Organize Stimulus Information
-                        stimulus_order_block_0 = getStimulusOrder(STIMULUS_COMBINATIONS_BLOCK_0, N_TRIALS_BLOCK_0,
-                                                      trials_per_stim=TRIALS_PER_STIM_BLOCK_0, structured=STRUCTURED)
-                        stimulus_order_block_1 = getStimulusOrder(STIMULUS_COMBINATIONS_BLOCK_1, N_TRIALS_BLOCK_1,
-                                                      trials_per_stim=TRIALS_PER_STIM_BLOCK_1, structured=STRUCTURED)
-                        stimulus_order_block_1 = [indx+len(STIMULUS_COMBINATIONS_BLOCK_0) for indx in
-                                                  stimulus_order_block_1]
-                        request.session['stimulus_order'] = stimulus_order_block_0 + stimulus_order_block_1
-                        request.session['block'] = (np.append(np.zeros(N_TRIALS_BLOCK_0),
-                                                              np.ones(N_TRIALS_BLOCK_1))).astype(int).tolist()
-                        request.session['reward_rules'] = reward_rules
-                        request.session['valid_keys'] = valid_keys
-                    elif (TASK == 'context-generalization') or (TASK == 'context-generalization_v1') or \
-                            (TASK == 'context-generalization_v2') or (TASK == 'diagnostic'):
-                        set_1, set_2 = checkSessionAtts(task=TASK,STIMULI_BLOCK_0=STIMULI_BLOCK_0,
-                                                                        STIMULI_BLOCK_1=STIMULI_BLOCK_1)
-                        reward_rules, valid_keys, conversion = assignKeys(REWARD_RULES, POSSIBLE_KEYS, BLOCK_CATEGORIES)
-                        session = Session(start_time=start_time, end_time=end_time, payment_token=payment_token,
-                                          subject=subject, set_1_attribute=set_1, set_2_attribute=set_2,
-                                          key_conversion=conversion)
-                        session.task = TASK
-                        session.save()
-                        stimulus_order_block_0 = getStimulusOrder(STIMULUS_COMBINATIONS_BLOCK_0, N_TRIALS_BLOCK_0,
-                                                                  trials_per_stim=TRIALS_PER_STIM_BLOCK_0,
-                                                                  structured=STRUCTURED)
-                        stimulus_order_block_1 = getStimulusOrder(STIMULUS_COMBINATIONS_BLOCK_1, N_TRIALS_BLOCK_1,
-                                                                  trials_per_stim=TRIALS_PER_STIM_BLOCK_1,
-                                                                  structured=STRUCTURED)
-                        stimulus_order_block_2 = getStimulusOrder(STIMULUS_COMBINATIONS_BLOCK_2, N_TRIALS_BLOCK_2,
-                                                                  trials_per_stim=TRIALS_PER_STIM_BLOCK_2,
-                                                                  structured=STRUCTURED)
-                        request.session['stimulus_order'] = stimulus_order_block_0 + stimulus_order_block_1 + \
-                                                            stimulus_order_block_2
-                        request.session['block'] = (np.concatenate((np.zeros(N_TRIALS_BLOCK_0), \
-                                                              np.ones(N_TRIALS_BLOCK_1), \
-                                                              np.ones(N_TRIALS_BLOCK_2)*2))).astype(int).tolist()
-                        request.session['reward_rules'] = reward_rules
-                        request.session['valid_keys'] = valid_keys
-                        if TASK == 'diagnostic':
-                            request.session['diagnostic_block'] = 0
-                    else:
-                        raise ValueError(f'{TASK} is invalid for the TASK variable.')
-
-                    logger.info(f'reward_rules = {reward_rules}')
-                    logger.info(f'valid_keys = {valid_keys}')
-                    logger.info(f'conversion = {conversion}')
-                    #Set variables for this visit to the site
+                    # If they're doing the task as well
+                    elif (WEBAPP_USE == 'task') or (WEBAPP_USE == 'both'):
+                        if TASK == 'example-generalization':
+                            conditioning, generalization = checkSessionAtts(task=TASK,STIMULI_BLOCK_0=STIMULI_BLOCK_0,
+                                                                            STIMULI_BLOCK_1=STIMULI_BLOCK_1)
+                            reward_rules, valid_keys, conversion = assignKeys(REWARD_RULES, POSSIBLE_KEYS,
+                                                                              BLOCK_CATEGORIES)
+                            session = Session(start_time=start_time, end_time=end_time, payment_token=payment_token,
+                                              subject=subject, conditioning_attributes=conditioning,
+                                              generalization_attributes=generalization, key_conversion=conversion)
+                            session.task = TASK
+                            session.save()
+                            #Organize Stimulus Information
+                            stimulus_order_block_0 = getStimulusOrder(STIMULUS_COMBINATIONS_BLOCK_0, N_TRIALS_BLOCK_0,
+                                                          trials_per_stim=TRIALS_PER_STIM_BLOCK_0, structured=STRUCTURED)
+                            stimulus_order_block_1 = getStimulusOrder(STIMULUS_COMBINATIONS_BLOCK_1, N_TRIALS_BLOCK_1,
+                                                          trials_per_stim=TRIALS_PER_STIM_BLOCK_1, structured=STRUCTURED)
+                            stimulus_order_block_1 = [indx+len(STIMULUS_COMBINATIONS_BLOCK_0) for indx in
+                                                      stimulus_order_block_1]
+                            request.session['stimulus_order'] = stimulus_order_block_0 + stimulus_order_block_1
+                            request.session['block'] = (np.append(np.zeros(N_TRIALS_BLOCK_0),
+                                                                  np.ones(N_TRIALS_BLOCK_1))).astype(int).tolist()
+                            request.session['reward_rules'] = reward_rules
+                            request.session['valid_keys'] = valid_keys
+                        elif (TASK == 'context-generalization') or (TASK == 'context-generalization_v1') or \
+                                (TASK == 'context-generalization_v2') or (TASK == 'diagnostic'):
+                            set_1, set_2 = checkSessionAtts(task=TASK,STIMULI_BLOCK_0=STIMULI_BLOCK_0,
+                                                                            STIMULI_BLOCK_1=STIMULI_BLOCK_1)
+                            reward_rules, valid_keys, conversion = assignKeys(REWARD_RULES, POSSIBLE_KEYS, BLOCK_CATEGORIES)
+                            session = Session(start_time=start_time, end_time=end_time, payment_token=payment_token,
+                                              subject=subject, set_1_attribute=set_1, set_2_attribute=set_2,
+                                              key_conversion=conversion)
+                            session.task = TASK
+                            session.save()
+                            stimulus_order_block_0 = getStimulusOrder(STIMULUS_COMBINATIONS_BLOCK_0, N_TRIALS_BLOCK_0,
+                                                                      trials_per_stim=TRIALS_PER_STIM_BLOCK_0,
+                                                                      structured=STRUCTURED)
+                            stimulus_order_block_1 = getStimulusOrder(STIMULUS_COMBINATIONS_BLOCK_1, N_TRIALS_BLOCK_1,
+                                                                      trials_per_stim=TRIALS_PER_STIM_BLOCK_1,
+                                                                      structured=STRUCTURED)
+                            stimulus_order_block_2 = getStimulusOrder(STIMULUS_COMBINATIONS_BLOCK_2, N_TRIALS_BLOCK_2,
+                                                                      trials_per_stim=TRIALS_PER_STIM_BLOCK_2,
+                                                                      structured=STRUCTURED)
+                            request.session['stimulus_order'] = stimulus_order_block_0 + stimulus_order_block_1 + \
+                                                                stimulus_order_block_2
+                            request.session['block'] = (np.concatenate((np.zeros(N_TRIALS_BLOCK_0), \
+                                                                  np.ones(N_TRIALS_BLOCK_1), \
+                                                                  np.ones(N_TRIALS_BLOCK_2)*2))).astype(int).tolist()
+                            request.session['reward_rules'] = reward_rules
+                            request.session['valid_keys'] = valid_keys
+                            if TASK == 'diagnostic':
+                                request.session['diagnostic_block'] = 0
+                        else:
+                            raise ValueError(f'{TASK} is invalid for the TASK variable.')
+                        # logger.info(f'reward_rules = {reward_rules}')
+                        # logger.info(f'valid_keys = {valid_keys}')
+                        # logger.info(f'conversion = {conversion}')
+                        #Set variables for this visit to the site
                     request.session['session_ID'] = session.id
                     request.session['subject_ID'] = subject.id
                     request.session['trial_number'] = 0
                     request.method = 'GET'
-                    return instructions(request)
+                    if (WEBAPP_USE == 'screen') or (WEBAPP_USE == 'all'):
+                        return questionnaires(request)
+                    elif WEBAPP_USE == 'task':
+                        return instructions(request)
+                    else:
+                        raise ValueError(f'{WEBAPP_USE} is invalid for WEBAPP_USE')
         if not DEBUG:
             recaptcha = {
                 'bool': True,
@@ -208,7 +220,15 @@ def questionnaires(request):
                 session.save()
                 return attentionfailure(request)
             else:
-                return instructions(request)
+                if WEBAPP_USE == 'screen':
+                    session = Session.objects.filter(id=request.session['session_ID'])[0]
+                    session.session_completed = True
+                    session.save()
+                    return token(request)
+                elif (WEBAPP_USE == 'task') or (WEBAPP_USE == 'both'):
+                    return instructions(request)
+                else:
+                    raise ValueError(f'{WEBAPP_USE} is invalid for WEBAPP_USE')
         else:
             raise ValueError('Problem with the questionnaire formset')
     else:
@@ -421,8 +441,6 @@ def onePageContextGenUpdate(request):
                                                       texture=stimulus_key[2],size=stimulus_key[3],
                                                       reward_rules=request.session['reward_rules'])
             largest_chosen, _ = chooseLargest(responses[t], reward_prob_dict)
-            if largest_chosen != reward:
-                print('here')
             trial = Trial(stimulus_id=stimulus.id, reward=reward, reward_probs_record=reward_prob_dict,
                           block=BLOCK_NAMES[current_planet], start_time=start_time, end_time=end_time,
                           response=responses[t], stimulus=stimulus, session=session)
@@ -462,6 +480,8 @@ def onePageContextGenUpdate(request):
         request.session['outcomes'] = outcomes.tolist()
         stimuli = np.array(request.session['stimulus_order'])[indx_block]
         stimuli = json.dumps(stimuli.tolist())
+        if (current_block == 2) and (not GENERALIZATION_FEEDBACK):
+            print('here')
         return JsonResponse({
             "stimuli": stimuli,
             "obscured": obscured,
@@ -502,6 +522,11 @@ def onePageContextGenTask(request):
         response_text += f' {action.lower()} (press "{key}"),'
     response_text = response_text[:-1] + '.'
     planet_intros = createPlanetIntros(valid_keys=request.session['valid_keys'], key_actions=KEY_ACTIONS)
+    #Determine if feedback will be provided
+    if (current_block == 2) and (not GENERALIZATION_FEEDBACK):
+        feedback_bool = False
+    else:
+        feedback_bool = True
     #Get rolling!
     return render(request, "alienartifacts/onepagecontextgentask.html", {
         "planet_intro": planet_intros[current_block],
@@ -511,7 +536,8 @@ def onePageContextGenTask(request):
         "reward_stim_urls": reward_stim_urls,
         # 'outcomes': outcomes,
         "stimuli": stimuli,
-        'obscured': json.dumps(obscured)
+        'obscured': json.dumps(obscured),
+        'feedback_bool': feedback_bool
     })
 
 
@@ -613,7 +639,6 @@ def fishy(request):
     return render(request, "alienartifacts/fishy.html")
 
 
-
 def feedback(request,response):
     return render(request, "alienartifacts/feedback.html", {
         'response': response
@@ -623,10 +648,22 @@ def feedback(request,response):
 def token(request):
     session = Session.objects.filter(id=request.session['session_ID'])[0]
     payment_token = session.payment_token
+    if WEBAPP_USE == 'screen':
+        token_message = f'Thanks for taking the time to answer the questions! We will analyze your responses and ' + \
+            f'determine if you are eligible for future studies. Your payment token for the task is {payment_token}. ' +\
+            'To register for payment, please enter that token in the Prolific page. You can close this window.'
+    elif (WEBAPP_USE == 'task') or (WEBAPP_USE == 'both'):
+        token_message = f'Your payment code for the task is {payment_token}. To register for payment, please enter ' + \
+                        'that in the Prolific page. You can close this window.'
+    else:
+        raise ValueError(f'{WEBAPP_USE} is invalid for WEBAPP_USE')
+
     if session.session_completed:
         return render(request, "alienartifacts/token.html", {
-            'payment_token': payment_token,
+            # 'payment_token': payment_token,
+            'token_message': token_message
         })
+
     else:
         return fishy(request)
 

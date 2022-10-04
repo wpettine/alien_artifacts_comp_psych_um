@@ -3,10 +3,14 @@ from .questionnaires_text import *
 
 
 #Choose task
-TASK = 'context-generalization_v1' # 'example-generalization', 'context-generalization_v1', 'context-generalization_v2', 'diagnostic'
+TASK = 'context-generalization_v2' # 'example-generalization', 'context-generalization_v1', 'context-generalization_v2', 'diagnostic'
+
+#What we're using the webapp for
+WEBAPP_USE = 'task' # 'screen', 'task', 'all'
+GENERALIZATION_FEEDBACK = False
 
 # Specify if deploying
-DEPLOYMENT = True
+DEPLOYMENT = False
 PAYMENT_TOKEN = 'replace_token'
 ATTENTION_FAILURE_TOKEN = 'replace_token'
 ATTENTION_CHECK = True
@@ -38,12 +42,29 @@ ATTENTION_CHECK_HISTORY = [('fail_attention_check','Femur dissolution'),('fail_a
               ('pass_attention_check','Prosochiphelia'),('fail_attention_check','Retinal dermatitis')]
 
 
-QUESTIONNAIRES = {
+if QUESTIONNAIRE_ATTENTION_CHECK:
+    # QUESTIONNAIRES = {
+    #     'bapq': QUESTIONNAIRE_BAPQ,
+    #     'att_check': QUESTIONNAIRE_ATTENTION_CHECK,
+    #     'asrs': QUESTIONNAIRE_ASRS,
+    #     'phq9': QUESTIONNAIRE_PHQ9,
+    #     'olifes': QUESTIONNAIRE_OLIFES
+    # }
+    QUESTIONNAIRES = {
         'att_check': QUESTIONNAIRE_ATTENTION_CHECK,
+        # 'phq9': QUESTIONNAIRE_PHQ9,
+    }
+else:
+    QUESTIONNAIRES = {
+        'bapq': QUESTIONNAIRE_BAPQ,
+        'asrs': QUESTIONNAIRE_ASRS,
+        'phq9': QUESTIONNAIRE_PHQ9,
+        'olifes': QUESTIONNAIRE_OLIFES
     }
 
 
 # Task Structure
+
 SINGLE_PAGE_BLOCK_LENGTH = 10 # 10
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 STRUCTURED = True
