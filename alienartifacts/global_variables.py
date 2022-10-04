@@ -8,6 +8,7 @@ TASK = 'context-generalization_v2' # 'example-generalization', 'context-generali
 #What we're using the webapp for
 WEBAPP_USE = 'task' # 'screen', 'task', 'all'
 GENERALIZATION_FEEDBACK = False
+PROJECT_NAME = 'P50'
 
 # Specify if deploying
 DEPLOYMENT = False

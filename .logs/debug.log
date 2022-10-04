@@ -855,3 +855,60 @@ INFO "GET /static/js/onepagecontextgentask.js HTTP/1.1" 304 0
 INFO "GET /onepagecontextgenupdate?responses=%5B%22c%22%2C%22c%22%2C%22c%22%2C%22v%22%2C%22z%22%2C%22z%22%2C%22x%22%2C%22v%22%2C%22z%22%2C%22v%22%5D&start_times=%5B1664917756880%2C1664917758256%2C1664917761015%2C1664917762322%2C1664917763610%2C1664917764945%2C1664917766791%2C1664917768036%2C1664917769295%2C1664917770391%5D&end_times=%5B1664917758255%2C1664917761014%2C1664917762321%2C1664917763610%2C1664917764945%2C1664917766791%2C1664917768035%2C1664917769295%2C1664917770391%2C1664917773256%5D HTTP/1.1" 200 300
 INFO "GET /onepagecontextgenupdate?responses=%5B%22x%22%2C%22x%22%2C%22c%22%2C%22c%22%2C%22v%22%2C%22z%22%5D&start_times=%5B1664917775340%2C1664917779272%2C1664917780111%2C1664917780876%2C1664917781777%2C1664917782796%5D&end_times=%5B1664917779271%2C1664917780111%2C1664917780876%2C1664917781777%2C1664917782796%2C1664917783576%5D HTTP/1.1" 200 46
 INFO "GET /onepagecontextgentask HTTP/1.1" 200 1352
+INFO Watching for file changes with StatReloader
+INFO Watching for file changes with StatReloader
+INFO "GET / HTTP/1.1" 200 4305
+INFO "GET /static/style.css HTTP/1.1" 304 0
+INFO "GET / HTTP/1.1" 200 4357
+INFO "GET / HTTP/1.1" 200 4357
+INFO "GET / HTTP/1.1" 200 4357
+INFO "GET / HTTP/1.1" 200 4456
+WARNING Not Found: /um_prolific_consent.pdf
+WARNING "GET /um_prolific_consent.pdf HTTP/1.1" 404 5598
+WARNING Not Found: /um_prolific_consent.pdf
+WARNING "GET /um_prolific_consent.pdf HTTP/1.1" 404 5598
+WARNING Not Found: /um_prolific_consent.pdf
+WARNING "GET /um_prolific_consent.pdf HTTP/1.1" 404 5598
+WARNING Not Found: /um_prolific_consent.pdf
+WARNING "GET /um_prolific_consent.pdf HTTP/1.1" 404 5598
+WARNING Not Found: /um_prolific_consent.pdf
+WARNING "GET /um_prolific_consent.pdf HTTP/1.1" 404 5598
+WARNING Not Found: /um_prolific_consent.pdf
+WARNING "GET /um_prolific_consent.pdf HTTP/1.1" 404 5598
+WARNING Not Found: /um_prolific_consent.pdf
+WARNING "GET /um_prolific_consent.pdf HTTP/1.1" 404 5598
+WARNING Not Found: /um_prolific_consent.pdf
+WARNING "GET /um_prolific_consent.pdf HTTP/1.1" 404 5598
+WARNING Not Found: /um_prolific_consent.pdf
+WARNING "GET /um_prolific_consent.pdf HTTP/1.1" 404 5598
+WARNING Not Found: /um_prolific_consent.pdf
+WARNING "GET /um_prolific_consent.pdf HTTP/1.1" 404 5598
+WARNING Not Found: /um_prolific_consent.pdf
+WARNING "GET /um_prolific_consent.pdf HTTP/1.1" 404 5598
+WARNING Not Found: /um_prolific_consent.pdf
+WARNING "GET /um_prolific_consent.pdf HTTP/1.1" 404 5598
+INFO "GET / HTTP/1.1" 200 4450
+WARNING Not Found: /um_prolific_consent.pdf
+WARNING "GET /um_prolific_consent.pdf HTTP/1.1" 404 5598
+INFO "GET / HTTP/1.1" 200 4463
+WARNING Not Found: /alienartifacts/um_prolific_consent.pdf
+WARNING "GET /alienartifacts/um_prolific_consent.pdf HTTP/1.1" 404 5643
+INFO "GET / HTTP/1.1" 200 4463
+INFO "GET / HTTP/1.1" 200 4463
+WARNING Not Found: /alienartifacts/um_prolific_consent.pdf
+WARNING "GET /alienartifacts/um_prolific_consent.pdf HTTP/1.1" 404 5643
+WARNING Not Found: /alienartifacts/um_prolific_consent.pdf
+WARNING "GET /alienartifacts/um_prolific_consent.pdf HTTP/1.1" 404 5643
+WARNING Not Found: /alienartifacts/um_prolific_consent.pdf
+WARNING "GET /alienartifacts/um_prolific_consent.pdf HTTP/1.1" 404 5643
+WARNING Not Found: /alienartifacts/um_prolific_consent.pdf
+WARNING "GET /alienartifacts/um_prolific_consent.pdf HTTP/1.1" 404 5643
+INFO "GET / HTTP/1.1" 200 4499
+WARNING Not Found: /alienartifacts/um_prolific_consent.pdf
+WARNING "GET /alienartifacts/um_prolific_consent.pdf HTTP/1.1" 404 5643
+WARNING Not Found: /alienartifacts/um_prolific_consent.pdf
+WARNING "GET /alienartifacts/um_prolific_consent.pdf HTTP/1.1" 404 5643
+INFO "GET / HTTP/1.1" 200 4512
+INFO "GET /static/docs/um_prolific_consent.pdf HTTP/1.1" 200 161421
+INFO "GET / HTTP/1.1" 200 4516
+INFO "GET / HTTP/1.1" 200 4536

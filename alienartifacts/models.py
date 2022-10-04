@@ -63,7 +63,7 @@ class Session(models.Model):
     key_conversion = models.JSONField(default=dict)
     substances = models.JSONField(default=list,blank=True,null=True)
     passed_attention_check = models.BooleanField(default=True)
-
+    project = models.CharField(max_length=40,default='initial')
 
 class Trial(models.Model):
     #All data pertinent for an individual trial

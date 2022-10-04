@@ -81,7 +81,6 @@ def welcome(request):
                         session = Session(start_time=start_time, end_time=end_time, payment_token=payment_token,
                                           subject=subject)
                         session.task = 'screen'
-                        session.save()
                     # If they're doing the task as well
                     elif (WEBAPP_USE == 'task') or (WEBAPP_USE == 'both'):
                         if TASK == 'example-generalization':
@@ -92,8 +91,7 @@ def welcome(request):
                             session = Session(start_time=start_time, end_time=end_time, payment_token=payment_token,
                                               subject=subject, conditioning_attributes=conditioning,
                                               generalization_attributes=generalization, key_conversion=conversion)
-                            session.task = TASK
-                            session.save()
+
                             #Organize Stimulus Information
                             stimulus_order_block_0 = getStimulusOrder(STIMULUS_COMBINATIONS_BLOCK_0, N_TRIALS_BLOCK_0,
                                                           trials_per_stim=TRIALS_PER_STIM_BLOCK_0, structured=STRUCTURED)
@@ -114,8 +112,6 @@ def welcome(request):
                             session = Session(start_time=start_time, end_time=end_time, payment_token=payment_token,
                                               subject=subject, set_1_attribute=set_1, set_2_attribute=set_2,
                                               key_conversion=conversion)
-                            session.task = TASK
-                            session.save()
                             stimulus_order_block_0 = getStimulusOrder(STIMULUS_COMBINATIONS_BLOCK_0, N_TRIALS_BLOCK_0,
                                                                       trials_per_stim=TRIALS_PER_STIM_BLOCK_0,
                                                                       structured=STRUCTURED)
@@ -136,10 +132,13 @@ def welcome(request):
                                 request.session['diagnostic_block'] = 0
                         else:
                             raise ValueError(f'{TASK} is invalid for the TASK variable.')
+                        session.task = TASK
+                    session.project = PROJECT_NAME
+                    session.save()
                         # logger.info(f'reward_rules = {reward_rules}')
                         # logger.info(f'valid_keys = {valid_keys}')
                         # logger.info(f'conversion = {conversion}')
-                        #Set variables for this visit to the site
+                    #Set variables for this visit to the site
                     request.session['session_ID'] = session.id
                     request.session['subject_ID'] = subject.id
                     request.session['trial_number'] = 0
