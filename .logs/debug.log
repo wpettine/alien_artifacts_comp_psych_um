@@ -913,3 +913,220 @@ INFO "GET /static/docs/um_prolific_consent.pdf HTTP/1.1" 200 161421
 INFO "GET / HTTP/1.1" 200 4516
 INFO "GET / HTTP/1.1" 200 4536
 INFO "GET / HTTP/1.1" 200 4536
+INFO Watching for file changes with StatReloader
+ERROR Something went wrong in the consentform view function
+ERROR Internal Server Error: /
+Traceback (most recent call last):
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/core/handlers/base.py", line 188, in _get_response
+    self.check_response(response, callback)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/core/handlers/base.py", line 311, in check_response
+    "instead." % name
+ValueError: The view alienartifacts.views.index didn't return an HttpResponse object. It returned None instead.
+ERROR "GET / HTTP/1.1" 500 64367
+INFO Watching for file changes with StatReloader
+ERROR Something went wrong in the consentform view function
+ERROR Internal Server Error: /
+Traceback (most recent call last):
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/core/handlers/base.py", line 188, in _get_response
+    self.check_response(response, callback)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/core/handlers/base.py", line 311, in check_response
+    "instead." % name
+ValueError: The view alienartifacts.views.index didn't return an HttpResponse object. It returned None instead.
+ERROR "GET / HTTP/1.1" 500 64504
+INFO Watching for file changes with StatReloader
+INFO Watching for file changes with StatReloader
+INFO Watching for file changes with StatReloader
+INFO Watching for file changes with StatReloader
+INFO "GET / HTTP/1.1" 200 4536
+INFO "GET /static/style.css HTTP/1.1" 200 909
+WARNING Not Found: /favicon.ico
+WARNING "GET /favicon.ico HTTP/1.1" 404 5562
+INFO "GET / HTTP/1.1" 200 4536
+INFO "GET /static/docs/um_prolific_consent.pdf HTTP/1.1" 200 161421
+INFO In welcome function
+INFO "GET /welcome HTTP/1.1" 200 3135
+INFO Watching for file changes with StatReloader
+INFO "GET / HTTP/1.1" 200 4536
+INFO In welcome function
+INFO "GET /welcome HTTP/1.1" 200 3135
+INFO /Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/views.py changed, reloading.
+INFO Watching for file changes with StatReloader
+INFO /Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/views.py changed, reloading.
+INFO Watching for file changes with StatReloader
+INFO /Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/views.py changed, reloading.
+INFO Watching for file changes with StatReloader
+INFO /Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/views.py changed, reloading.
+INFO Watching for file changes with StatReloader
+INFO /Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/views.py changed, reloading.
+INFO Watching for file changes with StatReloader
+INFO /Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/global_variables.py changed, reloading.
+INFO Watching for file changes with StatReloader
+INFO /Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/global_variables.py changed, reloading.
+INFO Watching for file changes with StatReloader
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4533
+INFO /Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/functions.py changed, reloading.
+INFO Watching for file changes with StatReloader
+INFO /Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/functions.py changed, reloading.
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4726
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4536
+INFO In welcome function
+INFO "GET /welcome HTTP/1.1" 200 2968
+INFO Watching for file changes with StatReloader
+INFO /Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/views.py changed, reloading.
+INFO Watching for file changes with StatReloader
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4536
+INFO In welcome function
+INFO "GET /welcome HTTP/1.1" 200 2968
+INFO /Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/global_variables.py changed, reloading.
+INFO Watching for file changes with StatReloader
+INFO /Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/views.py changed, reloading.
+INFO Watching for file changes with StatReloader
+INFO /Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/views.py changed, reloading.
+INFO Watching for file changes with StatReloader
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4536
+INFO In welcome function
+INFO "GET /welcome HTTP/1.1" 200 2652
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4536
+INFO In welcome function
+INFO "GET /welcome HTTP/1.1" 200 2652
+INFO In welcome function
+INFO "POST /welcome HTTP/1.1" 200 2652
+INFO In welcome function
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4536
+INFO In welcome function
+INFO "GET /welcome HTTP/1.1" 200 2652
+INFO /Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/functions.py changed, reloading.
+INFO Watching for file changes with StatReloader
+INFO In welcome function
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4536
+INFO In welcome function
+INFO "GET /welcome HTTP/1.1" 200 2534
+INFO In welcome function
+ERROR Something went wrong in the welcome function
+ERROR Internal Server Error: /welcome
+Traceback (most recent call last):
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/core/handlers/base.py", line 188, in _get_response
+    self.check_response(response, callback)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/core/handlers/base.py", line 311, in check_response
+    "instead." % name
+ValueError: The view alienartifacts.views.welcome didn't return an HttpResponse object. It returned None instead.
+ERROR "POST /welcome HTTP/1.1" 500 68238
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4536
+INFO In welcome function
+INFO "GET /welcome HTTP/1.1" 200 685
+INFO In welcome function
+INFO /Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/views.py changed, reloading.
+INFO Watching for file changes with StatReloader
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4536
+INFO In welcome function
+INFO "GET /welcome HTTP/1.1" 200 685
+INFO In welcome function
+ERROR Something went wrong in the welcome function
+ERROR Internal Server Error: /welcome
+Traceback (most recent call last):
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/core/handlers/base.py", line 188, in _get_response
+    self.check_response(response, callback)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/core/handlers/base.py", line 311, in check_response
+    "instead." % name
+ValueError: The view alienartifacts.views.welcome didn't return an HttpResponse object. It returned None instead.
+ERROR "POST /welcome HTTP/1.1" 500 67560
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4536
+INFO In welcome function
+INFO /Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/views.py changed, reloading.
+INFO Watching for file changes with StatReloader
+INFO In welcome function
+INFO "GET /welcome HTTP/1.1" 200 887
+INFO In welcome function
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4536
+INFO In welcome function
+INFO Watching for file changes with StatReloader
+INFO In welcome function
+INFO "GET /welcome HTTP/1.1" 200 887
+INFO In welcome function
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4536
+INFO In welcome function
+INFO "GET /welcome HTTP/1.1" 200 887
+INFO In welcome function
+ERROR Something went wrong in the welcome function
+ERROR Internal Server Error: /welcome
+Traceback (most recent call last):
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/core/handlers/base.py", line 188, in _get_response
+    self.check_response(response, callback)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/core/handlers/base.py", line 311, in check_response
+    "instead." % name
+ValueError: The view alienartifacts.views.welcome didn't return an HttpResponse object. It returned None instead.
+ERROR "POST /welcome HTTP/1.1" 500 67560
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4536
+INFO In welcome function
+INFO "GET /welcome HTTP/1.1" 200 887
+INFO In welcome function
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4536
+INFO In welcome function
+INFO "GET /welcome HTTP/1.1" 200 887
+INFO In welcome function
+INFO /Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/views.py changed, reloading.
+INFO Watching for file changes with StatReloader
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4536
+INFO In welcome function
+INFO "GET /welcome HTTP/1.1" 200 887
+INFO In welcome function
+INFO In instructions function
+INFO "POST /welcome HTTP/1.1" 200 662
+INFO "GET /onepagecontextgentask HTTP/1.1" 200 2835
+INFO "GET /static/js/onepagecontextgentask.js HTTP/1.1" 200 6014
+INFO "GET /media/images/circle_orange_dots_large_zuBmeXM.png HTTP/1.1" 200 8615
+INFO "GET /media/images/circle_magenta_dots_small_0eA9mqm.png HTTP/1.1" 200 4746
+INFO "GET /media/images/square_magenta_dots_large_Q19EooG.png HTTP/1.1" 200 5475
+INFO "GET /media/images/square_orange_dots_large_fY0qlXF.png HTTP/1.1" 200 5687
+INFO "GET /media/images/noreward_diamond_reward_stim_CsxQPcS.png HTTP/1.1" 200 31960
+INFO "GET /media/images/reward_diamond_reward_stim_0tvgk5f.png HTTP/1.1" 200 1284663
+INFO /Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/global_variables.py changed, reloading.
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123xxcv&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4536
+INFO In welcome function
+INFO "GET /welcome HTTP/1.1" 200 2534
+INFO In welcome function
+ERROR Something went wrong in the welcome function
+ERROR Internal Server Error: /welcome
+Traceback (most recent call last):
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/core/handlers/base.py", line 188, in _get_response
+    self.check_response(response, callback)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/core/handlers/base.py", line 311, in check_response
+    "instead." % name
+ValueError: The view alienartifacts.views.welcome didn't return an HttpResponse object. It returned None instead.
+ERROR "POST /welcome HTTP/1.1" 500 68238
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123xxcv&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4536
+INFO In welcome function
+INFO "GET /welcome HTTP/1.1" 200 2534
+INFO In welcome function
+INFO In instructions function
+INFO "POST /welcome HTTP/1.1" 200 662

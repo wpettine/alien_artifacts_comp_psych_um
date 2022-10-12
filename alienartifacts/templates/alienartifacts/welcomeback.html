@@ -1,0 +1,16 @@
+{% extends "alienartifacts/layout.html" %}
+
+{% block body %}
+    <h1>Welcome to the Alien Artifacts game!</h1>
+
+    <div>
+        <p>
+            Welcome back to our experiment! We really appreciate you taking the time to return. You will be guided
+            through a tutorial where you learn the basics of the game. Please pay close attention, as you'll have to do
+            well enough on the tutorial to move on to the main event.
+        </p>
+    </div>
+
+    <a id="to-task" href="{% url link_url %}">Start the tutorial!</a>
+
+{% endblock %}

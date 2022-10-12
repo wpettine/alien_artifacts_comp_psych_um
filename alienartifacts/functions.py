@@ -209,6 +209,26 @@ def createPlanetIntros(valid_keys,key_actions,task='context-generalization'):
 
     return planet_intros
 
+
+def createWelcomeMessage(new_user=True,webapp_use=None):
+    if webapp_use is None:
+        webapp_use = WEBAPP_USE
+    if new_user:
+        welcome_message = 'Please answer some demographic questions before we get started.'
+    else:
+        if webapp_use == 'screen':
+            welcome_message = 'Thanks for coming back! Please answer a series of questions on the next screen. We ' +\
+                              'will use those answers to determine if you are eligible for future studies.'
+        elif webapp_use == 'both':
+            welcome_message = 'Thanks for coming back! Please answer a series of questions on the next screen. Once ' \
+                              'thsoe are completed, you will move onto a tutorial and then the game.'
+        elif webapp_use == 'task':
+            welcome_message = "Thanks for coming back! We really appreciate you taking the time to return. You will " +\
+             "be guided through a tutorial where you learn the basics of the game. Please pay close attention, as " +\
+            "you'll have to do well enough on the tutorial to move on to the main event."
+    return welcome_message
+
+
 def buildTutorialStimulusDB(reward_rules,
         file_dir='/Users/wpettine/Dropbox/_Murray/Code/state_inference_RL/online_task/stimuli/individual_png/'):
     #Loop through each image file
@@ -484,14 +504,21 @@ def makeQuestionnaireFormSet(questionnaires):
 
 
 class RegistrationForm(forms.Form):
-    user_ID = forms.CharField(label="Your ID Number")
-    subject_source = forms.CharField(label="Who Sent You", required=True, widget=forms.Select(choices=SUBJECT_SOURCES))
+    if not PROLIFIC: # Otherwise, these parameters are passed through the URL.
+        user_ID = forms.CharField(label="Your ID Number")
+        subject_source = forms.CharField(label="Who Sent You", required=True,
+                                         widget=forms.Select(choices=SUBJECT_SOURCES))
     age = forms.CharField(label="Age", required=True, widget=forms.Select(choices=AGES))
-    gender = forms.CharField(label="Gender", required=True, widget=forms.Select(choices=GENDERS))
     education = forms.CharField(label="Education Level", required=True, widget=forms.Select(choices=EDUCATION))
+    sex = forms.CharField(label="Sex assigned at birth", required=True, widget=forms.Select(choices=SEX))
+    gender = forms.CharField(label="Gender identity", required=True, widget=forms.Select(choices=GENDERS))
     start_time = forms.DateTimeField(label='start_time',required=True, widget=forms.HiddenInput())
 
-
+# class ProlificURLform(forms.Form):
+#     subject_ID = forms.CharField(label="subject_ID", widget=forms.HiddenInput())
+#     session_ID = forms.CharField(label="session_ID", widget=forms.HiddenInput())
+#     study_ID = forms.CharField(label="study_ID", widget=forms.HiddenInput())
+#
 class TaskForm(forms.Form):
     key_pressed = forms.CharField(label='key_pressed', max_length=1, widget=forms.HiddenInput())
     start_time = forms.DateTimeField(label='start_time', widget=forms.HiddenInput())

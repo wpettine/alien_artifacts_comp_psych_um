@@ -306,6 +306,170 @@ QUESTIONNAIRE_BAPQ = {
     },
 }
 
+"""
+Conner's Scales for ADHD
+"""
+
+answers = {
+    'Not at all, never': 0,
+    'Just a little, once in a while': 1,
+    'Pretty much, often': 2,
+    'Very much, very frequently': 3
+}
+
+QUESTIONNAIRE_CONNERS_SCREEN = {
+    'I lose things necessary for tasks or activities (e.g. to-do lists, pencils, books or tools).': {
+        'subscale': '',
+        'answers': answers,
+        'question_number': 1
+    },
+    'I talk too much.': {
+        'subscale': '',
+        'answers': answers,
+        'question_number': 2
+    },
+    'I am always on the go, as if driven by a motor.': {
+        'subscale': '',
+        'answers': answers,
+        'question_number': 3
+    },
+    'I have trouble doing leisure activities quietly.': {
+        'subscale': '',
+        'answers': answers,
+        'question_number': 4
+    },
+    'I have a short fuse/hot temper.': {
+        'subscale': '-Impulsivity',
+        'answers': answers,
+        'question_number': 5
+    },
+    'I leave my seat when I am not supposed to.': {
+        'subscale': '',
+        'answers': answers,
+        'question_number': 6
+    },
+    'I still throw tantrums.': {
+        'subscale': '',
+        'answers': answers,
+        'question_number': 7
+    },
+    'I have trouble waiting in line or taking turns with others.': {
+        'subscale': '',
+        'answers': answers,
+        'question_number': 8
+    },
+    'I have trouble keeping my attention focused when working.': {
+        'subscale': '',
+        'answers': answers,
+        'question_number': 9
+    },
+    'I avoid new challenges because I lack faith in my abilities.': {
+        'subscale': '',
+        'answers': answers,
+        'question_number': 10
+    },
+    'I feel restless inside even if I am sitting still.': {
+        'subscale': '',
+        'answers': answers,
+        'question_number': 11
+    },
+    "Things I hear or see distract me from what I'm doing.": {
+        'subscale': '',
+        'answers': answers,
+        'question_number': 12
+    },
+    'I am forgetful in my daily activities.': {
+        'subscale': '',
+        'answers': answers,
+        'question_number': 13
+    },
+    'I have trouble listening to what other people are saying.': {
+        'subscale': '',
+        'answers': answers,
+        'question_number': 14
+    },
+    'I am an underachiever.': {
+        'subscale': '',
+        'answers': answers,
+        'question_number': 15
+    },
+    'I am always on the go.': {
+        'subscale': '',
+        'answers': answers,
+        'question_number': 16
+    },
+    "I can't get things done undless there's an absolute deadline.": {
+        'subscale': '',
+        'answers': answers,
+        'question_number': 17
+    },
+    'I fidget (with my hands or feet) or squirm in my seat.': {
+        'subscale': '',
+        'answers': answers,
+        'question_number': 18
+    },
+    'I make careless mistakes or have trouble paying close attention to detail.': {
+        'subscale': '',
+        'answers': answers,
+        'question_number': 19
+    },
+    "I intrude on others' activities": {
+        'subscale': '',
+        'answers': answers,
+        'question_number': 20
+    },
+    "I don't like homework or job activities where I have to think a lot.": {
+        'subscale': '',
+        'answers': answers,
+        'question_number': 21
+    },
+    'I am restless or overactive.': {
+        'subscale': '',
+        'answers': answers,
+        'question_number': 22
+    },
+    "Sometimes my attention narrows so much that I'm obvlivious to everything else; other times it's so broad that everything distracts me.": {
+        'subscale': '',
+        'answers': answers,
+        'question_number': 23
+    },
+    "I can't keep my mind on something unless it's really interesting.": {
+        'subscale': '',
+        'answers': answers,
+        'question_number': 24
+    },
+    'I give answers to questions before the questions have been completed.': {
+        'subscale': '-Impulsivity',
+        'answers': answers,
+        'question_number': 25
+    },
+    'I have trouble finishing job tasks or school work.': {
+        'subscale': '',
+        'answers': answers,
+        'question_number': 26
+    },
+    'I interrupt other when they are working or playing.': {
+        'subscale': '',
+        'answers': answers,
+        'question_number': 27
+    },
+    'My past failures make it hard for me to believe in myself.': {
+        'subscale': '',
+        'answers': answers,
+        'question_number': 28
+    },
+    'I am distracted when things are going on around me.': {
+        'subscale': '',
+        'answers': answers,
+        'question_number': 29
+    },
+    'I have problems organizing my tasks and activities.': {
+        'subscale': '',
+        'answers': answers,
+        'question_number': 30
+    },
+}
+
 
 '''
 The World Health Organization adult ADHD self-report scale (Screener)
@@ -1125,6 +1289,7 @@ QUESTIONNAIRE_CAPE_severity = {
 }
 
 QUESTIONNAIRE_CAPE = {}
+QUESTIONNAIRE_CAPE_POS_NEG = {}
 
 tag = ''
 for i, key in enumerate(QUESTIONNAIRE_CAPE_severity.keys()):
@@ -1136,6 +1301,10 @@ for i, key in enumerate(QUESTIONNAIRE_CAPE_severity.keys()):
         'answers': answers_distress,
         'question_number': i+1 + 1000
     }
+    if (QUESTIONNAIRE_CAPE_severity[key]['subscale'] == 'Positive symptoms') or \
+        (QUESTIONNAIRE_CAPE_severity[key]['subscale'] == 'Negative symptoms'):
+        QUESTIONNAIRE_CAPE_POS_NEG[key] = QUESTIONNAIRE_CAPE[key]
+        QUESTIONNAIRE_CAPE_POS_NEG[key_text] = QUESTIONNAIRE_CAPE[key_text]
     tag += ' '
 
 """
