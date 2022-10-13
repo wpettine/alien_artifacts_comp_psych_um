@@ -82,7 +82,8 @@ if not DEBUG:
             "azure": {
                 "level": "DEBUG",
                 "class": "opencensus.ext.azure.log_exporter.AzureLogHandler",
-                "instrumentation_key": "aa732f6a-a45d-4512-b74a-7f01dcc54646",
+                # "instrumentation_key": "aa732f6a-a45d-4512-b74a-7f01dcc54646",
+                'connection_string': 'InstrumentationKey=aa732f6a-a45d-4512-b74a-7f01dcc54646;IngestionEndpoint=https://westus-0.in.applicationinsights.azure.com/;LiveEndpoint=https://westus.livediagnostics.monitor.azure.com/'
             },
             "console": {
                 "level": "DEBUG",
