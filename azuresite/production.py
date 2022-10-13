@@ -74,7 +74,6 @@ MEDIA_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{MEDIA_LOCATION}/'
 #     'record_view_arguments': True,
 # }
 
-
 #Logging
 if not DEBUG:
     LOGGING = {
@@ -83,7 +82,7 @@ if not DEBUG:
             "azure": {
                 "level": "DEBUG",
                 "class": "opencensus.ext.azure.log_exporter.AzureLogHandler",
-                "instrumentation_key": "ec561b4c-4e50-4796-a936-256a16e0e77f",
+                "instrumentation_key": "aa732f6a-a45d-4512-b74a-7f01dcc54646",
             },
             "console": {
                 "level": "DEBUG",
