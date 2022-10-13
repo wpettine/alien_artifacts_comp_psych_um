@@ -54,7 +54,7 @@ STATICFILES_STORAGE = 'backend.custom_azure.AzureStaticStorage'
 STATIC_LOCATION = "static"
 MEDIA_LOCATION = "media"
 
-AZURE_ACCOUNT_NAME = "alienartifactsstorage"
+AZURE_ACCOUNT_NAME = "umalienartifactsstorage"
 AZURE_CUSTOM_DOMAIN = f'{AZURE_ACCOUNT_NAME}.blob.core.windows.net'
 STATIC_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{STATIC_LOCATION}/'
 MEDIA_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{MEDIA_LOCATION}/'
@@ -83,7 +83,7 @@ if not DEBUG:
             "azure": {
                 "level": "DEBUG",
                 "class": "opencensus.ext.azure.log_exporter.AzureLogHandler",
-                "instrumentation_key": "",
+                "instrumentation_key": "ec561b4c-4e50-4796-a936-256a16e0e77f",
             },
             "console": {
                 "level": "DEBUG",
