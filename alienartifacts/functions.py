@@ -270,7 +270,7 @@ def buildRewardStimulusDB(
     #Loop through each image file
     f_names = glob(file_dir + '*' + '.png')
     for f in range(len(f_names)):
-        print(f'Prosessing tutorial stimulis {f} of {len(f_names)-1}')
+        print(f'Processing tutorial stimulis {f} of {len(f_names)-1}')
         try:
             outcome, typ, _, _ = os.path.basename(f_names[f]).split('.')[0].split('_')
         except:
@@ -290,7 +290,7 @@ def buildStimulusDB(reward_rules=None,
     #Loop through each image file
     f_names = glob(file_dir + '*' + '.png')
     for f in range(len(f_names)):
-        print(f'Prosessing stimulis {f} of {len(f_names)-1}')
+        print(f'Processing stimulis {f} of {len(f_names)-1}')
         try:
             shape, color, texture, size = os.path.basename(f_names[f]).split('.')[0].split('_')
         except:
