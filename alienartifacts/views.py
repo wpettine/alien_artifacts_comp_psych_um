@@ -56,181 +56,182 @@ def consentformProlific(request):
 def welcome(request):
     logger.info('In welcome function')
     try:
-        if request.method == "POST":
-            # Check the reCAPTCHA
-            recaptcha_valid = True
-            if not DEBUG:
-                ''' Begin reCAPTCHA validation '''
-                recaptcha_response = request.POST.get('g-recaptcha-response')
-                url = 'https://www.google.com/recaptcha/api/siteverify'
-                values = {
-                    'secret': settings.GOOGLE_RECAPTCHA_SECRET_KEY,
-                    'response': recaptcha_response
-                }
-                data = urllib.parse.urlencode(values).encode()
-                req = urllib.request.Request(url, data=data)
-                response = urllib.request.urlopen(req)
-                result = json.loads(response.read().decode())
-                ''' End reCAPTCHA validation '''
-                if ~result['success']:
-                    recaptcha_valid = False
-            if recaptcha_valid:
-                # Check if a new user needs to be created
-                if (not 'external_ID' in request.session) or(('external_ID' in request.session) and\
-                        (not Subject.objects.filter(external_ID=request.session['external_ID']).exists())):
-                    # Go through and process the form for a new user
-                    form = RegistrationForm(request.POST)
-                    if form.is_valid():
-                        #Create variables to be entered
-                        if PROLIFIC:
-                            subject_source = 'prolific'
-                            user_ID = request.session['external_ID']
-                            external_study_ID = request.session['external_study_ID']
-                            external_session_ID = request.session['external_session_ID']
-                        else:
-                            user_ID = form.cleaned_data["user_ID"]
-                            subject_source = form.cleaned_data["subject_source"]
-                            external_study_ID = ''
-                            external_session_ID = ''
-                        age = form.cleaned_data["age"]
-                        gender = form.cleaned_data["gender"]
-                        education = form.cleaned_data["education"]
-                        start_time = form.cleaned_data["start_time"]
-                        #Check if subject exists, if not create them
-                        if Subject.objects.filter(external_ID=user_ID,external_source=subject_source).exists():
-                            if DEPLOYMENT:
-                                return alreadyCompleted(request)
-                            subject = Subject.objects.filter(external_ID=user_ID)[0]
-                        else:
-                            subject = Subject(external_ID=user_ID, age=age, gender=gender,
-                                              education=education)
-                            subject.save()
-                    else:
-                        raise ValueError('Invalid Form')
-                else: # The user exists, and we have their info from the URL
-                    user_ID = request.session['external_ID']
-                    external_study_ID = request.session['external_study_ID']
-                    external_session_ID = request.session['external_session_ID']
-                    subject = Subject.objects.filter(external_ID=user_ID)[0]
-                    start_time = datetime.now()
-                #Create a new Session
-                payment_token = getPaymentToken()
-                end_time = datetime.now()  # Will update on each refresh
-                # If they're just answering questionnaires
-                if WEBAPP_USE == 'screen':
-                    session = Session(start_time=start_time, end_time=end_time, payment_token=payment_token,
-                                      subject=subject)
-                    session.task = 'screen'
-                # If they're doing the task as well
-                elif (WEBAPP_USE == 'task') or (WEBAPP_USE == 'both'):
-                    if TASK == 'example-generalization':
-                        conditioning, generalization = checkSessionAtts(task=TASK,STIMULI_BLOCK_0=STIMULI_BLOCK_0,
-                                                                        STIMULI_BLOCK_1=STIMULI_BLOCK_1)
-                        reward_rules, valid_keys, conversion = assignKeys(REWARD_RULES, POSSIBLE_KEYS,
-                                                                          BLOCK_CATEGORIES)
-                        session = Session(start_time=start_time, end_time=end_time, payment_token=payment_token,
-                                    subject=subject, conditioning_attributes=conditioning,key_conversion=conversion,
-                                    external_study_ID=external_study_ID,external_session_ID=external_session_ID,
-                                    generalization_attributes=generalization)
-                        #Organize Stimulus Information
-                        stimulus_order_block_0 = getStimulusOrder(STIMULUS_COMBINATIONS_BLOCK_0, N_TRIALS_BLOCK_0,
-                                                      trials_per_stim=TRIALS_PER_STIM_BLOCK_0, structured=STRUCTURED)
-                        stimulus_order_block_1 = getStimulusOrder(STIMULUS_COMBINATIONS_BLOCK_1, N_TRIALS_BLOCK_1,
-                                                      trials_per_stim=TRIALS_PER_STIM_BLOCK_1, structured=STRUCTURED)
-                        stimulus_order_block_1 = [indx+len(STIMULUS_COMBINATIONS_BLOCK_0) for indx in
-                                                  stimulus_order_block_1]
-                        request.session['stimulus_order'] = stimulus_order_block_0 + stimulus_order_block_1
-                        request.session['block'] = (np.append(np.zeros(N_TRIALS_BLOCK_0),
-                                                              np.ones(N_TRIALS_BLOCK_1))).astype(int).tolist()
-                        request.session['reward_rules'] = reward_rules
-                        request.session['valid_keys'] = valid_keys
-                    elif (TASK == 'context-generalization') or (TASK == 'context-generalization_v1') or \
-                            (TASK == 'context-generalization_v2') or (TASK == 'diagnostic'):
-                        set_1, set_2 = checkSessionAtts(task=TASK,STIMULI_BLOCK_0=STIMULI_BLOCK_0,
-                                                                        STIMULI_BLOCK_1=STIMULI_BLOCK_1)
-                        reward_rules, valid_keys, conversion = assignKeys(REWARD_RULES, POSSIBLE_KEYS, BLOCK_CATEGORIES)
-                        session = Session(start_time=start_time, end_time=end_time, payment_token=payment_token,
-                                    subject=subject, set_1_attribute=set_1, set_2_attribute=set_2,
-                                    external_study_ID=external_study_ID,external_session_ID=external_session_ID,
-                                    key_conversion=conversion)
-                        stimulus_order_block_0 = getStimulusOrder(STIMULUS_COMBINATIONS_BLOCK_0, N_TRIALS_BLOCK_0,
-                                                                  trials_per_stim=TRIALS_PER_STIM_BLOCK_0,
-                                                                  structured=STRUCTURED)
-                        stimulus_order_block_1 = getStimulusOrder(STIMULUS_COMBINATIONS_BLOCK_1, N_TRIALS_BLOCK_1,
-                                                                  trials_per_stim=TRIALS_PER_STIM_BLOCK_1,
-                                                                  structured=STRUCTURED)
-                        stimulus_order_block_2 = getStimulusOrder(STIMULUS_COMBINATIONS_BLOCK_2, N_TRIALS_BLOCK_2,
-                                                                  trials_per_stim=TRIALS_PER_STIM_BLOCK_2,
-                                                                  structured=STRUCTURED)
-                        request.session['stimulus_order'] = stimulus_order_block_0 + stimulus_order_block_1 + \
-                                                            stimulus_order_block_2
-                        request.session['block'] = (np.concatenate((np.zeros(N_TRIALS_BLOCK_0), \
-                                                              np.ones(N_TRIALS_BLOCK_1), \
-                                                              np.ones(N_TRIALS_BLOCK_2)*2))).astype(int).tolist()
-                        request.session['reward_rules'] = reward_rules
-                        request.session['valid_keys'] = valid_keys
-                        if TASK == 'diagnostic':
-                            request.session['diagnostic_block'] = 0
-                    else:
-                        raise ValueError(f'{TASK} is invalid for the TASK variable.')
-                    session.task = TASK
-                session.project = PROJECT_NAME
-                session.save()
-                #Set variables for this visit to the site
-                request.session['session_ID'] = session.id
-                request.session['subject_ID'] = subject.id
-                request.session['trial_number'] = 0
-                request.method = 'GET'
-                # Send them to the next page!
-                if (WEBAPP_USE == 'screen') or (WEBAPP_USE == 'all'):
-                    return questionnaires(request)
-                elif WEBAPP_USE == 'task':
-                    return instructions(request)
-                else:
-                    raise ValueError(f'{WEBAPP_USE} is invalid for WEBAPP_USE')
-        if not DEBUG:
-            recaptcha = {
-                'bool': True,
-                'src': 'https://www.google.com/recaptcha/api.js',
-                'site_key': "6Lc7Jd8ZAAAAABnqL1VW3WOLjEcI2pb4kEAAZZLq"
-            }
-        else:
-            recaptcha = {
-                'bool': False,
-                'src': '',
-                'site_key': ""
-            }
-        existing_subject = ('external_ID' in request.session) and \
-                Subject.objects.filter(external_ID=request.session['external_ID']).exists()
-        welcome_message = createWelcomeMessage(new_user=(existing_subject<1), webapp_use=WEBAPP_USE)
-        if existing_subject:
-            form = forms.Form()
-        else:
-            form = RegistrationForm(initial={'start_time': datetime.now()})
-        return render(request, "alienartifacts/welcome.html", {
-            "form": form,
-            "recaptcha": recaptcha,
-            'welcome_message': welcome_message
-        })
-        # See if there's a prolific in the request, and if the user exists in the system
-        # if :
-        #
-        #     if DEPLOYMENT:
-        #         link_url = 'alienartifacts:tutorial'
-        #     else:
-        #         if TASK == 'example-generalization':
-        #             link_url = 'alienartifacts:onepageexamplegentask'
+        return render(request, "alienartifacts/welcome.html")
+        # if request.method == "POST":
+        #     # Check the reCAPTCHA
+        #     recaptcha_valid = True
+        #     if not DEBUG:
+        #         ''' Begin reCAPTCHA validation '''
+        #         recaptcha_response = request.POST.get('g-recaptcha-response')
+        #         url = 'https://www.google.com/recaptcha/api/siteverify'
+        #         values = {
+        #             'secret': settings.GOOGLE_RECAPTCHA_SECRET_KEY,
+        #             'response': recaptcha_response
+        #         }
+        #         data = urllib.parse.urlencode(values).encode()
+        #         req = urllib.request.Request(url, data=data)
+        #         response = urllib.request.urlopen(req)
+        #         result = json.loads(response.read().decode())
+        #         ''' End reCAPTCHA validation '''
+        #         if ~result['success']:
+        #             recaptcha_valid = False
+        #     if recaptcha_valid:
+        #         # Check if a new user needs to be created
+        #         if (not 'external_ID' in request.session) or(('external_ID' in request.session) and\
+        #                 (not Subject.objects.filter(external_ID=request.session['external_ID']).exists())):
+        #             # Go through and process the form for a new user
+        #             form = RegistrationForm(request.POST)
+        #             if form.is_valid():
+        #                 #Create variables to be entered
+        #                 if PROLIFIC:
+        #                     subject_source = 'prolific'
+        #                     user_ID = request.session['external_ID']
+        #                     external_study_ID = request.session['external_study_ID']
+        #                     external_session_ID = request.session['external_session_ID']
+        #                 else:
+        #                     user_ID = form.cleaned_data["user_ID"]
+        #                     subject_source = form.cleaned_data["subject_source"]
+        #                     external_study_ID = ''
+        #                     external_session_ID = ''
+        #                 age = form.cleaned_data["age"]
+        #                 gender = form.cleaned_data["gender"]
+        #                 education = form.cleaned_data["education"]
+        #                 start_time = form.cleaned_data["start_time"]
+        #                 #Check if subject exists, if not create them
+        #                 if Subject.objects.filter(external_ID=user_ID,external_source=subject_source).exists():
+        #                     if DEPLOYMENT:
+        #                         return alreadyCompleted(request)
+        #                     subject = Subject.objects.filter(external_ID=user_ID)[0]
+        #                 else:
+        #                     subject = Subject(external_ID=user_ID, age=age, gender=gender,
+        #                                       education=education)
+        #                     subject.save()
+        #             else:
+        #                 raise ValueError('Invalid Form')
+        #         else: # The user exists, and we have their info from the URL
+        #             user_ID = request.session['external_ID']
+        #             external_study_ID = request.session['external_study_ID']
+        #             external_session_ID = request.session['external_session_ID']
+        #             subject = Subject.objects.filter(external_ID=user_ID)[0]
+        #             start_time = datetime.now()
+        #         #Create a new Session
+        #         payment_token = getPaymentToken()
+        #         end_time = datetime.now()  # Will update on each refresh
+        #         # If they're just answering questionnaires
+        #         if WEBAPP_USE == 'screen':
+        #             session = Session(start_time=start_time, end_time=end_time, payment_token=payment_token,
+        #                               subject=subject)
+        #             session.task = 'screen'
+        #         # If they're doing the task as well
+        #         elif (WEBAPP_USE == 'task') or (WEBAPP_USE == 'both'):
+        #             if TASK == 'example-generalization':
+        #                 conditioning, generalization = checkSessionAtts(task=TASK,STIMULI_BLOCK_0=STIMULI_BLOCK_0,
+        #                                                                 STIMULI_BLOCK_1=STIMULI_BLOCK_1)
+        #                 reward_rules, valid_keys, conversion = assignKeys(REWARD_RULES, POSSIBLE_KEYS,
+        #                                                                   BLOCK_CATEGORIES)
+        #                 session = Session(start_time=start_time, end_time=end_time, payment_token=payment_token,
+        #                             subject=subject, conditioning_attributes=conditioning,key_conversion=conversion,
+        #                             external_study_ID=external_study_ID,external_session_ID=external_session_ID,
+        #                             generalization_attributes=generalization)
+        #                 #Organize Stimulus Information
+        #                 stimulus_order_block_0 = getStimulusOrder(STIMULUS_COMBINATIONS_BLOCK_0, N_TRIALS_BLOCK_0,
+        #                                               trials_per_stim=TRIALS_PER_STIM_BLOCK_0, structured=STRUCTURED)
+        #                 stimulus_order_block_1 = getStimulusOrder(STIMULUS_COMBINATIONS_BLOCK_1, N_TRIALS_BLOCK_1,
+        #                                               trials_per_stim=TRIALS_PER_STIM_BLOCK_1, structured=STRUCTURED)
+        #                 stimulus_order_block_1 = [indx+len(STIMULUS_COMBINATIONS_BLOCK_0) for indx in
+        #                                           stimulus_order_block_1]
+        #                 request.session['stimulus_order'] = stimulus_order_block_0 + stimulus_order_block_1
+        #                 request.session['block'] = (np.append(np.zeros(N_TRIALS_BLOCK_0),
+        #                                                       np.ones(N_TRIALS_BLOCK_1))).astype(int).tolist()
+        #                 request.session['reward_rules'] = reward_rules
+        #                 request.session['valid_keys'] = valid_keys
+        #             elif (TASK == 'context-generalization') or (TASK == 'context-generalization_v1') or \
+        #                     (TASK == 'context-generalization_v2') or (TASK == 'diagnostic'):
+        #                 set_1, set_2 = checkSessionAtts(task=TASK,STIMULI_BLOCK_0=STIMULI_BLOCK_0,
+        #                                                                 STIMULI_BLOCK_1=STIMULI_BLOCK_1)
+        #                 reward_rules, valid_keys, conversion = assignKeys(REWARD_RULES, POSSIBLE_KEYS, BLOCK_CATEGORIES)
+        #                 session = Session(start_time=start_time, end_time=end_time, payment_token=payment_token,
+        #                             subject=subject, set_1_attribute=set_1, set_2_attribute=set_2,
+        #                             external_study_ID=external_study_ID,external_session_ID=external_session_ID,
+        #                             key_conversion=conversion)
+        #                 stimulus_order_block_0 = getStimulusOrder(STIMULUS_COMBINATIONS_BLOCK_0, N_TRIALS_BLOCK_0,
+        #                                                           trials_per_stim=TRIALS_PER_STIM_BLOCK_0,
+        #                                                           structured=STRUCTURED)
+        #                 stimulus_order_block_1 = getStimulusOrder(STIMULUS_COMBINATIONS_BLOCK_1, N_TRIALS_BLOCK_1,
+        #                                                           trials_per_stim=TRIALS_PER_STIM_BLOCK_1,
+        #                                                           structured=STRUCTURED)
+        #                 stimulus_order_block_2 = getStimulusOrder(STIMULUS_COMBINATIONS_BLOCK_2, N_TRIALS_BLOCK_2,
+        #                                                           trials_per_stim=TRIALS_PER_STIM_BLOCK_2,
+        #                                                           structured=STRUCTURED)
+        #                 request.session['stimulus_order'] = stimulus_order_block_0 + stimulus_order_block_1 + \
+        #                                                     stimulus_order_block_2
+        #                 request.session['block'] = (np.concatenate((np.zeros(N_TRIALS_BLOCK_0), \
+        #                                                       np.ones(N_TRIALS_BLOCK_1), \
+        #                                                       np.ones(N_TRIALS_BLOCK_2)*2))).astype(int).tolist()
+        #                 request.session['reward_rules'] = reward_rules
+        #                 request.session['valid_keys'] = valid_keys
+        #                 if TASK == 'diagnostic':
+        #                     request.session['diagnostic_block'] = 0
+        #             else:
+        #                 raise ValueError(f'{TASK} is invalid for the TASK variable.')
+        #             session.task = TASK
+        #         session.project = PROJECT_NAME
+        #         session.save()
+        #         #Set variables for this visit to the site
+        #         request.session['session_ID'] = session.id
+        #         request.session['subject_ID'] = subject.id
+        #         request.session['trial_number'] = 0
+        #         request.method = 'GET'
+        #         # Send them to the next page!
+        #         if (WEBAPP_USE == 'screen') or (WEBAPP_USE == 'all'):
+        #             return questionnaires(request)
+        #         elif WEBAPP_USE == 'task':
+        #             return instructions(request)
         #         else:
-        #             link_url = 'alienartifacts:onepagecontextgentask'
-        #     return render(request, "alienartifacts/welcomeback.html", {
-        #         "link_url": link_url
-        #     })
-        # else: # Send them to the page for new users.
+        #             raise ValueError(f'{WEBAPP_USE} is invalid for WEBAPP_USE')
+        # if not DEBUG:
+        #     recaptcha = {
+        #         'bool': True,
+        #         'src': 'https://www.google.com/recaptcha/api.js',
+        #         'site_key': "6Lc7Jd8ZAAAAABnqL1VW3WOLjEcI2pb4kEAAZZLq"
+        #     }
+        # else:
+        #     recaptcha = {
+        #         'bool': False,
+        #         'src': '',
+        #         'site_key': ""
+        #     }
+        # existing_subject = ('external_ID' in request.session) and \
+        #         Subject.objects.filter(external_ID=request.session['external_ID']).exists()
+        # welcome_message = createWelcomeMessage(new_user=(existing_subject<1), webapp_use=WEBAPP_USE)
+        # if existing_subject:
+        #     form = forms.Form()
+        # else:
         #     form = RegistrationForm(initial={'start_time': datetime.now()})
-        #     return render(request, "alienartifacts/welcome.html", {
-        #         "form": form,
-        #         "recaptcha": recaptcha
-        #     })
+        # return render(request, "alienartifacts/welcome.html", {
+        #     "form": form,
+        #     "recaptcha": recaptcha,
+        #     'welcome_message': welcome_message
+        # })
+        # # See if there's a prolific in the request, and if the user exists in the system
+        # # if :
+        # #
+        # #     if DEPLOYMENT:
+        # #         link_url = 'alienartifacts:tutorial'
+        # #     else:
+        # #         if TASK == 'example-generalization':
+        # #             link_url = 'alienartifacts:onepageexamplegentask'
+        # #         else:
+        # #             link_url = 'alienartifacts:onepagecontextgentask'
+        # #     return render(request, "alienartifacts/welcomeback.html", {
+        # #         "link_url": link_url
+        # #     })
+        # # else: # Send them to the page for new users.
+        # #     form = RegistrationForm(initial={'start_time': datetime.now()})
+        # #     return render(request, "alienartifacts/welcome.html", {
+        # #         "form": form,
+        # #         "recaptcha": recaptcha
+        # #     })
     except:
         logger.error('Something went wrong in the welcome function')
 
