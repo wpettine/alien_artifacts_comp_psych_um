@@ -584,6 +584,8 @@ def onePageContextGenTask(request):
         else:
             logger.info("#--4")
             BLOCK_LENGTH = SINGLE_PAGE_BLOCK_LENGTH
+            
+        logger.info("#--5")
         stimulus_urls, reward_probabilities = sessionStimulisRewardProbs(valid_keys=request.session['valid_keys'][current_block],
                                                         stimulus_combinations=STIMULUS_COMBINATIONS[current_block],
                                                         reward_rules=request.session['reward_rules'])
@@ -598,11 +600,11 @@ def onePageContextGenTask(request):
         # Construct the instructions that appear above the stimulus
         response_text = 'Ways to activate:'
         
-        logger.info("#--5")
+        logger.info("#--6")
         for key, action in zip(request.session['valid_keys'][current_block],KEY_ACTIONS[current_block]):
             response_text += f' {action.lower()} (press "{key}"),'            
         
-        logger.info("#--6")
+        logger.info("#--7")
         response_text = response_text[:-1] + '.'
         planet_intros = createPlanetIntros(valid_keys=request.session['valid_keys'], key_actions=KEY_ACTIONS)
         logger.info(f"current_block {current_block}")
@@ -610,10 +612,10 @@ def onePageContextGenTask(request):
         #Determine if feedback will be provided
         
         if (current_block == 2) and (not GENERALIZATION_FEEDBACK):
-            logger.info("#--7")
+            logger.info("#--8")
             feedback_bool = False
         else:
-            logger.info("#--8")
+            logger.info("#--9")
             feedback_bool = True
         #Get rolling!xz
         return render(request, "alienartifacts/onepagecontextgentask.html", {
