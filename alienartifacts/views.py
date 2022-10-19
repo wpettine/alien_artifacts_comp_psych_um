@@ -76,7 +76,7 @@ def welcome(request):
                 result = json.loads(response.read().decode())
                 logger.info(result)
                 ''' End reCAPTCHA validation '''
-                if ~result['success']:
+                if not result['success']:
                     recaptcha_valid = False
             if recaptcha_valid:
                 
