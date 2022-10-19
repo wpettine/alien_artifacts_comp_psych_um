@@ -576,6 +576,8 @@ def onePageContextGenTask(request):
         # Put together the stimuli and outcomes
         current_block = request.session['block'][request.session['trial_number']]
         trial_n = request.session['trial_number']
+        logger.info(f"current_block {current_block}")
+        logger.info(f"N_TRIALS_PER_BLOCK {N_TRIALS_PER_BLOCK}")
         if (request.session['trial_number'] + SINGLE_PAGE_BLOCK_LENGTH) > sum(N_TRIALS_PER_BLOCK[:current_block+1]):
             logger.info("#--3")
             BLOCK_LENGTH = sum(N_TRIALS_PER_BLOCK[:current_block+1]) - request.session['trial_number']
