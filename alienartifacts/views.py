@@ -61,6 +61,7 @@ def welcome(request):
         if request.method == "POST":
             # Check the reCAPTCHA
             recaptcha_valid = True
+            logger.info("recaptcha_valid")
             if not DEBUG:
                 ''' Begin reCAPTCHA validation '''
                 recaptcha_response = request.POST.get('g-recaptcha-response')
@@ -73,10 +74,12 @@ def welcome(request):
                 req = urllib.request.Request(url, data=data)
                 response = urllib.request.urlopen(req)
                 result = json.loads(response.read().decode())
+                logger.info(result)
                 ''' End reCAPTCHA validation '''
                 if ~result['success']:
                     recaptcha_valid = False
             if recaptcha_valid:
+                
                 # Check if a new user needs to be created
                 if (not 'external_ID' in request.session) or(('external_ID' in request.session) and\
                         (not Subject.objects.filter(external_ID=request.session['external_ID']).exists())):
