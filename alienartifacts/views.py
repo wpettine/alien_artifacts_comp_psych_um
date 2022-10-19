@@ -195,7 +195,7 @@ def welcome(request):
             recaptcha = {
                 'bool': True,
                 'src': 'https://www.google.com/recaptcha/api.js',
-                'site_key': "6Lc7Jd8ZAAAAABnqL1VW3WOLjEcI2pb4kEAAZZLq"
+                'site_key': os.environ['GOOGLE_RECAPTCHA_SITE_KEY']
             }
         else:
             logger.info("setting recaptcha")
