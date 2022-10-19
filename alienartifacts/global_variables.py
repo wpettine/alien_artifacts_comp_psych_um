@@ -2,6 +2,10 @@ import os
 from .questionnaires_text import *
 
 
+#### USE THESE FOR DEBUGGING
+# http://127.0.0.1:8000/?PROLIFIC_PID=123xxcv&SESSION_ID=456&STUDY_ID=789
+# https://umalienartifactstask.azurewebsites.net?PROLIFIC_PID=123xxcv&SESSION_ID=456&STUDY_ID=789
+
 #Choose task
 TASK = 'context-generalization_v2' # 'example-generalization', 'context-generalization_v1', 'context-generalization_v2', 'diagnostic'
 
@@ -11,13 +15,12 @@ GENERALIZATION_FEEDBACK = False
 PROJECT_NAME = 'P50'
 CREATE_NEW_USER = True
 PROLIFIC = True
-# http://127.0.0.1:8000/?PROLIFIC_PID=123xxcv&SESSION_ID=456&STUDY_ID=789
 
 # Specify if deploying
 DEPLOYMENT = False
 PAYMENT_TOKEN = 'replace_token'
 ATTENTION_FAILURE_TOKEN = 'replace_token'
-ATTENTION_CHECK = True
+ATTENTION_CHECK = False
 
 # Specific  text
 INSTRUCTIONS = "You're a space pirate roving the galaxy, trying to get rich. On this quest for fame \
