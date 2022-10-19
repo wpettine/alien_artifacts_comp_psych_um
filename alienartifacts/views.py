@@ -190,15 +190,14 @@ def welcome(request):
                     return instructions(request)
                 else:
                     raise ValueError(f'{WEBAPP_USE} is invalid for WEBAPP_USE')
-        if not DEBUG:
-            logger.info("not DEBUG")
+        if not DEBUG:            
+            logger.info("setting recaptcha")
             recaptcha = {
                 'bool': True,
                 'src': 'https://www.google.com/recaptcha/api.js',
                 'site_key': os.environ['GOOGLE_RECAPTCHA_SITE_KEY']
             }
         else:
-            logger.info("setting recaptcha")
             recaptcha = {
                 'bool': False,
                 'src': '',
