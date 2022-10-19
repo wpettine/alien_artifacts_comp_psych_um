@@ -565,18 +565,22 @@ def onePageContextGenTask(request):
     try:
          # If this is the first, save the tutorial
         if request.session['trial_number'] == 0:
+            logger.info("request.session['trial_number'] == 0")
             session = Session.objects.filter(id=request.session['session_ID'])[0]
             session.tutorial_completed = True
             session.save()
         # if the last, send them on their way!
         elif request.session['trial_number'] >= (sum(N_TRIALS_PER_BLOCK)-1):
+            logger.info("goodbye")
             return goodbye(request)
         # Put together the stimuli and outcomes
         current_block = request.session['block'][request.session['trial_number']]
         trial_n = request.session['trial_number']
         if (request.session['trial_number'] + SINGLE_PAGE_BLOCK_LENGTH) > sum(N_TRIALS_PER_BLOCK[:current_block+1]):
+            logger.info("#--3")
             BLOCK_LENGTH = sum(N_TRIALS_PER_BLOCK[:current_block+1]) - request.session['trial_number']
         else:
+            logger.info("#--4")
             BLOCK_LENGTH = SINGLE_PAGE_BLOCK_LENGTH
         stimulus_urls, reward_probabilities = sessionStimulisRewardProbs(valid_keys=request.session['valid_keys'][current_block],
                                                         stimulus_combinations=STIMULUS_COMBINATIONS[current_block],
@@ -591,17 +595,23 @@ def onePageContextGenTask(request):
                             RewardStimulus.objects.filter(outcome='noreward', type='diamond').first().image.url]
         # Construct the instructions that appear above the stimulus
         response_text = 'Ways to activate:'
-        logger.info(f"current_block {current_block}")
-        logger.info(f"planet_intros {planet_intros}")
+        
+        logger.info("#--5")
         for key, action in zip(request.session['valid_keys'][current_block],KEY_ACTIONS[current_block]):
-            response_text += f' {action.lower()} (press "{key}"),'
+            response_text += f' {action.lower()} (press "{key}"),'            
+        
+        logger.info("#--6")
         response_text = response_text[:-1] + '.'
         planet_intros = createPlanetIntros(valid_keys=request.session['valid_keys'], key_actions=KEY_ACTIONS)
+        logger.info(f"current_block {current_block}")
+        logger.info(f"planet_intros {planet_intros}")
         #Determine if feedback will be provided
         
         if (current_block == 2) and (not GENERALIZATION_FEEDBACK):
+            logger.info("#--7")
             feedback_bool = False
         else:
+            logger.info("#--8")
             feedback_bool = True
         #Get rolling!xz
         return render(request, "alienartifacts/onepagecontextgentask.html", {
