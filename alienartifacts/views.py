@@ -56,6 +56,8 @@ def consentformProlific(request):
 def welcome(request):
     logger.info('In welcome function')
     try:
+        # return render(request, "alienartifacts/welcome.html")
+        logger.info("request.method % s"  % request.method)
         if request.method == "POST":
             # Check the reCAPTCHA
             recaptcha_valid = True
@@ -189,12 +191,14 @@ def welcome(request):
                 else:
                     raise ValueError(f'{WEBAPP_USE} is invalid for WEBAPP_USE')
         if not DEBUG:
+            logger.info("not DEBUG")
             recaptcha = {
                 'bool': True,
                 'src': 'https://www.google.com/recaptcha/api.js',
                 'site_key': "6Lc7Jd8ZAAAAABnqL1VW3WOLjEcI2pb4kEAAZZLq"
             }
         else:
+            logger.info("setting recaptcha")
             recaptcha = {
                 'bool': False,
                 'src': '',
@@ -204,8 +208,10 @@ def welcome(request):
                 Subject.objects.filter(external_ID=request.session['external_ID']).exists()
         welcome_message = createWelcomeMessage(new_user=(existing_subject<1), webapp_use=WEBAPP_USE)
         if existing_subject:
+            logger.info("existing_subject")
             form = forms.Form()
         else:
+            logger.info("sending back Registration Form")
             form = RegistrationForm(initial={'start_time': datetime.now()})
         return render(request, "alienartifacts/welcome.html", {
             "form": form,
@@ -231,8 +237,8 @@ def welcome(request):
         #         "form": form,
         #         "recaptcha": recaptcha
         #     })
-    except:
-        logger.error('Something went wrong in the welcome function')
+    except Exception as e:
+        logger.error('Error at %s', 'division', exc_info=e)
 
 
 def checkAttention(formset,form_att_check):
