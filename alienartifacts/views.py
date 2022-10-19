@@ -237,8 +237,8 @@ def welcome(request):
         #         "form": form,
         #         "recaptcha": recaptcha
         #     })
-    except:
-        logger.error('Something went wrong in the welcome function')
+    except Exception as e:
+        logger.error('Error at %s', 'division', exc_info=e)
 
 
 def checkAttention(formset,form_att_check):
