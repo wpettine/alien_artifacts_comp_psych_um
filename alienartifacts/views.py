@@ -591,16 +591,19 @@ def onePageContextGenTask(request):
                             RewardStimulus.objects.filter(outcome='noreward', type='diamond').first().image.url]
         # Construct the instructions that appear above the stimulus
         response_text = 'Ways to activate:'
+        logger.info(f"current_block {current_block}")
+        logger.info(f"planet_intros {planet_intros}")
         for key, action in zip(request.session['valid_keys'][current_block],KEY_ACTIONS[current_block]):
             response_text += f' {action.lower()} (press "{key}"),'
         response_text = response_text[:-1] + '.'
         planet_intros = createPlanetIntros(valid_keys=request.session['valid_keys'], key_actions=KEY_ACTIONS)
         #Determine if feedback will be provided
+        
         if (current_block == 2) and (not GENERALIZATION_FEEDBACK):
             feedback_bool = False
         else:
             feedback_bool = True
-        #Get rolling!
+        #Get rolling!xz
         return render(request, "alienartifacts/onepagecontextgentask.html", {
             "planet_intro": planet_intros[current_block],
             "valid_keys": request.session['valid_keys'][current_block],
