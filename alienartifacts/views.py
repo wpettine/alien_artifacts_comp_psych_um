@@ -74,7 +74,7 @@ def welcome(request):
                 response = urllib.request.urlopen(req)
                 result = json.loads(response.read().decode())
                 ''' End reCAPTCHA validation '''
-                if ~result['success']:
+                if not result['success']:
                     recaptcha_valid = False
             if recaptcha_valid:
                 # Check if a new user needs to be created

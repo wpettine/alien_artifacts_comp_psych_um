@@ -645,6 +645,7 @@ tutorial_reward_rules = {
                                 }
     }
 }
+
 if TASK == 'example-generalization':
     BLOCK_NAMES = ["Initial-Learning", "Generalization"]
 

@@ -4,7 +4,7 @@ from .questionnaires_text import *
 
 #### USE THESE FOR DEBUGGING
 # http://127.0.0.1:8000/?PROLIFIC_PID=123xxcv&SESSION_ID=456&STUDY_ID=789
-# https://umalienartifactstask.azurewebsites.net?PROLIFIC_PID=123xxcv&SESSION_ID=456&STUDY_ID=789
+# https://umalienartifactstask.azurewebsites.net?PROLIFIC_PID=1213xxcv&SESSION_ID=456&STUDY_ID=789
 
 #Choose task
 TASK = 'context-generalization_v2' # 'example-generalization', 'context-generalization_v1', 'context-generalization_v2', 'diagnostic'
