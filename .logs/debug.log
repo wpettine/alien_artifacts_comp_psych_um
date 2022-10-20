@@ -1406,3 +1406,72 @@ INFO /Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArt
 INFO Watching for file changes with StatReloader
 INFO /Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/global_variables.py changed, reloading.
 INFO Watching for file changes with StatReloader
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123xxcv&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4536
+INFO In welcome function
+INFO "GET /welcome HTTP/1.1" 200 780
+INFO In welcome function
+ERROR Error in consentformProlific
+Traceback (most recent call last):
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/db/backends/sqlite3/base.py", line 413, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such column: alienartifacts_subject.prolific_reported_psych_history
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/views.py", line 117, in welcome
+    subject = Subject.objects.filter(external_ID=user_ID)[0]
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/db/models/query.py", line 324, in __getitem__
+    qs._fetch_all()
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/db/models/query.py", line 1308, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/db/models/query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1156, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/db/backends/utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/db/backends/utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/db/backends/utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/db/backends/sqlite3/base.py", line 413, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such column: alienartifacts_subject.prolific_reported_psych_history
+ERROR Internal Server Error: /welcome
+Traceback (most recent call last):
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/core/handlers/base.py", line 188, in _get_response
+    self.check_response(response, callback)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/core/handlers/base.py", line 311, in check_response
+    "instead." % name
+ValueError: The view alienartifacts.views.welcome didn't return an HttpResponse object. It returned None instead.
+ERROR "POST /welcome HTTP/1.1" 500 65489
+INFO /Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/azuresite/settings.py changed, reloading.
+INFO Watching for file changes with StatReloader
+INFO /Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/azuresite/settings.py changed, reloading.
+INFO Watching for file changes with StatReloader
+INFO /Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/models.py changed, reloading.
+INFO Watching for file changes with StatReloader
+INFO Watching for file changes with StatReloader
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123xxcv&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4536
+INFO In welcome function
+INFO "GET /welcome HTTP/1.1" 200 780
+INFO In welcome function
+INFO In questionnaires function
+INFO "POST /welcome HTTP/1.1" 200 26417
+INFO In questionnaires function
+INFO "POST /questionnaires HTTP/1.1" 200 549
+INFO /Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/global_variables.py changed, reloading.
+INFO Watching for file changes with StatReloader
