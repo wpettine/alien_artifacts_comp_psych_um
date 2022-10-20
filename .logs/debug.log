@@ -1404,3 +1404,5 @@ INFO /Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArt
 INFO Watching for file changes with StatReloader
 INFO /Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/azuresite/settings.py changed, reloading.
 INFO Watching for file changes with StatReloader
+INFO /Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/global_variables.py changed, reloading.
+INFO Watching for file changes with StatReloader
