@@ -57,11 +57,10 @@ def welcome(request):
     logger.info('In welcome function')
     try:
         # return render(request, "alienartifacts/welcome.html")
-        logger.info("request.method % s"  % request.method)
+        
         if request.method == "POST":
             # Check the reCAPTCHA
-            recaptcha_valid = True
-            logger.info("recaptcha_valid")
+            recaptcha_valid = True            
             if not DEBUG:
                 ''' Begin reCAPTCHA validation '''
                 recaptcha_response = request.POST.get('g-recaptcha-response')
@@ -73,8 +72,7 @@ def welcome(request):
                 data = urllib.parse.urlencode(values).encode()
                 req = urllib.request.Request(url, data=data)
                 response = urllib.request.urlopen(req)
-                result = json.loads(response.read().decode())
-                logger.info(result)
+                result = json.loads(response.read().decode())                
                 ''' End reCAPTCHA validation '''
                 if not result['success']:
                     recaptcha_valid = False
@@ -193,8 +191,7 @@ def welcome(request):
                     return instructions(request)
                 else:
                     raise ValueError(f'{WEBAPP_USE} is invalid for WEBAPP_USE')
-        if not DEBUG:            
-            logger.info("setting recaptcha")
+        if not DEBUG:                        
             recaptcha = {
                 'bool': True,
                 'src': 'https://www.google.com/recaptcha/api.js',
@@ -209,11 +206,9 @@ def welcome(request):
         existing_subject = ('external_ID' in request.session) and \
                 Subject.objects.filter(external_ID=request.session['external_ID']).exists()
         welcome_message = createWelcomeMessage(new_user=(existing_subject<1), webapp_use=WEBAPP_USE)
-        if existing_subject:
-            logger.info("existing_subject")
+        if existing_subject:            
             form = forms.Form()
-        else:
-            logger.info("sending back Registration Form")
+        else:            
             form = RegistrationForm(initial={'start_time': datetime.now()})
         return render(request, "alienartifacts/welcome.html", {
             "form": form,
@@ -240,7 +235,7 @@ def welcome(request):
         #         "recaptcha": recaptcha
         #     })
     except Exception as e:
-        logger.error('Error at %s', 'division', exc_info=e)
+        logger.error('Error in %s', 'consentformProlific', exc_info=e)
 
 
 def checkAttention(formset,form_att_check):
@@ -564,28 +559,22 @@ def onePageContextGenUpdate(request):
 def onePageContextGenTask(request):
     try:
          # If this is the first, save the tutorial
-        if request.session['trial_number'] == 0:
-            logger.info("request.session['trial_number'] == 0")
+        if request.session['trial_number'] == 0:        
             session = Session.objects.filter(id=request.session['session_ID'])[0]
             session.tutorial_completed = True
             session.save()
         # if the last, send them on their way!
-        elif request.session['trial_number'] >= (sum(N_TRIALS_PER_BLOCK)-1):
-            logger.info("goodbye")
+        elif request.session['trial_number'] >= (sum(N_TRIALS_PER_BLOCK)-1):            
             return goodbye(request)
         # Put together the stimuli and outcomes
         current_block = request.session['block'][request.session['trial_number']]
-        trial_n = request.session['trial_number']
-        logger.info(f"current_block {current_block}")
-        logger.info(f"N_TRIALS_PER_BLOCK {N_TRIALS_PER_BLOCK}")
-        if (request.session['trial_number'] + SINGLE_PAGE_BLOCK_LENGTH) > sum(N_TRIALS_PER_BLOCK[:current_block+1]):
-            logger.info("#--3")
+        trial_n = request.session['trial_number']        
+        if (request.session['trial_number'] + SINGLE_PAGE_BLOCK_LENGTH) > sum(N_TRIALS_PER_BLOCK[:current_block+1]):            
             BLOCK_LENGTH = sum(N_TRIALS_PER_BLOCK[:current_block+1]) - request.session['trial_number']
-        else:
-            logger.info("#--4")
+        else:            
             BLOCK_LENGTH = SINGLE_PAGE_BLOCK_LENGTH
             
-        logger.info("#--5")
+        
         stimulus_urls, reward_probabilities = sessionStimulisRewardProbs(valid_keys=request.session['valid_keys'][current_block],
                                                         stimulus_combinations=STIMULUS_COMBINATIONS[current_block],
                                                         reward_rules=request.session['reward_rules'])
@@ -600,22 +589,21 @@ def onePageContextGenTask(request):
         # Construct the instructions that appear above the stimulus
         response_text = 'Ways to activate:'
         
-        logger.info("#--6")
+        
         for key, action in zip(request.session['valid_keys'][current_block],KEY_ACTIONS[current_block]):
             response_text += f' {action.lower()} (press "{key}"),'            
         
-        logger.info("#--7")
+        
         response_text = response_text[:-1] + '.'
         planet_intros = createPlanetIntros(valid_keys=request.session['valid_keys'], key_actions=KEY_ACTIONS)
-        logger.info(f"current_block {current_block}")
-        logger.info(f"planet_intros {planet_intros}")
+        
         #Determine if feedback will be provided
         
         if (current_block == 2) and (not GENERALIZATION_FEEDBACK):
-            logger.info("#--8")
+        
             feedback_bool = False
         else:
-            logger.info("#--9")
+        
             feedback_bool = True
         #Get rolling!xz
         return render(request, "alienartifacts/onepagecontextgentask.html", {
