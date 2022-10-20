@@ -61,22 +61,25 @@ def welcome(request):
         if request.method == "POST":
             # Check the reCAPTCHA
             recaptcha_valid = True
+            logger.info("recaptcha_valid")
             if not DEBUG:
                 ''' Begin reCAPTCHA validation '''
                 recaptcha_response = request.POST.get('g-recaptcha-response')
                 url = 'https://www.google.com/recaptcha/api/siteverify'
                 values = {
-                    'secret': settings.GOOGLE_RECAPTCHA_SECRET_KEY,
+                    'secret': os.environ['GOOGLE_RECAPTCHA_SECRET_KEY'],
                     'response': recaptcha_response
                 }
                 data = urllib.parse.urlencode(values).encode()
                 req = urllib.request.Request(url, data=data)
                 response = urllib.request.urlopen(req)
                 result = json.loads(response.read().decode())
+                logger.info(result)
                 ''' End reCAPTCHA validation '''
                 if not result['success']:
                     recaptcha_valid = False
             if recaptcha_valid:
+                
                 # Check if a new user needs to be created
                 if (not 'external_ID' in request.session) or(('external_ID' in request.session) and\
                         (not Subject.objects.filter(external_ID=request.session['external_ID']).exists())):
@@ -190,15 +193,14 @@ def welcome(request):
                     return instructions(request)
                 else:
                     raise ValueError(f'{WEBAPP_USE} is invalid for WEBAPP_USE')
-        if not DEBUG:
-            logger.info("not DEBUG")
+        if not DEBUG:            
+            logger.info("setting recaptcha")
             recaptcha = {
                 'bool': True,
                 'src': 'https://www.google.com/recaptcha/api.js',
-                'site_key': "6Lc7Jd8ZAAAAABnqL1VW3WOLjEcI2pb4kEAAZZLq"
+                'site_key': os.environ['GOOGLE_RECAPTCHA_SITE_KEY']
             }
         else:
-            logger.info("setting recaptcha")
             recaptcha = {
                 'bool': False,
                 'src': '',
@@ -560,55 +562,76 @@ def onePageContextGenUpdate(request):
 
 
 def onePageContextGenTask(request):
-    # If this is the first, save the tutorial
-    if request.session['trial_number'] == 0:
-        session = Session.objects.filter(id=request.session['session_ID'])[0]
-        session.tutorial_completed = True
-        session.save()
-    # if the last, send them on their way!
-    elif request.session['trial_number'] >= (sum(N_TRIALS_PER_BLOCK)-1):
-        return goodbye(request)
-    # Put together the stimuli and outcomes
-    current_block = request.session['block'][request.session['trial_number']]
-    trial_n = request.session['trial_number']
-    if (request.session['trial_number'] + SINGLE_PAGE_BLOCK_LENGTH) > sum(N_TRIALS_PER_BLOCK[:current_block+1]):
-        BLOCK_LENGTH = sum(N_TRIALS_PER_BLOCK[:current_block+1]) - request.session['trial_number']
-    else:
-        BLOCK_LENGTH = SINGLE_PAGE_BLOCK_LENGTH
-    stimulus_urls, reward_probabilities = sessionStimulisRewardProbs(valid_keys=request.session['valid_keys'][current_block],
-                                                    stimulus_combinations=STIMULUS_COMBINATIONS[current_block],
-                                                    reward_rules=request.session['reward_rules'])
-    block_reward_probs = reward_probabilities[request.session['stimulus_order'][trial_n:(trial_n+BLOCK_LENGTH)],:]
-    outcomes = (np.random.rand(block_reward_probs.shape[0],block_reward_probs.shape[1]) <= block_reward_probs).astype(int)
-    obscured = obscureOutcomes(outcomes)
-    request.session['outcomes'] = outcomes.tolist()
-    request.session['reward_probabilities'] = reward_probabilities.tolist()
-    stimuli = request.session['stimulus_order'][trial_n:(trial_n+BLOCK_LENGTH)]
-    reward_stim_urls = [RewardStimulus.objects.filter(outcome='reward', type='diamond').first().image.url,
-                        RewardStimulus.objects.filter(outcome='noreward', type='diamond').first().image.url]
-    # Construct the instructions that appear above the stimulus
-    response_text = 'Ways to activate:'
-    for key, action in zip(request.session['valid_keys'][current_block],KEY_ACTIONS[current_block]):
-        response_text += f' {action.lower()} (press "{key}"),'
-    response_text = response_text[:-1] + '.'
-    planet_intros = createPlanetIntros(valid_keys=request.session['valid_keys'], key_actions=KEY_ACTIONS)
-    #Determine if feedback will be provided
-    if (current_block == 2) and (not GENERALIZATION_FEEDBACK):
-        feedback_bool = False
-    else:
-        feedback_bool = True
-    #Get rolling!
-    return render(request, "alienartifacts/onepagecontextgentask.html", {
-        "planet_intro": planet_intros[current_block],
-        "valid_keys": request.session['valid_keys'][current_block],
-        "response_text": response_text,
-        "stimulus_urls": stimulus_urls,
-        "reward_stim_urls": reward_stim_urls,
-        # 'outcomes': outcomes,
-        "stimuli": stimuli,
-        'obscured': json.dumps(obscured),
-        'feedback_bool': feedback_bool
-    })
+    try:
+         # If this is the first, save the tutorial
+        if request.session['trial_number'] == 0:
+            logger.info("request.session['trial_number'] == 0")
+            session = Session.objects.filter(id=request.session['session_ID'])[0]
+            session.tutorial_completed = True
+            session.save()
+        # if the last, send them on their way!
+        elif request.session['trial_number'] >= (sum(N_TRIALS_PER_BLOCK)-1):
+            logger.info("goodbye")
+            return goodbye(request)
+        # Put together the stimuli and outcomes
+        current_block = request.session['block'][request.session['trial_number']]
+        trial_n = request.session['trial_number']
+        logger.info(f"current_block {current_block}")
+        logger.info(f"N_TRIALS_PER_BLOCK {N_TRIALS_PER_BLOCK}")
+        if (request.session['trial_number'] + SINGLE_PAGE_BLOCK_LENGTH) > sum(N_TRIALS_PER_BLOCK[:current_block+1]):
+            logger.info("#--3")
+            BLOCK_LENGTH = sum(N_TRIALS_PER_BLOCK[:current_block+1]) - request.session['trial_number']
+        else:
+            logger.info("#--4")
+            BLOCK_LENGTH = SINGLE_PAGE_BLOCK_LENGTH
+            
+        logger.info("#--5")
+        stimulus_urls, reward_probabilities = sessionStimulisRewardProbs(valid_keys=request.session['valid_keys'][current_block],
+                                                        stimulus_combinations=STIMULUS_COMBINATIONS[current_block],
+                                                        reward_rules=request.session['reward_rules'])
+        block_reward_probs = reward_probabilities[request.session['stimulus_order'][trial_n:(trial_n+BLOCK_LENGTH)],:]
+        outcomes = (np.random.rand(block_reward_probs.shape[0],block_reward_probs.shape[1]) <= block_reward_probs).astype(int)
+        obscured = obscureOutcomes(outcomes)
+        request.session['outcomes'] = outcomes.tolist()
+        request.session['reward_probabilities'] = reward_probabilities.tolist()
+        stimuli = request.session['stimulus_order'][trial_n:(trial_n+BLOCK_LENGTH)]
+        reward_stim_urls = [RewardStimulus.objects.filter(outcome='reward', type='diamond').first().image.url,
+                            RewardStimulus.objects.filter(outcome='noreward', type='diamond').first().image.url]
+        # Construct the instructions that appear above the stimulus
+        response_text = 'Ways to activate:'
+        
+        logger.info("#--6")
+        for key, action in zip(request.session['valid_keys'][current_block],KEY_ACTIONS[current_block]):
+            response_text += f' {action.lower()} (press "{key}"),'            
+        
+        logger.info("#--7")
+        response_text = response_text[:-1] + '.'
+        planet_intros = createPlanetIntros(valid_keys=request.session['valid_keys'], key_actions=KEY_ACTIONS)
+        logger.info(f"current_block {current_block}")
+        logger.info(f"planet_intros {planet_intros}")
+        #Determine if feedback will be provided
+        
+        if (current_block == 2) and (not GENERALIZATION_FEEDBACK):
+            logger.info("#--8")
+            feedback_bool = False
+        else:
+            logger.info("#--9")
+            feedback_bool = True
+        #Get rolling!xz
+        return render(request, "alienartifacts/onepagecontextgentask.html", {
+            "planet_intro": planet_intros[current_block],
+            "valid_keys": request.session['valid_keys'][current_block],
+            "response_text": response_text,
+            "stimulus_urls": stimulus_urls,
+            "reward_stim_urls": reward_stim_urls,
+            # 'outcomes': outcomes,
+            "stimuli": stimuli,
+            'obscured': json.dumps(obscured),
+            'feedback_bool': feedback_bool
+        })
+    except Exception as e:
+        logger.error('Error at %s', 'onePageContextGenTask', exc_info=e)
+   
 
 
 def onePageDiagnosticUpdate(request):
