@@ -45,6 +45,8 @@ class Session(models.Model):
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()
     session_completed = models.BooleanField(default=False)
+    questionnaire_completed = models.BooleanField(default=False)
+    task_completed = models.BooleanField(default=False)
     tutorial_completed = models.BooleanField(default=False)
     conditioning_completed = models.BooleanField(default=False)
     total_reward = models.IntegerField(default=0)

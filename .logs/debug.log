@@ -1377,3 +1377,7 @@ INFO Watching for file changes with StatReloader
 INFO "GET /?PROLIFIC_PID=123xxcv&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4536
 INFO /Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/views.py changed, reloading.
 INFO Watching for file changes with StatReloader
+INFO /Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/views.py changed, reloading.
+INFO Watching for file changes with StatReloader
+INFO /Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/views.py changed, reloading.
+INFO Watching for file changes with StatReloader

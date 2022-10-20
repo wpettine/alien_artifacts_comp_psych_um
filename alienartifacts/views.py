@@ -287,6 +287,9 @@ def questionnaires(request):
                 session.save()
                 return attentionfailure(request)
             else:
+                session = Session.objects.filter(id=request.session['session_ID'])[0]
+                session.questionnaire_completed = True
+                session.save()
                 if WEBAPP_USE == 'screen':
                     session = Session.objects.filter(id=request.session['session_ID'])[0]
                     session.session_completed = True
@@ -413,7 +416,8 @@ def onePageExampleGenUpdate(request):
             session.n_trials += 1
             session.total_reward += reward
             session.end_time = end_time
-            if current_block > 0: session.conditioning_completed = True
+            if current_block > 0:
+                session.conditioning_completed = True
             session.save()
         request.session['trial_number'] += len(responses)
         # If it's the last trial, send them to goodbye
@@ -564,7 +568,10 @@ def onePageContextGenTask(request):
             session.tutorial_completed = True
             session.save()
         # if the last, send them on their way!
-        elif request.session['trial_number'] >= (sum(N_TRIALS_PER_BLOCK)-1):            
+        elif request.session['trial_number'] >= (sum(N_TRIALS_PER_BLOCK)-1):
+            session = Session.objects.filter(id=request.session['session_ID'])[0]
+            session.task_completed = True
+            session.save()
             return goodbye(request)
         # Put together the stimuli and outcomes
         current_block = request.session['block'][request.session['trial_number']]
@@ -751,6 +758,10 @@ def token(request):
 
 def goodbye(request):
     session = Session.objects.filter(id=request.session['session_ID'])[0]
+    if (TASK == 'example_generalization') and ((WEBAPP_USE == 'task') or (WEBAPP_USE == 'both')): # Hack due to how page was initially structured
+        session = Session.objects.filter(id=request.session['session_ID'])[0]
+        session.task_completed = True
+        session.save()
     if request.method == "POST":
         form_free = strategyForm(request.POST)
         form_radio = strategyRadioForm(request.POST)
