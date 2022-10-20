@@ -1226,3 +1226,105 @@ INFO /Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArt
 INFO Watching for file changes with StatReloader
 INFO /Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/views.py changed, reloading.
 INFO Watching for file changes with StatReloader
+INFO Watching for file changes with StatReloader
+INFO "GET / HTTP/1.1" 200 4536
+WARNING Not Found: /favicon.ico
+WARNING "GET /favicon.ico HTTP/1.1" 404 5562
+INFO In welcome function
+INFO request.method GET
+INFO sending back Registration Form
+INFO "GET /welcome HTTP/1.1" 200 2534
+INFO "GET /?PROLIFIC_PID=123xxcv&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4536
+INFO In welcome function
+INFO request.method GET
+ERROR Error at division
+Traceback (most recent call last):
+  File "/Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/views.py", line 211, in welcome
+    welcome_message = createWelcomeMessage(new_user=(existing_subject<1), webapp_use=WEBAPP_USE)
+  File "/Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/functions.py", line 229, in createWelcomeMessage
+    return welcome_message
+UnboundLocalError: local variable 'welcome_message' referenced before assignment
+ERROR Internal Server Error: /welcome
+Traceback (most recent call last):
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/core/handlers/base.py", line 188, in _get_response
+    self.check_response(response, callback)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/core/handlers/base.py", line 311, in check_response
+    "instead." % name
+ValueError: The view alienartifacts.views.welcome didn't return an HttpResponse object. It returned None instead.
+ERROR "GET /welcome HTTP/1.1" 500 66811
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123xxcv&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4536
+INFO In welcome function
+INFO request.method GET
+INFO existing_subject
+INFO "GET /welcome HTTP/1.1" 200 776
+INFO In welcome function
+INFO request.method POST
+INFO recaptcha_valid
+ERROR Error at division
+Traceback (most recent call last):
+  File "/Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/views.py", line 195, in welcome
+    raise ValueError(f'{WEBAPP_USE} is invalid for WEBAPP_USE')
+ValueError: both is invalid for WEBAPP_USE
+ERROR Internal Server Error: /welcome
+Traceback (most recent call last):
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/core/handlers/base.py", line 188, in _get_response
+    self.check_response(response, callback)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/core/handlers/base.py", line 311, in check_response
+    "instead." % name
+ValueError: The view alienartifacts.views.welcome didn't return an HttpResponse object. It returned None instead.
+ERROR "POST /welcome HTTP/1.1" 500 65423
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123xxcv&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4536
+INFO In welcome function
+INFO request.method GET
+INFO existing_subject
+INFO "GET /welcome HTTP/1.1" 200 776
+INFO In welcome function
+INFO request.method POST
+INFO recaptcha_valid
+ERROR Error at division
+Traceback (most recent call last):
+  File "/Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/views.py", line 182, in welcome
+    session.project = PROJECT_NAME
+UnboundLocalError: local variable 'session' referenced before assignment
+ERROR Internal Server Error: /welcome
+Traceback (most recent call last):
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/core/handlers/base.py", line 188, in _get_response
+    self.check_response(response, callback)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/core/handlers/base.py", line 311, in check_response
+    "instead." % name
+ValueError: The view alienartifacts.views.welcome didn't return an HttpResponse object. It returned None instead.
+ERROR "POST /welcome HTTP/1.1" 500 65425
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123xxcv&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4536
+INFO In welcome function
+INFO request.method GET
+INFO existing_subject
+INFO "GET /welcome HTTP/1.1" 200 776
+INFO In welcome function
+INFO request.method POST
+INFO recaptcha_valid
+INFO In questionnaires function
+INFO "POST /welcome HTTP/1.1" 200 9825
+INFO In questionnaires function
+INFO In instructions function
+INFO "POST /questionnaires HTTP/1.1" 200 649
+INFO "GET /tutorial HTTP/1.1" 200 5252
+INFO "GET /static/js/tutorial.js HTTP/1.1" 200 6620
+INFO "GET /media/images/noreward_diamond_reward_stim_CsxQPcS.png HTTP/1.1" 200 31960
+INFO "GET /media/images/no-spaceship_blue-planet_Nned0Ie.png HTTP/1.1" 200 134106
+INFO "GET /media/images/purple-spaceship_green-planet_e9ACqO6.png HTTP/1.1" 200 154035
+INFO "GET /media/images/blue-spaceship_tan-planet_nCvY2fv.png HTTP/1.1" 200 161819
+INFO "GET /media/images/green-spaceship_space_UXFGam9.png HTTP/1.1" 200 152060
+INFO "GET /media/images/red-spaceship_space_FTDwXVJ.png HTTP/1.1" 200 195879
+INFO "GET /media/images/reward_diamond_reward_stim_0tvgk5f.png HTTP/1.1" 200 1284663
+INFO "GET /media/images/no-spaceship_gold-planet_NS52Z1c.png HTTP/1.1" 200 113793
+INFO /Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/global_variables.py changed, reloading.
+INFO Watching for file changes with StatReloader

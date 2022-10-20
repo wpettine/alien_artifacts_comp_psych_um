@@ -10,7 +10,7 @@ from .questionnaires_text import *
 TASK = 'context-generalization_v2' # 'example-generalization', 'context-generalization_v1', 'context-generalization_v2', 'diagnostic'
 
 #What we're using the webapp for
-WEBAPP_USE = 'all' # 'screen', 'task', 'all'
+WEBAPP_USE = 'both' # 'screen', 'task', 'both'
 GENERALIZATION_FEEDBACK = True
 PROJECT_NAME = 'P50'
 CREATE_NEW_USER = True
@@ -65,7 +65,7 @@ if QUESTIONNAIRE_ATTENTION_CHECK:
     # }
     QUESTIONNAIRES = {
         'att_check': QUESTIONNAIRE_ATTENTION_CHECK,
-        # 'phq9': QUESTIONNAIRE_PHQ9,
+        'phq9': QUESTIONNAIRE_PHQ9,
     }
 else:
     QUESTIONNAIRES = {

@@ -437,7 +437,7 @@ class mentalHealthModelForm(ModelForm):
 
 
 def makeMentalHealthModelForm(
-        label='Have you recieved a formal diagnosis for any of the following?',
+        label='Have you received a formal diagnosis for any of the following? Check all that apply.',
                                 instance=None):
     form = mentalHealthModelForm(instance=instance)
     form.fields['psych_history'].label = label

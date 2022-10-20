@@ -187,7 +187,7 @@ def welcome(request):
                 request.session['trial_number'] = 0
                 request.method = 'GET'
                 # Send them to the next page!
-                if (WEBAPP_USE == 'screen') or (WEBAPP_USE == 'all'):
+                if (WEBAPP_USE == 'screen') or (WEBAPP_USE == 'both'):
                     return questionnaires(request)
                 elif WEBAPP_USE == 'task':
                     return instructions(request)
