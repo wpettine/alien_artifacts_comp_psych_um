@@ -1374,3 +1374,4 @@ INFO /Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArt
 INFO Watching for file changes with StatReloader
 INFO /Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/global_variables.py changed, reloading.
 INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123xxcv&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4536
