@@ -10,16 +10,16 @@ from .questionnaires_text import *
 TASK = 'context-generalization_v2' # 'example-generalization', 'context-generalization_v1', 'context-generalization_v2', 'diagnostic'
 
 #What we're using the webapp for
-WEBAPP_USE = 'both' # 'screen', 'task', 'both'
-GENERALIZATION_FEEDBACK = True
+WEBAPP_USE = 'screen' # 'screen', 'task', 'both'
+GENERALIZATION_FEEDBACK = False
 PROJECT_NAME = 'P50'
 CREATE_NEW_USER = True
 PROLIFIC = True
 
 # Specify if deploying
 DEPLOYMENT = True
-PAYMENT_TOKEN = 'replace_token'
-ATTENTION_FAILURE_TOKEN = 'replace_token'
+PAYMENT_TOKEN = 'C1IEGRXC'
+ATTENTION_FAILURE_TOKEN = 'CGCGFLVN'
 ATTENTION_CHECK = False
 
 # Specific  text
@@ -60,8 +60,10 @@ if QUESTIONNAIRE_ATTENTION_CHECK:
     #     'bapq': QUESTIONNAIRE_BAPQ,
     #     'att_check': QUESTIONNAIRE_ATTENTION_CHECK,
     #     'asrs': QUESTIONNAIRE_ASRS,
+    #     'cape_pos_neg': QUESTIONNAIRE_CAPE_POS_NEG,
     #     'phq9': QUESTIONNAIRE_PHQ9,
-    #     'olifes': QUESTIONNAIRE_OLIFES
+    #     'rbq2a': QUESTIONNAIRE_RBQ2A,
+    #     'olifes': QUESTIONNAIRE_OLIFES,
     # }
     QUESTIONNAIRES = {
         'att_check': QUESTIONNAIRE_ATTENTION_CHECK,

@@ -1328,3 +1328,49 @@ INFO "GET /media/images/reward_diamond_reward_stim_0tvgk5f.png HTTP/1.1" 200 128
 INFO "GET /media/images/no-spaceship_gold-planet_NS52Z1c.png HTTP/1.1" 200 113793
 INFO /Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/global_variables.py changed, reloading.
 INFO Watching for file changes with StatReloader
+INFO /Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/global_variables.py changed, reloading.
+INFO Watching for file changes with StatReloader
+INFO /Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/global_variables.py changed, reloading.
+INFO Watching for file changes with StatReloader
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123xxcv&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4536
+INFO In welcome function
+INFO request.method GET
+INFO existing_subject
+INFO "GET /welcome HTTP/1.1" 200 776
+INFO In welcome function
+INFO request.method POST
+INFO recaptcha_valid
+INFO In questionnaires function
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123xxcv&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4536
+INFO In welcome function
+INFO request.method GET
+INFO existing_subject
+INFO "GET /welcome HTTP/1.1" 200 780
+INFO In welcome function
+INFO request.method POST
+INFO recaptcha_valid
+INFO In questionnaires function
+INFO "POST /welcome HTTP/1.1" 200 358724
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123xxcv&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4536
+INFO In welcome function
+INFO request.method GET
+INFO existing_subject
+INFO "GET /welcome HTTP/1.1" 200 780
+INFO In welcome function
+INFO request.method POST
+INFO recaptcha_valid
+INFO In questionnaires function
+INFO "POST /welcome HTTP/1.1" 200 26417
+INFO In questionnaires function
+INFO "POST /questionnaires HTTP/1.1" 200 554
+INFO /Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/global_variables.py changed, reloading.
+INFO Watching for file changes with StatReloader
+INFO /Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/global_variables.py changed, reloading.
+INFO Watching for file changes with StatReloader
+INFO /Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/global_variables.py changed, reloading.
+INFO Watching for file changes with StatReloader
+INFO /Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/global_variables.py changed, reloading.
+INFO Watching for file changes with StatReloader
