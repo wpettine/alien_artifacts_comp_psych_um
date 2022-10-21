@@ -27,7 +27,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'temp-secret-key')
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 # DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*', '127.0.0.1']
 
 
 
@@ -173,3 +173,6 @@ LOGGING = {
 #reCAPTCHA
 GOOGLE_RECAPTCHA_SITE_KEY = '' # Put your key here
 GOOGLE_RECAPTCHA_SECRET_KEY = '' # Put your key here
+
+
+DATA_UPLOAD_MAX_NUMBER_FIELDS = None
