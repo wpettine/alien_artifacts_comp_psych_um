@@ -1493,3 +1493,8 @@ INFO "GET /welcome HTTP/1.1" 200 780
 INFO In welcome function
 INFO In questionnaires function
 INFO "POST /welcome HTTP/1.1" 200 365223
+INFO /Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/azuresite/settings.py changed, reloading.
+INFO Watching for file changes with StatReloader
+INFO /Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/azuresite/settings.py changed, reloading.
+INFO Watching for file changes with StatReloader
+INFO Watching for file changes with StatReloader
