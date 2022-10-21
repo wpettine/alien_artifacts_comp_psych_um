@@ -86,7 +86,10 @@ def welcome(request):
                     if form.is_valid():
                         #Create variables to be entered
                         if PROLIFIC:
-                            subject_source = 'prolific'
+                            if DEPLOYMENT:
+                                subject_source = 'prolific'
+                            else:
+                                subject_source = 'internal'
                             user_ID = request.session['external_ID']
                             external_study_ID = request.session['external_study_ID']
                             external_session_ID = request.session['external_session_ID']
@@ -106,7 +109,7 @@ def welcome(request):
                             subject = Subject.objects.filter(external_ID=user_ID)[0]
                         else:
                             subject = Subject(external_ID=user_ID, age=age, gender=gender,
-                                              education=education)
+                                              education=education,external_source=subject_source)
                             subject.save()
                     else:
                         raise ValueError('Invalid Form')
