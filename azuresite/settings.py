@@ -174,4 +174,5 @@ LOGGING = {
 GOOGLE_RECAPTCHA_SITE_KEY = '' # Put your key here
 GOOGLE_RECAPTCHA_SECRET_KEY = '' # Put your key here
 
+
 DATA_UPLOAD_MAX_NUMBER_FIELDS = None
