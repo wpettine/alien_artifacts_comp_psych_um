@@ -1068,6 +1068,7 @@ answers = {
 }
 
 answers_distress = {
+    'N/A': 0,
     'Not distressed ': 1,
     'A bit distressed': 2,
     'Quite distressed': 3,
@@ -1291,12 +1292,13 @@ QUESTIONNAIRE_CAPE_severity = {
 QUESTIONNAIRE_CAPE = {}
 QUESTIONNAIRE_CAPE_POS_NEG = {}
 
+key_text = 'If you ticked "sometimes" , "often" or "nearly always" please indicate how distressed you ' +\
+           'are by this experience. If you ticked "never", please select "N/A".'
 tag = ''
 for i, key in enumerate(QUESTIONNAIRE_CAPE_severity.keys()):
     QUESTIONNAIRE_CAPE[key] = QUESTIONNAIRE_CAPE_severity[key]
-    key_text = 'If you ticked "never", please go to the next question. If you ticked "sometimes" , "often"' + \
-                   ' or "nearly always" please indicate how distressed you are by this experience.' + tag
-    QUESTIONNAIRE_CAPE[key_text] = {
+    key_text_i = key_text + tag
+    QUESTIONNAIRE_CAPE[key_text_i] = {
         'subscale': QUESTIONNAIRE_CAPE[key]['subscale'],
         'answers': answers_distress,
         'question_number': i+1 + 1000
@@ -1304,7 +1306,7 @@ for i, key in enumerate(QUESTIONNAIRE_CAPE_severity.keys()):
     if (QUESTIONNAIRE_CAPE_severity[key]['subscale'] == 'Positive symptoms') or \
         (QUESTIONNAIRE_CAPE_severity[key]['subscale'] == 'Negative symptoms'):
         QUESTIONNAIRE_CAPE_POS_NEG[key] = QUESTIONNAIRE_CAPE[key]
-        QUESTIONNAIRE_CAPE_POS_NEG[key_text] = QUESTIONNAIRE_CAPE[key_text]
+        QUESTIONNAIRE_CAPE_POS_NEG[key_text_i] = QUESTIONNAIRE_CAPE[key_text_i]
     tag += ' '
 
 """
