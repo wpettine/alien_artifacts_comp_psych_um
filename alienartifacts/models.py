@@ -73,7 +73,7 @@ class Session(models.Model):
 
 class Recruitment(models.Model):
     subject = models.ForeignKey(Subject, on_delete=models.CASCADE, related_name="recruitment")
-    session = models.OneToOneField(Session, on_delete=models.CASCADE, related_name="recruitment")
+    session = models.OneToOneField(Session, on_delete=models.CASCADE, null=True, related_name="recruitment")
     prolific_study_id = models.CharField(max_length=100, default="")
     time = models.DateTimeField()
     task = models.CharField(max_length=100, default="")
