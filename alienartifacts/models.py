@@ -80,7 +80,6 @@ class Recruitment(models.Model):
     notes = models.CharField(max_length=1000, default="")
     source = models.CharField(max_length=100, default="")
     accepted = models.BooleanField(null=True, default=None)
-    temp_field = models.CharField(max_length=100, default="")
 
 
 class Trial(models.Model):
