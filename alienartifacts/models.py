@@ -39,6 +39,15 @@ class Subject(models.Model):
     psych_history = models.JSONField(default=list,blank=True,null=True)
 
 
+class Recruitment(models.Model):
+    subject = models.ForeignKey(Subject, on_delete=models.CASCADE, related_name="recruitment")
+    time = models.DateTimeField()
+    task = models.CharField(max_length=100, default="")
+    notes = models.CharField(max_length=1000, default="")
+    source = models.CharField(max_length=100, default="")
+    accepted = models.BooleanField(null=True, default=None)
+
+
 class Session(models.Model):
     #Summary details, such as length, number of stimuli seen, average performance, date, etc.
     n_trials = models.IntegerField(default=0)
@@ -69,6 +78,7 @@ class Session(models.Model):
     substances = models.JSONField(default=list,blank=True,null=True)
     passed_attention_check = models.BooleanField(default=True)
     project = models.CharField(max_length=40,default='initial')
+
 
 class Trial(models.Model):
     #All data pertinent for an individual trial

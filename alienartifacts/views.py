@@ -125,7 +125,8 @@ def welcome(request):
                 # If they're just answering questionnaires
                 if WEBAPP_USE == 'screen':
                     session = Session(start_time=start_time, end_time=end_time, payment_token=payment_token,
-                                      subject=subject)
+                                      subject=subject,external_session_ID=external_session_ID,
+                                      external_study_ID=external_study_ID)
                     session.task = 'screen'
                 # If they're doing the task as well
                 elif (WEBAPP_USE == 'task') or (WEBAPP_USE == 'both'):
