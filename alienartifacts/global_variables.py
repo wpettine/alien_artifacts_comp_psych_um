@@ -20,7 +20,7 @@ PROLIFIC = True
 DEPLOYMENT = False
 PAYMENT_TOKEN = 'C1IEGRXC'
 ATTENTION_FAILURE_TOKEN = 'CGCGFLVN'
-ATTENTION_CHECK = False
+ATTENTION_CHECK = True
 
 # Specific  text
 INSTRUCTIONS = "You're a space pirate roving the galaxy, trying to get rich. On this quest for fame \
@@ -62,6 +62,7 @@ if QUESTIONNAIRE_ATTENTION_CHECK:
         'asrs': QUESTIONNAIRE_ASRS,
         'cape_pos_neg': QUESTIONNAIRE_CAPE_POS_NEG,
         'phq9': QUESTIONNAIRE_PHQ9,
+        'conners_screen': QUESTIONNAIRE_CONNERS_SCREEN,
         'rbq2a': QUESTIONNAIRE_RBQ2A,
         'olifes': QUESTIONNAIRE_OLIFES,
     }

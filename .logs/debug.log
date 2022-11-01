@@ -1526,3 +1526,13 @@ INFO "GET /welcome HTTP/1.1" 200 2534
 INFO In welcome function
 INFO In questionnaires function
 INFO "POST /welcome HTTP/1.1" 200 365221
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123zxxcv&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4536
+INFO "GET /static/style.css HTTP/1.1" 200 909
+WARNING Not Found: /favicon.ico
+WARNING "GET /favicon.ico HTTP/1.1" 404 5562
+INFO In welcome function
+INFO "GET /welcome HTTP/1.1" 200 780
+INFO In welcome function
+INFO In questionnaires function
+INFO "POST /welcome HTTP/1.1" 200 422346

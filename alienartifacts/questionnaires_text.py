@@ -319,152 +319,152 @@ answers = {
 
 QUESTIONNAIRE_CONNERS_SCREEN = {
     'I lose things necessary for tasks or activities (e.g. to-do lists, pencils, books or tools).': {
-        'subscale': '',
+        'subscale': 'DSM-IV Inattentive Symptoms',
         'answers': answers,
         'question_number': 1
     },
     'I talk too much.': {
-        'subscale': '',
+        'subscale': 'DSM-IV Hyperactive-Impulsive Symptoms',
         'answers': answers,
         'question_number': 2
     },
     'I am always on the go, as if driven by a motor.': {
-        'subscale': '',
+        'subscale': 'ADHD Index',
         'answers': answers,
         'question_number': 3
     },
     'I have trouble doing leisure activities quietly.': {
-        'subscale': '',
+        'subscale': 'DSM-IV Hyperactive-Impulsive Symptoms',
         'answers': answers,
         'question_number': 4
     },
     'I have a short fuse/hot temper.': {
-        'subscale': '-Impulsivity',
+        'subscale': 'Impulsivity_Emotional Lability|ADHD Index',
         'answers': answers,
         'question_number': 5
     },
     'I leave my seat when I am not supposed to.': {
-        'subscale': '',
+        'subscale': 'DSM-IV Hyperactive-Impulsive Symptoms',
         'answers': answers,
         'question_number': 6
     },
     'I still throw tantrums.': {
-        'subscale': '',
+        'subscale': 'Impulsivity_Emotional Lability|ADHD Index',
         'answers': answers,
         'question_number': 7
     },
     'I have trouble waiting in line or taking turns with others.': {
-        'subscale': '',
+        'subscale': 'DSM-IV Hyperactive-Impulsive Symptoms',
         'answers': answers,
         'question_number': 8
     },
     'I have trouble keeping my attention focused when working.': {
-        'subscale': '',
+        'subscale': 'DSM-IV Inattentive Symptoms',
         'answers': answers,
         'question_number': 9
     },
     'I avoid new challenges because I lack faith in my abilities.': {
-        'subscale': '',
+        'subscale': 'Problems with Self-concept|ADHD Index',
         'answers': answers,
         'question_number': 10
     },
     'I feel restless inside even if I am sitting still.': {
-        'subscale': '',
+        'subscale': 'Hyperactivity_Restlessness|ADHD Index',
         'answers': answers,
         'question_number': 11
     },
     "Things I hear or see distract me from what I'm doing.": {
-        'subscale': '',
+        'subscale': 'ADHD Index',
         'answers': answers,
         'question_number': 12
     },
     'I am forgetful in my daily activities.': {
-        'subscale': '',
+        'subscale': 'DSM-IV Inattentive Symptoms',
         'answers': answers,
         'question_number': 13
     },
     'I have trouble listening to what other people are saying.': {
-        'subscale': '',
+        'subscale': 'DSM-IV Inattentive Symptoms',
         'answers': answers,
         'question_number': 14
     },
     'I am an underachiever.': {
-        'subscale': '',
+        'subscale': 'ADHD Index',
         'answers': answers,
         'question_number': 15
     },
     'I am always on the go.': {
-        'subscale': '',
+        'subscale': 'DSM-IV Hyperactive-Impulsive Symptoms',
         'answers': answers,
         'question_number': 16
     },
     "I can't get things done undless there's an absolute deadline.": {
-        'subscale': '',
+        'subscale': 'Inattention_Memory Problems|ADHD Index',
         'answers': answers,
         'question_number': 17
     },
     'I fidget (with my hands or feet) or squirm in my seat.': {
-        'subscale': '',
+        'subscale': 'DSM-IV Hyperactive-Impulsive Symptoms',
         'answers': answers,
         'question_number': 18
     },
     'I make careless mistakes or have trouble paying close attention to detail.': {
-        'subscale': '',
+        'subscale': 'DSM-IV Inattentive Symptoms',
         'answers': answers,
         'question_number': 19
     },
     "I intrude on others' activities": {
-        'subscale': '',
+        'subscale': 'ADHD Index',
         'answers': answers,
         'question_number': 20
     },
     "I don't like homework or job activities where I have to think a lot.": {
-        'subscale': '',
+        'subscale': 'DSM-IV Inattentive Symptoms',
         'answers': answers,
         'question_number': 21
     },
     'I am restless or overactive.': {
-        'subscale': '',
+        'subscale': 'DSM-IV Hyperactive-Impulsive Symptoms',
         'answers': answers,
         'question_number': 22
     },
     "Sometimes my attention narrows so much that I'm obvlivious to everything else; other times it's so broad that everything distracts me.": {
-        'subscale': '',
+        'subscale': 'ADHD Index',
         'answers': answers,
         'question_number': 23
     },
     "I can't keep my mind on something unless it's really interesting.": {
-        'subscale': '',
+        'subscale': 'ADHD Index',
         'answers': answers,
         'question_number': 24
     },
     'I give answers to questions before the questions have been completed.': {
-        'subscale': '-Impulsivity',
+        'subscale': 'Hyperactive-Impulsive Symptoms',
         'answers': answers,
         'question_number': 25
     },
     'I have trouble finishing job tasks or school work.': {
-        'subscale': '',
+        'subscale': 'DSM-IV Inattentive Symptoms',
         'answers': answers,
         'question_number': 26
     },
     'I interrupt other when they are working or playing.': {
-        'subscale': '',
+        'subscale': 'DSM-IV Hyperactive-Impulsive Symptoms',
         'answers': answers,
         'question_number': 27
     },
     'My past failures make it hard for me to believe in myself.': {
-        'subscale': '',
+        'subscale': 'Problems with Self-concept',
         'answers': answers,
         'question_number': 28
     },
     'I am distracted when things are going on around me.': {
-        'subscale': '',
+        'subscale': 'DSM-IV Inattentive Symptoms',
         'answers': answers,
         'question_number': 29
     },
     'I have problems organizing my tasks and activities.': {
-        'subscale': '',
+        'subscale': 'DSM-IV Inattentive Symptoms',
         'answers': answers,
         'question_number': 30
     },
