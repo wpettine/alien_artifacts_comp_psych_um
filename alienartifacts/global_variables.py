@@ -4,7 +4,7 @@ from .questionnaires_text import *
 
 #### USE THESE FOR DEBUGGING
 # http://127.0.0.1:8000/?PROLIFIC_PID=123zxxcv&SESSION_ID=456&STUDY_ID=789
-# https://umalienartifactstask.azurewebsites.net?PROLIFIC_PID=1213xxcv&SESSION_ID=456&STUDY_ID=789
+# https://umalienartifactstask.azurewebsites.net?PROLIFIC_PID=12xxcv&SESSION_ID=456&STUDY_ID=787
 
 #Choose task
 TASK = 'context-generalization_v2' # 'example-generalization', 'context-generalization_v1', 'context-generalization_v2', 'diagnostic'
@@ -62,8 +62,9 @@ if QUESTIONNAIRE_ATTENTION_CHECK:
         'asrs': QUESTIONNAIRE_ASRS,
         'cape_pos_neg': QUESTIONNAIRE_CAPE_POS_NEG,
         'phq9': QUESTIONNAIRE_PHQ9,
-        'conners_screen': QUESTIONNAIRE_CONNERS_SCREEN,
+        # 'conners_screen': QUESTIONNAIRE_CONNERS_SCREEN,
         'rbq2a': QUESTIONNAIRE_RBQ2A,
+        'conners_full': QUESTIONNAIRE_CONNERS_FULL,
         'olifes': QUESTIONNAIRE_OLIFES,
     }
     # QUESTIONNAIRES = {

@@ -307,7 +307,7 @@ QUESTIONNAIRE_BAPQ = {
 }
 
 """
-Conner's Scales for ADHD
+Conner's Scales for ADHD - Screener
 """
 
 answers = {
@@ -467,6 +467,351 @@ QUESTIONNAIRE_CONNERS_SCREEN = {
         'subscale': 'DSM-IV Inattentive Symptoms',
         'answers': answers,
         'question_number': 30
+    },
+}
+
+
+"""
+Conner's Scales for ADHD - Full
+"""
+
+answers = {
+    'Not at all, never': 0,
+    'Just a little, once in a while': 1,
+    'Pretty much, often': 2,
+    'Very much, very frequently': 3
+}
+
+QUESTIONNAIRE_CONNERS_FULL = {
+    'I like to be doing active things.': {
+        'subscale': 'Hyperactivity_Restlessness',
+        'answers': answers,
+        'question_number': 1
+    },
+    'I lose things necessary for tasks or activities (e.g. to-do lists, pencils, books or tools).': {
+        'subscale': 'DSM-IV Inattentive Symptoms',
+        'answers': answers,
+        'question_number': 2
+    },
+    "I don't too much.": {
+        'subscale': 'Inattention_Memory Problems',
+        'answers': answers,
+        'question_number': 3
+    },
+    "I blurt out things.": {
+        'subscale': 'Impulsivity_Emotional Lability',
+        'answers': answers,
+        'question_number': 4
+    },
+    "I am a risk-taker or a daredevil.": {
+        'subscale': 'Hyperactivity_Restlessness',
+        'answers': answers,
+        'question_number': 5
+    },
+    'I get down on myself.': {
+        'subscale': 'Problems with Self-Concept',
+        'answers': answers,
+        'question_number': 6
+    },
+    "I don't finish things I start.": {
+        'subscale': 'Inattention_Memory Problems',
+        'answers': answers,
+        'question_number': 7
+    },
+    'I am easily frustrated.': {
+        'subscale': 'Impulsivity_Emotional Lability',
+        'answers': answers,
+        'question_number': 8
+    },
+    'I talk too much.': {
+        'subscale': 'DSM-IV Hyperactive-Impulsive Symptoms',
+        'answers': answers,
+        'question_number': 9
+    },
+    'I am always on the go, as if driven by a motor.': {
+        'subscale': 'ADHD Index',
+        'answers': answers,
+        'question_number': 10
+    },
+    "I'm disorganized": {
+        'subscale': 'Inattention_Memory Problems',
+        'answers': answers,
+        'question_number': 11
+    },
+    "I say things without thinking.": {
+        'subscale': 'Impulsivity_Emotional Lability',
+        'answers': answers,
+        'question_number': 12
+    },
+    "It's hard for me to stay in one place very long.": {
+        'subscale': 'Hyperactivity_Restlessness',
+        'answers': answers,
+        'question_number': 13
+    },
+    'I have trouble doing leisure activities quietly.': {
+        'subscale': 'DSM-IV Hyperactive-Impulsive Symptoms',
+        'answers': answers,
+        'question_number': 14
+    },
+    "I'm not sure of myself.": {
+        'subscale': 'Problems with Self-Concept',
+        'answers': answers,
+        'question_number': 15
+    },
+    "It's hard for me to keep track of several things at once.": {
+        'subscale': 'Inattention_Memory Problems',
+        'answers': answers,
+        'question_number': 16
+    },
+    "I'm always moving even when I should be still'.": {
+        'subscale': 'Hyperactivity_Restlessness',
+        'answers': answers,
+        'question_number': 17
+    },
+    "I forget to remember things'.": {
+        'subscale': 'Inattention_Memory Problems',
+        'answers': answers,
+        'question_number': 18
+    },
+    'I have a short fuse/hot temper.': {
+        'subscale': 'Impulsivity_Emotional Lability|ADHD Index',
+        'answers': answers,
+        'question_number': 19
+    },
+    "I'm bored easily.": {
+        'subscale': 'Impulsivity_Emotional Lability|ADHD Index',
+        'answers': answers,
+        'question_number': 20
+    },
+    'I leave my seat when I am not supposed to.': {
+        'subscale': 'DSM-IV Hyperactive-Impulsive Symptoms',
+        'answers': answers,
+        'question_number': 21
+    },
+    "I have trouble waiting in line or taking turns with others.": {
+        'subscale': 'DSM-IV Hyperactive-Impulsive Symptoms',
+        'answers': answers,
+        'question_number': 22
+    },
+    'I still throw tantrums.': {
+        'subscale': 'Impulsivity_Emotional Lability|ADHD Index',
+        'answers': answers,
+        'question_number': 23
+    },
+    'I have trouble keeping my attention focused when working.': {
+        'subscale': 'DSM-IV Inattentive Symptoms',
+        'answers': answers,
+        'question_number': 24
+    },
+    "I seek out fast paced, exciting activities.": {
+        'subscale': 'Hyperactivity_Restlessness',
+        'answers': answers,
+        'question_number': 25
+    },
+    "I avoid new challenges because I lack faith in my abilities.": {
+        'subscale': 'Problems with Self-Concept|ADHD Index',
+        'answers': answers,
+        'question_number': 26
+    },
+    "I feel restless inside even if I am sitting still.": {
+        'subscale': 'Hyperactivity_Restlessness|ADHD Index',
+        'answers': answers,
+        'question_number': 27
+    },
+    "Things I hear or see distract me from what I'm doing.": {
+        'subscale': 'ADHD Index',
+        'answers': answers,
+        'question_number': 28
+    },
+    'I am forgetful in my daily activities.': {
+        'subscale': 'DSM-IV Inattentive Symptoms',
+        'answers': answers,
+        'question_number': 29
+    },
+    "Many things set me off easily.": {
+        'subscale': 'Impulsivity_Emotional Lability',
+        'answers': answers,
+        'question_number': 30
+    },
+    "I dislike quiet, introspective activities.": {
+        'subscale': 'Hyperactivity_Restlessness',
+        'answers': answers,
+        'question_number': 31
+    },
+    "I lose things that I need.": {
+        'subscale': 'Inattention_Memory Problems',
+        'answers': answers,
+        'question_number': 32
+    },
+    'I have trouble listening to what other people are saying.': {
+        'subscale': 'DSM-IV Inattentive Symptoms',
+        'answers': answers,
+        'question_number': 33
+    },
+    'I am an underachiever.': {
+        'subscale': 'ADHD Index',
+        'answers': answers,
+        'question_number': 14
+    },
+    "I interrupt others when talking.": {
+        'subscale': 'Impulsivity_Emotional Lability',
+        'answers': answers,
+        'question_number': 35
+    },
+    "I change plans/jobs in midstream.": {
+        'subscale': 'Inattention_Memory Problems',
+        'answers': answers,
+        'question_number': 36
+    },
+    "I act okay on the outside, but inside I'm unsure of myself.": {
+        'subscale': 'Problems with Self-Concept',
+        'answers': answers,
+        'question_number': 37
+    },
+    'I am always on the go.': {
+        'subscale': 'DSM-IV Hyperactive-Impulsive Symptoms',
+        'answers': answers,
+        'question_number': 38
+    },
+    "I make comments/remarks that I wish I could take back.": {
+        'subscale': 'Impulsivity_Emotional Lability',
+        'answers': answers,
+        'question_number': 39
+    },
+    "I can't get things done undless there's an absolute deadline.": {
+        'subscale': 'Inattention_Memory Problems|ADHD Index',
+        'answers': answers,
+        'question_number': 40
+    },
+    'I fidget (with my hands or feet) or squirm in my seat.': {
+        'subscale': 'DSM-IV Hyperactive-Impulsive Symptoms',
+        'answers': answers,
+        'question_number': 41
+    },
+    'I make careless mistakes or have trouble paying close attention to detail.': {
+        'subscale': 'DSM-IV Inattentive Symptoms',
+        'answers': answers,
+        'question_number': 42
+    },
+    "I step on people's toes without meaning to.": {
+        'subscale': 'Impulsivity_Emotional Lability',
+        'answers': answers,
+        'question_number': 43
+    },
+    "I have trouble getting started on a task.": {
+        'subscale': 'Inattention_Memory Problems',
+        'answers': answers,
+        'question_number': 44
+    },
+    "I intrude on others' activities.": {
+        'subscale': 'ADHD Index',
+        'answers': answers,
+        'question_number': 45
+    },
+    "It takes a great deal of effort for me to sit still.": {
+        'subscale': 'Hyperactivity_Restlessness',
+        'answers': answers,
+        'question_number': 46
+    },
+    "My moods are unpredictable.": {
+        'subscale': 'Impulsivity_Emotional Lability',
+        'answers': answers,
+        'question_number': 47
+    },
+    "I don't like homework or job activities where I have to think a lot.": {
+        'subscale': 'DSM-IV Inattentive Symptoms',
+        'answers': answers,
+        'question_number': 48
+    },
+    "I'm absent-minded in daily activities.": {
+        'subscale': 'Inattention_Memory Problems',
+        'answers': answers,
+        'question_number': 49
+    },
+    'I am restless or overactive.': {
+        'subscale': 'DSM-IV Hyperactive-Impulsive Symptoms',
+        'answers': answers,
+        'question_number': 50
+    },
+    "I depend on others to keep my life in order and attend to the details.": {
+        'subscale': 'Inattention_Memory Problems',
+        'answers': answers,
+        'question_number': 51
+    },
+    "I annoy other people without meaning to.": {
+        'subscale': 'Impulsivity_Emotional Lability',
+        'answers': answers,
+        'question_number': 52
+    },
+    "Sometimes my attention narrows so much that I'm obvlivious to everything else; other times it's so broad that everything distracts me.": {
+        'subscale': 'ADHD Index',
+        'answers': answers,
+        'question_number': 53
+    },
+    "I tend to squirm or fidget.": {
+        'subscale': 'Hyperactivity_Restlessness',
+        'answers': answers,
+        'question_number': 54
+    },
+    "I can't keep my mind on something unless it's really interesting.": {
+        'subscale': 'ADHD Index',
+        'answers': answers,
+        'question_number': 55
+    },
+    "I with I had greater confidence in my abilities.": {
+        'subscale': 'Problems with Self-Concept',
+        'answers': answers,
+        'question_number': 56
+    },
+    "I can't sit still for very long.": {
+        'subscale': 'Hyperactivity_Restlessness',
+        'answers': answers,
+        'question_number': 57
+    },
+    'I give answers to questions before the questions have been completed.': {
+        'subscale': 'Hyperactive-Impulsive Symptoms',
+        'answers': answers,
+        'question_number': 58
+    },
+    "I like to be up and on the go rather than beign in one place.": {
+        'subscale': 'Hyperactivity_Restlessness',
+        'answers': answers,
+        'question_number': 59
+    },
+    'I have trouble finishing job tasks or school work.': {
+        'subscale': 'DSM-IV Inattentive Symptoms',
+        'answers': answers,
+        'question_number': 60
+    },
+    "I am irritable.": {
+        'subscale': 'Impulsivity_Emotional Lability',
+        'answers': answers,
+        'question_number': 61
+    },
+    'I interrupt other when they are working or playing.': {
+        'subscale': 'DSM-IV Hyperactive-Impulsive Symptoms',
+        'answers': answers,
+        'question_number': 62
+    },
+    'My past failures make it hard for me to believe in myself.': {
+        'subscale': 'Problems with Self-concept',
+        'answers': answers,
+        'question_number': 63
+    },
+    'I am distracted when things are going on around me.': {
+        'subscale': 'DSM-IV Inattentive Symptoms',
+        'answers': answers,
+        'question_number': 64
+    },
+    'I have problems organizing my tasks and activities.': {
+        'subscale': 'DSM-IV Inattentive Symptoms',
+        'answers': answers,
+        'question_number': 65
+    },
+    "I misjudge how long it takes to do something or go somewhere.": {
+        'subscale': 'Inattention_Memory Problems',
+        'answers': answers,
+        'question_number': 66
     },
 }
 
