@@ -22,11 +22,11 @@
 
         {{ form_substance.as_ul }}
 
-        {{ formset.as_ul }}
+        {% comment %} {{ formset.as_ul }}
 
         {{ form_att_check.as_ul }}
 
-        {{ form_mh.as_ul }}
+        {{ form_mh.as_ul }} {% endcomment %}
 
         <input type="submit" name="Submit">
     </form>
