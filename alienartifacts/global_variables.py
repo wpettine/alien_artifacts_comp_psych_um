@@ -17,10 +17,10 @@ CREATE_NEW_USER = True
 PROLIFIC = True
 
 # Specify if deploying
-DEPLOYMENT = False
+DEPLOYMENT = True
 PAYMENT_TOKEN = 'C1IEGRXC'
 ATTENTION_FAILURE_TOKEN = 'CGCGFLVN'
-ATTENTION_CHECK = False
+ATTENTION_CHECK = True
 
 # Specific  text
 INSTRUCTIONS = "You're a space pirate roving the galaxy, trying to get rich. On this quest for fame \
