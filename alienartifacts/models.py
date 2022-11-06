@@ -97,7 +97,7 @@ class Trial(models.Model):
 class QuestionnaireQ(models.Model):
     session = models.ForeignKey(Session, on_delete=models.CASCADE, related_name='questionnaire_q')
     questionnaire_name = models.CharField(max_length=100)
-    subscale = models.CharField(max_length=40,blank=True,null=True)
+    subscale = models.CharField(max_length=100,blank=True,null=True)
     possible_answers = models.JSONField(default=dict)
     question = models.CharField(max_length=1000)
     answer = models.IntegerField()

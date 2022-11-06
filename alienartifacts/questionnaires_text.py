@@ -339,7 +339,7 @@ QUESTIONNAIRE_CONNERS_SCREEN = {
         'question_number': 4
     },
     'I have a short fuse/hot temper.': {
-        'subscale': 'Impulsivity_Emotional Lability|ADHD Index',
+        'subscale': 'Impulsivity_Emotional Lability,ADHD Index',
         'answers': answers,
         'question_number': 5
     },
@@ -349,7 +349,7 @@ QUESTIONNAIRE_CONNERS_SCREEN = {
         'question_number': 6
     },
     'I still throw tantrums.': {
-        'subscale': 'Impulsivity_Emotional Lability|ADHD Index',
+        'subscale': 'Impulsivity_Emotional Lability,ADHD Index',
         'answers': answers,
         'question_number': 7
     },
@@ -364,12 +364,12 @@ QUESTIONNAIRE_CONNERS_SCREEN = {
         'question_number': 9
     },
     'I avoid new challenges because I lack faith in my abilities.': {
-        'subscale': 'Problems with Self-concept|ADHD Index',
+        'subscale': 'Problems with Self-concept,ADHD Index',
         'answers': answers,
         'question_number': 10
     },
     'I feel restless inside even if I am sitting still.': {
-        'subscale': 'Hyperactivity_Restlessness|ADHD Index',
+        'subscale': 'Hyperactivity_Restlessness,ADHD Index',
         'answers': answers,
         'question_number': 11
     },
@@ -399,7 +399,7 @@ QUESTIONNAIRE_CONNERS_SCREEN = {
         'question_number': 16
     },
     "I can't get things done undless there's an absolute deadline.": {
-        'subscale': 'Inattention_Memory Problems|ADHD Index',
+        'subscale': 'Inattention_Memory Problems,ADHD Index',
         'answers': answers,
         'question_number': 17
     },
@@ -469,6 +469,8 @@ QUESTIONNAIRE_CONNERS_SCREEN = {
         'question_number': 30
     },
 }
+
+
 
 
 """
@@ -574,12 +576,12 @@ QUESTIONNAIRE_CONNERS_FULL = {
         'question_number': 18
     },
     'I have a short fuse/hot temper.': {
-        'subscale': 'Impulsivity_Emotional Lability|ADHD Index',
+        'subscale': 'Impulsivity_Emotional Lability,ADHD Index',
         'answers': answers,
         'question_number': 19
     },
     "I'm bored easily.": {
-        'subscale': 'Impulsivity_Emotional Lability|ADHD Index',
+        'subscale': 'Impulsivity_Emotional Lability,ADHD Index',
         'answers': answers,
         'question_number': 20
     },
@@ -594,7 +596,7 @@ QUESTIONNAIRE_CONNERS_FULL = {
         'question_number': 22
     },
     'I still throw tantrums.': {
-        'subscale': 'Impulsivity_Emotional Lability|ADHD Index',
+        'subscale': 'Impulsivity_Emotional Lability,ADHD Index',
         'answers': answers,
         'question_number': 23
     },
@@ -609,12 +611,12 @@ QUESTIONNAIRE_CONNERS_FULL = {
         'question_number': 25
     },
     "I avoid new challenges because I lack faith in my abilities.": {
-        'subscale': 'Problems with Self-Concept|ADHD Index',
+        'subscale': 'Problems with Self-Concept,ADHD Index',
         'answers': answers,
         'question_number': 26
     },
     "I feel restless inside even if I am sitting still.": {
-        'subscale': 'Hyperactivity_Restlessness|ADHD Index',
+        'subscale': 'Hyperactivity_Restlessness,ADHD Index',
         'answers': answers,
         'question_number': 27
     },
@@ -679,7 +681,7 @@ QUESTIONNAIRE_CONNERS_FULL = {
         'question_number': 39
     },
     "I can't get things done undless there's an absolute deadline.": {
-        'subscale': 'Inattention_Memory Problems|ADHD Index',
+        'subscale': 'Inattention_Memory Problems,ADHD Index',
         'answers': answers,
         'question_number': 40
     },

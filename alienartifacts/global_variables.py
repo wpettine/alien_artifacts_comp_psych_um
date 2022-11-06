@@ -20,7 +20,7 @@ PROLIFIC = True
 DEPLOYMENT = False
 PAYMENT_TOKEN = 'C1IEGRXC'
 ATTENTION_FAILURE_TOKEN = 'CGCGFLVN'
-ATTENTION_CHECK = True
+ATTENTION_CHECK = False
 
 # Specific  text
 INSTRUCTIONS = "You're a space pirate roving the galaxy, trying to get rich. On this quest for fame \
@@ -55,7 +55,7 @@ ATTENTION_CHECK_HISTORY = [('fail_attention_check','Femur dissolution'),('fail_a
               ('pass_attention_check','Prosochiphelia'),('fail_attention_check','Retinal dermatitis')]
 
 
-if QUESTIONNAIRE_ATTENTION_CHECK:
+if ATTENTION_CHECK:
     QUESTIONNAIRES = {
         'bapq': QUESTIONNAIRE_BAPQ,
         'att_check': QUESTIONNAIRE_ATTENTION_CHECK,
@@ -75,8 +75,10 @@ else:
     QUESTIONNAIRES = {
         # 'bapq': QUESTIONNAIRE_BAPQ,
         # 'asrs': QUESTIONNAIRE_ASRS,
-        'phq9': QUESTIONNAIRE_PHQ9,
-        # 'olifes': QUESTIONNAIRE_OLIFES
+        # 'phq9': QUESTIONNAIRE_PHQ9,
+        # 'olifes': QUESTIONNAIRE_OLIFES,
+        # 'conners_full': QUESTIONNAIRE_CONNERS_FULL,
+        'conners_screen': QUESTIONNAIRE_CONNERS_SCREEN,
     }
 
 

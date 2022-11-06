@@ -285,11 +285,12 @@ def questionnaires(request):
             for question in questions:
                 question.session = Session.objects.filter(id=request.session['session_ID'])[0]
                 question.save()
-            pass_attention_check = checkAttention(formset,form_att_check)
-            if not pass_attention_check:
-                session.passed_attention_check = False
-                session.save()
-                return attentionfailure(request)
+            if ATTENTION_CHECK:
+                pass_attention_check = checkAttention(formset,form_att_check)
+                if not pass_attention_check:
+                    session.passed_attention_check = False
+                    session.save()
+                    return attentionfailure(request)
             else:
                 session = Session.objects.filter(id=request.session['session_ID'])[0]
                 session.questionnaire_completed = True

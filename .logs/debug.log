@@ -1545,3 +1545,99 @@ INFO "GET /welcome HTTP/1.1" 200 780
 INFO In welcome function
 INFO In questionnaires function
 INFO "POST /welcome HTTP/1.1" 200 489676
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123zxxcv&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4536
+INFO "GET /static/style.css HTTP/1.1" 304 0
+INFO In welcome function
+INFO "GET /welcome HTTP/1.1" 200 780
+INFO In welcome function
+INFO In questionnaires function
+INFO "POST /welcome HTTP/1.1" 200 127980
+INFO In questionnaires function
+ERROR Internal Server Error: /questionnaires
+Traceback (most recent call last):
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/views.py", line 307, in questionnaires
+    raise ValueError('Problem with the questionnaire formset')
+ValueError: Problem with the questionnaire formset
+ERROR "POST /questionnaires HTTP/1.1" 500 173501
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123zxxcv&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4536
+INFO In welcome function
+INFO "GET /welcome HTTP/1.1" 200 780
+INFO In welcome function
+INFO In questionnaires function
+INFO "POST /welcome HTTP/1.1" 200 127980
+INFO In questionnaires function
+ERROR Internal Server Error: /questionnaires
+Traceback (most recent call last):
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/views.py", line 307, in questionnaires
+    raise ValueError('Problem with the questionnaire formset')
+ValueError: Problem with the questionnaire formset
+ERROR "POST /questionnaires HTTP/1.1" 500 173639
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123zxxcv&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4536
+INFO In welcome function
+INFO "GET /welcome HTTP/1.1" 200 780
+INFO In welcome function
+INFO In questionnaires function
+INFO "POST /welcome HTTP/1.1" 200 61694
+INFO In questionnaires function
+ERROR Internal Server Error: /questionnaires
+Traceback (most recent call last):
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/views.py", line 307, in questionnaires
+    raise ValueError('Problem with the questionnaire formset')
+ValueError: Problem with the questionnaire formset
+ERROR "POST /questionnaires HTTP/1.1" 500 117171
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123zxxcv&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4536
+INFO In welcome function
+INFO "GET /welcome HTTP/1.1" 200 780
+INFO In welcome function
+INFO In questionnaires function
+INFO "POST /welcome HTTP/1.1" 200 40434
+INFO In questionnaires function
+INFO "POST /questionnaires HTTP/1.1" 200 439
+INFO Watching for file changes with StatReloader
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123zxxcv&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4536
+INFO In welcome function
+INFO "GET /welcome HTTP/1.1" 200 780
+INFO In welcome function
+INFO In questionnaires function
+INFO "POST /welcome HTTP/1.1" 200 7651
+INFO In questionnaires function
+INFO "POST /questionnaires HTTP/1.1" 200 439
+INFO /Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/questionnaires_text.py changed, reloading.
+INFO Watching for file changes with StatReloader
+INFO /Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/models.py changed, reloading.
+INFO Watching for file changes with StatReloader
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123zxxcv&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4536
+INFO In welcome function
+INFO "GET /welcome HTTP/1.1" 200 780
+INFO In welcome function
+INFO In questionnaires function
+INFO "POST /welcome HTTP/1.1" 200 9464
+INFO In questionnaires function
+INFO "POST /questionnaires HTTP/1.1" 200 439
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123zxxcv&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4536
+INFO In welcome function
+INFO "GET /welcome HTTP/1.1" 200 780
+INFO In welcome function
+INFO In questionnaires function
+INFO "POST /welcome HTTP/1.1" 200 61696
+INFO In questionnaires function
+INFO "POST /questionnaires HTTP/1.1" 200 439
