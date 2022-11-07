@@ -1641,3 +1641,72 @@ INFO In questionnaires function
 INFO "POST /welcome HTTP/1.1" 200 61696
 INFO In questionnaires function
 INFO "POST /questionnaires HTTP/1.1" 200 439
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123zxxcv&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4536
+INFO In welcome function
+INFO "GET /welcome HTTP/1.1" 200 780
+INFO In welcome function
+INFO In questionnaires function
+INFO "POST /welcome HTTP/1.1" 200 489678
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123zxxcv&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4536
+INFO In welcome function
+INFO "GET /welcome HTTP/1.1" 200 780
+INFO In welcome function
+INFO In questionnaires function
+INFO "POST /welcome HTTP/1.1" 200 26556
+INFO In questionnaires function
+ERROR Internal Server Error: /questionnaires
+Traceback (most recent call last):
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/core/handlers/base.py", line 188, in _get_response
+    self.check_response(response, callback)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/core/handlers/base.py", line 311, in check_response
+    "instead." % name
+ValueError: The view alienartifacts.views.questionnaires didn't return an HttpResponse object. It returned None instead.
+ERROR "POST /questionnaires HTTP/1.1" 500 86174
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123zxxcv&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4536
+INFO In welcome function
+INFO "GET /welcome HTTP/1.1" 200 780
+INFO In welcome function
+INFO In questionnaires function
+INFO "POST /welcome HTTP/1.1" 200 26569
+INFO In questionnaires function
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123zxxcv&SESSION_ID=456&STUDY_ID=789\ HTTP/1.1" 200 4536
+INFO In welcome function
+INFO "GET /welcome HTTP/1.1" 200 780
+INFO In welcome function
+INFO In questionnaires function
+INFO "POST /welcome HTTP/1.1" 200 26569
+INFO In questionnaires function
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123zxxcv&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4536
+INFO In welcome function
+INFO "GET /welcome HTTP/1.1" 200 780
+INFO In welcome function
+INFO In questionnaires function
+INFO "POST /welcome HTTP/1.1" 200 26556
+INFO In questionnaires function
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123zxxcv&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4536
+INFO In welcome function
+INFO "GET /welcome HTTP/1.1" 200 780
+INFO In welcome function
+INFO In questionnaires function
+INFO "POST /welcome HTTP/1.1" 200 26556
+INFO In questionnaires function
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123zxxcv&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4536
+INFO "GET /?PROLIFIC_PID=123zxxcv&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4536
+INFO In welcome function
+INFO "GET /welcome HTTP/1.1" 200 780
+INFO In welcome function
+INFO In questionnaires function
+INFO "POST /welcome HTTP/1.1" 200 26556
+INFO In questionnaires function
+INFO "POST /questionnaires HTTP/1.1" 200 549
+INFO /Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/global_variables.py changed, reloading.
+INFO Watching for file changes with StatReloader

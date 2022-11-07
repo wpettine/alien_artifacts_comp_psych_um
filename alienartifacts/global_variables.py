@@ -75,10 +75,10 @@ else:
     QUESTIONNAIRES = {
         # 'bapq': QUESTIONNAIRE_BAPQ,
         # 'asrs': QUESTIONNAIRE_ASRS,
-        # 'phq9': QUESTIONNAIRE_PHQ9,
+        'phq9': QUESTIONNAIRE_PHQ9,
         # 'olifes': QUESTIONNAIRE_OLIFES,
         # 'conners_full': QUESTIONNAIRE_CONNERS_FULL,
-        'conners_screen': QUESTIONNAIRE_CONNERS_SCREEN,
+        # 'conners_screen': QUESTIONNAIRE_CONNERS_SCREEN,
     }
 
 
