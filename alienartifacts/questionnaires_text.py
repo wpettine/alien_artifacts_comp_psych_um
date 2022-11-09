@@ -294,6 +294,11 @@ QUESTIONNAIRE_BAPQ = {
         'answers': answers_reverse,
         'question_number': 34
     },
+    "When checked if I'm reading questions closely (like now), I select 'often' as my response.": {
+        'subscale': 'Attention Check',
+        'answers': answers,
+        'question_number': 0
+    },
     'I keep doing things the way I know, even if another way might be better.': {
         'subscale': 'Rigid',
         'answers': answers,
@@ -398,7 +403,7 @@ QUESTIONNAIRE_CONNERS_SCREEN = {
         'answers': answers,
         'question_number': 16
     },
-    "I can't get things done undless there's an absolute deadline.": {
+    "I can't get things done unless there's an absolute deadline.": {
         'subscale': 'Inattention_Memory Problems,ADHD Index',
         'answers': answers,
         'question_number': 17
@@ -775,7 +780,7 @@ QUESTIONNAIRE_CONNERS_FULL = {
         'answers': answers,
         'question_number': 58
     },
-    "I like to be up and on the go rather than beign in one place.": {
+    "I like to be up and on the go rather than be in one place.": {
         'subscale': 'Hyperactivity_Restlessness',
         'answers': answers,
         'question_number': 59

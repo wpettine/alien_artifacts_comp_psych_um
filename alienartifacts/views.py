@@ -251,10 +251,16 @@ def checkAttention(formset,form_att_check):
         pass_attention_checkbox = False
     # Check for the hidden questions
     correct_responses = 0
+    bapq_question = None
     for question in formset.cleaned_data:
         if question['questionnaire_name'] == 'att_check':
             correct_responses += question['answer']
-    pass_hidden_questions = (correct_responses == 2)
+        if (question['questionnaire_name'] == 'bapq') and (question['subscale'] == 'Attention Check'):
+            bapq_question = (question['answer'] == 5)
+    if bapq_question is None:
+        pass_hidden_questions = (correct_responses == 2)
+    else:
+        pass_hidden_questions = (correct_responses == 2) * bapq_question
     # Return if they got both right
     return pass_hidden_questions & pass_attention_checkbox
 
@@ -633,7 +639,6 @@ def onePageContextGenTask(request):
         })
     except Exception as e:
         logger.error('Error at %s', 'onePageContextGenTask', exc_info=e)
-   
 
 
 def onePageDiagnosticUpdate(request):

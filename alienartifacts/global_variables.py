@@ -58,18 +58,19 @@ ATTENTION_CHECK_HISTORY = [('fail_attention_check','Femur dissolution'),('fail_a
 if ATTENTION_CHECK:
     QUESTIONNAIRES = {
         'bapq': QUESTIONNAIRE_BAPQ,
-        'att_check': QUESTIONNAIRE_ATTENTION_CHECK,
         'asrs': QUESTIONNAIRE_ASRS,
         'cape_pos_neg': QUESTIONNAIRE_CAPE_POS_NEG,
         'phq9': QUESTIONNAIRE_PHQ9,
         # 'conners_screen': QUESTIONNAIRE_CONNERS_SCREEN,
         'rbq2a': QUESTIONNAIRE_RBQ2A,
+        'att_check': QUESTIONNAIRE_ATTENTION_CHECK,
         'conners_full': QUESTIONNAIRE_CONNERS_FULL,
         'olifes': QUESTIONNAIRE_OLIFES,
     }
     # QUESTIONNAIRES = {
     #     'att_check': QUESTIONNAIRE_ATTENTION_CHECK,
-    #     'phq9': QUESTIONNAIRE_PHQ9,
+    #     # 'phq9': QUESTIONNAIRE_PHQ9,
+    #     'bapq': QUESTIONNAIRE_BAPQ,
     # }
 else:
     QUESTIONNAIRES = {
