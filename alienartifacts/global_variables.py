@@ -17,10 +17,20 @@ CREATE_NEW_USER = True
 PROLIFIC = True
 
 # Specify if deploying
-DEPLOYMENT = True
-PAYMENT_TOKEN = 'C1IEGRXC'
-ATTENTION_FAILURE_TOKEN = 'CGCGFLVN'
+DEPLOYMENT = False
 ATTENTION_CHECK = True
+
+# Set different token for each one
+if WEBAPP_USE == 'screen':
+    PAYMENT_TOKEN = 'C1IEGRXC'
+    ATTENTION_FAILURE_TOKEN = 'CGCGFLVN'
+elif WEBAPP_USE == 'task':
+    PAYMENT_TOKEN = 'AXGC4L2S'
+    ATTENTION_FAILURE_TOKEN = 'LLL391JC'
+elif WEBAPP_USE == 'both':
+    PAYMENT_TOKEN = 'PBLE9Z0Z'
+    ATTENTION_FAILURE_TOKEN = 'Q1L4XV7L'
+
 
 # Specific  text
 INSTRUCTIONS = "You're a space pirate roving the galaxy, trying to get rich. On this quest for fame \

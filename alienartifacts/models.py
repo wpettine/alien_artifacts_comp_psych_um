@@ -90,7 +90,7 @@ class Trial(models.Model):
     reward = models.BooleanField(null=True)
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()
-    block = models.CharField(max_length=20)
+    block = models.CharField(max_length=100)
     reward_probs_record = models.JSONField(default=dict)
 
 

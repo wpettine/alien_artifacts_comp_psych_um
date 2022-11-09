@@ -551,6 +551,7 @@ def chooseLargest(response, reward_probabilities):
     largest_key = ''.join(keys[indx])
     return largest_chosen, largest_key
 
+
 def getTrialStimulus(request):
     trial_n = request.session['trial_number']
     stimulus_key = STIMULUS_COMBINATIONS_BLOCK_0[request.session['stimulus_order'][trial_n]]
@@ -1021,9 +1022,14 @@ elif (TASK == 'context-generalization') or (TASK == 'context-generalization_v1')
     # TRIALS_PER_STIM_BLOCK_1 = 12 #12  # 5 #If trial order is structured
     # TRIALS_PER_STIM_BLOCK_2 = 10 #10  # 5 #If trial order is structured
 
-    TRIALS_PER_STIM_BLOCK_0 = 2  # 12  # 10 #If trial order is structured
-    TRIALS_PER_STIM_BLOCK_1 = 2  # 12  # 5 #If trial order is structured
-    TRIALS_PER_STIM_BLOCK_2 = 2  # 10  # 5 #If trial order is structured
+    if DEPLOYMENT:
+        TRIALS_PER_STIM_BLOCK_0 = 12  # 12  # 10 #If trial order is structured
+        TRIALS_PER_STIM_BLOCK_1 = 12  # 12  # 5 #If trial order is structured
+        TRIALS_PER_STIM_BLOCK_2 = 10  # 10  # 5 #If trial order is structured
+    else:
+        TRIALS_PER_STIM_BLOCK_0 = 2  # 12  # 10 #If trial order is structured
+        TRIALS_PER_STIM_BLOCK_1 = 2  # 12  # 5 #If trial order is structured
+        TRIALS_PER_STIM_BLOCK_2 = 2  # 10  # 5 #If trial order is structured
 
     STIMULUS_COMBINATIONS_BLOCK_0 = stimulusCombinations(STIMULI_BLOCK_0,reward_rules=REWARD_RULES)
     STIMULUS_COMBINATIONS_BLOCK_1 = stimulusCombinations(STIMULI_BLOCK_1,reward_rules=REWARD_RULES)
