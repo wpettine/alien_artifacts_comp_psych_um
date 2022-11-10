@@ -500,7 +500,7 @@ QUESTIONNAIRE_CONNERS_FULL = {
         'answers': answers,
         'question_number': 2
     },
-    "I don't too much.": {
+    "I don't plan ahead": {
         'subscale': 'Inattention_Memory Problems',
         'answers': answers,
         'question_number': 3
