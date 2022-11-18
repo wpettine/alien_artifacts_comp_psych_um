@@ -10,7 +10,7 @@ from .questionnaires_text import *
 TASK = 'context-generalization_v2' # 'example-generalization', 'context-generalization_v1', 'context-generalization_v2', 'diagnostic'
 
 #What we're using the webapp for
-WEBAPP_USE = 'task' # 'screen', 'task', 'both'
+WEBAPP_USE = 'screen' # 'screen', 'task', 'both'
 GENERALIZATION_FEEDBACK = False
 PROJECT_NAME = 'P50'
 CREATE_NEW_USER = True
@@ -47,8 +47,7 @@ else:
 GENDERS = [('','Please Select Response'),('female', 'Female'), ('male', 'Male'), ('trans_male', 'Trans Male/Trans Man'),
            ('trans_female', 'Trans Female/Trans Woman'),('genderqueer', 'Genderqueer/Gender NonConforming'),
            ('other', 'Different Identity'),('none', 'Prefer not to say')]
-SEX = [('','Plese Select Response'),('female', 'Female'), ('male', 'Male'), ('intersex', 'Intersex'),
-       ('none', 'Prefer not to say')]
+SEX = [('','Plese Select Response'),('female', 'Female'), ('male', 'Male'), ('intersex', 'Intersex')]
 AGES = [('','Please Select Response'),('<10', "Under 10"), ('10-20', '11-20'), ('21-30', '21-30'), ('31-45', '31-45'),
         ('46-65', '46-65'), ('>65', 'Over 65')]
 EDUCATION = [('','Please Select Response'),('<highschool', "Some Highschool"), ('highschool', 'Highschool Graduate'),

@@ -100,6 +100,7 @@ def welcome(request):
                             external_session_ID = ''
                         age = form.cleaned_data["age"]
                         gender = form.cleaned_data["gender"]
+                        sex = form.cleaned_data["sex"]
                         education = form.cleaned_data["education"]
                         start_time = form.cleaned_data["start_time"]
                         #Check if subject exists, if not create them
@@ -108,7 +109,7 @@ def welcome(request):
                                 return alreadyCompleted(request)
                             subject = Subject.objects.filter(external_ID=user_ID)[0]
                         else:
-                            subject = Subject(external_ID=user_ID, age=age, gender=gender,
+                            subject = Subject(external_ID=user_ID, age=age, gender=gender, sex=sex,
                                               education=education,external_source=subject_source)
                             subject.save()
                     else:
