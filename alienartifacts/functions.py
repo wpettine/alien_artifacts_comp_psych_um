@@ -473,8 +473,6 @@ def makeQuestionnaireFormSet(questionnaires):
             }
             initial.append(initial_form)
 
-    # initial = [initial[0], initial[1]]
-
     QuestionnaireFormSet = modelformset_factory(QuestionnaireQ,
                       exclude=('session',),
                       widgets={'questionnaire_name'
@@ -514,11 +512,7 @@ class RegistrationForm(forms.Form):
     gender = forms.CharField(label="Gender identity", required=True, widget=forms.Select(choices=GENDERS))
     start_time = forms.DateTimeField(label='start_time',required=True, widget=forms.HiddenInput())
 
-# class ProlificURLform(forms.Form):
-#     subject_ID = forms.CharField(label="subject_ID", widget=forms.HiddenInput())
-#     session_ID = forms.CharField(label="session_ID", widget=forms.HiddenInput())
-#     study_ID = forms.CharField(label="study_ID", widget=forms.HiddenInput())
-#
+
 class TaskForm(forms.Form):
     key_pressed = forms.CharField(label='key_pressed', max_length=1, widget=forms.HiddenInput())
     start_time = forms.DateTimeField(label='start_time', widget=forms.HiddenInput())

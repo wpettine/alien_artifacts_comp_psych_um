@@ -369,7 +369,7 @@ QUESTIONNAIRE_CONNERS_SCREEN = {
         'question_number': 9
     },
     'I avoid new challenges because I lack faith in my abilities.': {
-        'subscale': 'Problems with Self-concept,ADHD Index',
+        'subscale': 'Problems with Self-Concept,ADHD Index',
         'answers': answers,
         'question_number': 10
     },
@@ -459,7 +459,7 @@ QUESTIONNAIRE_CONNERS_SCREEN = {
         'question_number': 27
     },
     'My past failures make it hard for me to believe in myself.': {
-        'subscale': 'Problems with Self-concept',
+        'subscale': 'Problems with Self-Concept',
         'answers': answers,
         'question_number': 28
     },
@@ -801,7 +801,7 @@ QUESTIONNAIRE_CONNERS_FULL = {
         'question_number': 62
     },
     'My past failures make it hard for me to believe in myself.': {
-        'subscale': 'Problems with Self-concept',
+        'subscale': 'Problems with Self-Concept',
         'answers': answers,
         'question_number': 63
     },
