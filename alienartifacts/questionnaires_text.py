@@ -685,7 +685,7 @@ QUESTIONNAIRE_CONNERS_FULL = {
         'answers': answers,
         'question_number': 39
     },
-    "I can't get things done undless there's an absolute deadline.": {
+    "I can't get things done unless there's an absolute deadline.": {
         'subscale': 'Inattention_Memory Problems,ADHD Index',
         'answers': answers,
         'question_number': 40

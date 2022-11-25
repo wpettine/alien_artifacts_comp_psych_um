@@ -1785,3 +1785,11 @@ INFO "GET /static/style.css HTTP/1.1" 304 0
 INFO Watching for file changes with StatReloader
 INFO "GET /?PROLIFIC_PID=123zxxcv&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4536
 INFO "GET /static/style.css HTTP/1.1" 200 1033
+INFO /Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/questionnaires_text.py changed, reloading.
+INFO Watching for file changes with StatReloader
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123zxxcv&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4536
+INFO "GET /static/style.css HTTP/1.1" 200 1058
+INFO In welcome function
+INFO "GET /welcome HTTP/1.1" 200 859
+INFO "GET /static/style.css HTTP/1.1" 304 0

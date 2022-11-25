@@ -10,7 +10,7 @@ from .questionnaires_text import *
 TASK = 'context-generalization_v2' # 'example-generalization', 'context-generalization_v1', 'context-generalization_v2', 'diagnostic'
 
 #What we're using the webapp for
-WEBAPP_USE = 'screen' # 'screen', 'task', 'both'
+WEBAPP_USE = 'task' # 'screen', 'task', 'both'
 GENERALIZATION_FEEDBACK = False
 PROJECT_NAME = 'P50'
 CREATE_NEW_USER = True

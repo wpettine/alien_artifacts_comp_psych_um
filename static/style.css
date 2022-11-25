@@ -1,6 +1,6 @@
 body {
-    background: white; /* white, black*/
-    color: black; /* black, whitesmoke*/
+    background: black; /* white, black*/
+    color: whitesmoke; /* black, whitesmoke*/
     text-align: center;
     margin-top: 100px;
     margin-bottom: 100px;
@@ -9,7 +9,7 @@ body {
 }
 
 div {
-    color: black; /* black, whitesmoke*/
+    color: whitesmoke; /* black, whitesmoke*/
     font-size: larger;
     padding-bottom: 40px;
 }
@@ -19,7 +19,7 @@ ul {
 }
 
 h2 {
-    color: black; /* black, whitesmoke*/
+    color: whitesmoke; /* black, whitesmoke*/
     font-size: large;
 }
 
@@ -40,7 +40,7 @@ img {
 }
 
 a:link {
-    color: blue; /* blue, limegreen*/
+    color: limegreen; /* blue, limegreen*/
     font-size: x-large;
 }
 
@@ -56,8 +56,8 @@ a:visited {
 }
 
 .form_style {
-    background: white; /* white, black*/
-    color: black; /* black, whitesmoke*/
+    background: black; /* white, black*/
+    color: whitesmoke; /* black, whitesmoke*/
     text-align: left;
     font-size: large;
     margin-top: 20px;
