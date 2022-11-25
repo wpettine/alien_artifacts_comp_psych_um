@@ -1772,3 +1772,13 @@ INFO In instructions function
 INFO "POST /welcome HTTP/1.1" 200 649
 INFO /Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/global_variables.py changed, reloading.
 INFO Watching for file changes with StatReloader
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123zxxcv&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4536
+INFO "GET /static/style.css HTTP/1.1" 200 1017
+INFO In welcome function
+INFO "GET /welcome HTTP/1.1" 200 752
+INFO "GET /static/style.css HTTP/1.1" 304 0
+INFO In welcome function
+INFO In questionnaires function
+INFO "POST /welcome HTTP/1.1" 200 491942
+INFO "GET /static/style.css HTTP/1.1" 304 0

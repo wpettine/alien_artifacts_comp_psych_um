@@ -1,6 +1,6 @@
 body {
-    background: black;
-    color: whitesmoke;
+    background: white; /* white, black*/
+    color: black; /* black, whitesmoke*/
     text-align: center;
     margin-top: 100px;
     margin-bottom: 100px;
@@ -9,7 +9,7 @@ body {
 }
 
 div {
-    color: whitesmoke;
+    color: black; /* black, whitesmoke*/
     font-size: larger;
     padding-bottom: 40px;
 }
@@ -19,7 +19,7 @@ ul {
 }
 
 h2 {
-    color: whitesmoke;
+    color: black; /* black, whitesmoke*/
     font-size: large;
 }
 
@@ -56,8 +56,8 @@ a:visited {
 }
 
 .form_style {
-    background: black;
-    color: whitesmoke;
+    background: white; /* white, black*/
+    color: black; /* black, whitesmoke*/
     text-align: left;
     font-size: large;
     margin-top: 20px;
