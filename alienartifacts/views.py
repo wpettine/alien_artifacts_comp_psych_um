@@ -220,25 +220,6 @@ def welcome(request):
             "recaptcha": recaptcha,
             'welcome_message': welcome_message
         })
-        # See if there's a prolific in the request, and if the user exists in the system
-        # if :
-        #
-        #     if DEPLOYMENT:
-        #         link_url = 'alienartifacts:tutorial'
-        #     else:
-        #         if TASK == 'example-generalization':
-        #             link_url = 'alienartifacts:onepageexamplegentask'
-        #         else:
-        #             link_url = 'alienartifacts:onepagecontextgentask'
-        #     return render(request, "alienartifacts/welcomeback.html", {
-        #         "link_url": link_url
-        #     })
-        # else: # Send them to the page for new users.
-        #     form = RegistrationForm(initial={'start_time': datetime.now()})
-        #     return render(request, "alienartifacts/welcome.html", {
-        #         "form": form,
-        #         "recaptcha": recaptcha
-        #     })
     except Exception as e:
         logger.error('Error in %s', 'consentformProlific', exc_info=e)
 
