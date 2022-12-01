@@ -32,6 +32,7 @@ class Subject(models.Model):
     external_ID = models.CharField(max_length=64)
     external_source = models.CharField(max_length=64)
     age = models.CharField(max_length=20)
+    age_numeric = models.IntegerField(default=0)
     sex = models.CharField(max_length=20,default='')
     gender = models.CharField(max_length=100)
     education = models.CharField(max_length=20)

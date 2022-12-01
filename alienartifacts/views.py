@@ -98,6 +98,7 @@ def welcome(request):
                             external_study_ID = ''
                             external_session_ID = ''
                         age = form.cleaned_data["age"]
+                        age_str = getAgeStr(age, age_list=AGES)
                         gender = form.cleaned_data["gender"]
                         sex = form.cleaned_data["sex"]
                         education = form.cleaned_data["education"]
@@ -108,7 +109,7 @@ def welcome(request):
                                 return alreadyCompleted(request)
                             subject = Subject.objects.filter(external_ID=user_ID)[0]
                         else:
-                            subject = Subject(external_ID=user_ID, age=age, gender=gender, sex=sex,
+                            subject = Subject(external_ID=user_ID, age=age_str, gender=gender, sex=sex, age_numeric=age,
                                               education=education,external_source=subject_source)
                             subject.save()
                     else:
@@ -219,7 +220,6 @@ def welcome(request):
                 Subject.objects.filter(external_ID=request.session['external_ID']).exists()
         welcome_message = createWelcomeMessage(new_user=(existing_subject<1), webapp_use=WEBAPP_USE)
         if existing_subject:            
-            # form = forms.Form()
             form = makeSubstancesModelForm()
         else:            
             form = RegistrationForm(initial={'start_time': datetime.now()})

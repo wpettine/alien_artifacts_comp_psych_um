@@ -1887,3 +1887,253 @@ INFO In instructions function
 INFO "POST /welcome HTTP/1.1" 200 649
 INFO "GET /tutorial HTTP/1.1" 200 5335
 INFO "GET /media/images/reward_diamond_reward_stim_Uza0HcM.png HTTP/1.1" 200 1284663
+INFO /Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/global_variables.py changed, reloading.
+INFO Watching for file changes with StatReloader
+INFO /Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/global_variables.py changed, reloading.
+INFO Watching for file changes with StatReloader
+INFO Watching for file changes with StatReloader
+INFO /Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/global_variables.py changed, reloading.
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123zaxcv&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4536
+INFO In welcome function
+ERROR Error in consentformProlific
+Traceback (most recent call last):
+  File "/Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/views.py", line 229, in welcome
+    'welcome_message': welcome_message
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/template/base.py", line 170, in render
+    return self._render(context)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/template/base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/template/base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/template/base.py", line 905, in render_annotated
+    return self.render(context)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/template/base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/template/base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/template/base.py", line 905, in render_annotated
+    return self.render(context)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/template/base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/template/base.py", line 905, in render_annotated
+    return self.render(context)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/template/base.py", line 988, in render
+    output = self.filter_expression.resolve(context)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/template/base.py", line 671, in resolve
+    obj = self.var.resolve(context)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/template/base.py", line 796, in resolve
+    value = self._resolve_lookup(context)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/template/base.py", line 858, in _resolve_lookup
+    current = current()
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/forms/forms.py", line 297, in as_p
+    errors_on_separate_row=True,
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/forms/forms.py", line 236, in _html_output
+    'field_name': bf.html_name,
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/utils/html.py", line 376, in <lambda>
+    klass.__str__ = lambda self: mark_safe(klass_str(self))
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/forms/boundfield.py", line 34, in __str__
+    return self.as_widget()
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/forms/boundfield.py", line 90, in as_widget
+    attrs = self.build_widget_attrs(attrs, widget)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/forms/boundfield.py", line 225, in build_widget_attrs
+    if widget.use_required_attribute(self.initial) and self.field.required and self.form.use_required_attribute:
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/forms/widgets.py", line 700, in use_required_attribute
+    return use_required_attribute and first_choice is not None and self._choice_has_empty_value(first_choice)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/forms/widgets.py", line 686, in _choice_has_empty_value
+    value, _ = choice
+TypeError: cannot unpack non-iterable numpy.int64 object
+ERROR Internal Server Error: /welcome
+Traceback (most recent call last):
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/core/handlers/base.py", line 188, in _get_response
+    self.check_response(response, callback)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/core/handlers/base.py", line 311, in check_response
+    "instead." % name
+ValueError: The view alienartifacts.views.welcome didn't return an HttpResponse object. It returned None instead.
+ERROR "GET /welcome HTTP/1.1" 500 67017
+INFO /Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/functions.py changed, reloading.
+INFO Watching for file changes with StatReloader
+INFO /Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/models.py changed, reloading.
+INFO Watching for file changes with StatReloader
+INFO /Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/models.py changed, reloading.
+INFO Watching for file changes with StatReloader
+INFO /Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/models.py changed, reloading.
+INFO Watching for file changes with StatReloader
+INFO /Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/migrations/0008_subject_age_numeric.py changed, reloading.
+INFO Watching for file changes with StatReloader
+INFO /Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/views.py changed, reloading.
+INFO Watching for file changes with StatReloader
+INFO Watching for file changes with StatReloader
+INFO /Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/global_variables.py changed, reloading.
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123zaxwv&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4536
+INFO In welcome function
+INFO "GET /welcome HTTP/1.1" 200 2409
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123zaxwv&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4536
+INFO In welcome function
+ERROR Error in consentformProlific
+Traceback (most recent call last):
+  File "/Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/views.py", line 230, in welcome
+    'welcome_message': welcome_message
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/template/base.py", line 170, in render
+    return self._render(context)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/template/base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/template/base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/template/base.py", line 905, in render_annotated
+    return self.render(context)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/template/base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/template/base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/template/base.py", line 905, in render_annotated
+    return self.render(context)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/template/base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/template/base.py", line 905, in render_annotated
+    return self.render(context)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/template/base.py", line 988, in render
+    output = self.filter_expression.resolve(context)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/template/base.py", line 671, in resolve
+    obj = self.var.resolve(context)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/template/base.py", line 796, in resolve
+    value = self._resolve_lookup(context)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/template/base.py", line 858, in _resolve_lookup
+    current = current()
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/forms/forms.py", line 297, in as_p
+    errors_on_separate_row=True,
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/forms/forms.py", line 236, in _html_output
+    'field_name': bf.html_name,
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/utils/html.py", line 376, in <lambda>
+    klass.__str__ = lambda self: mark_safe(klass_str(self))
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/forms/boundfield.py", line 34, in __str__
+    return self.as_widget()
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/forms/boundfield.py", line 90, in as_widget
+    attrs = self.build_widget_attrs(attrs, widget)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/forms/boundfield.py", line 225, in build_widget_attrs
+    if widget.use_required_attribute(self.initial) and self.field.required and self.form.use_required_attribute:
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/forms/widgets.py", line 700, in use_required_attribute
+    return use_required_attribute and first_choice is not None and self._choice_has_empty_value(first_choice)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/forms/widgets.py", line 686, in _choice_has_empty_value
+    value, _ = choice
+TypeError: cannot unpack non-iterable numpy.int64 object
+ERROR Internal Server Error: /welcome
+Traceback (most recent call last):
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/core/handlers/base.py", line 188, in _get_response
+    self.check_response(response, callback)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/core/handlers/base.py", line 311, in check_response
+    "instead." % name
+ValueError: The view alienartifacts.views.welcome didn't return an HttpResponse object. It returned None instead.
+ERROR "GET /welcome HTTP/1.1" 500 67017
+INFO /Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/views.py changed, reloading.
+INFO Watching for file changes with StatReloader
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123zaxwv&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4536
+INFO In welcome function
+ERROR Error in consentformProlific
+Traceback (most recent call last):
+  File "/Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/views.py", line 229, in welcome
+    'welcome_message': welcome_message
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/template/base.py", line 170, in render
+    return self._render(context)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/template/base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/template/base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/template/base.py", line 905, in render_annotated
+    return self.render(context)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/template/base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/template/base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/template/base.py", line 905, in render_annotated
+    return self.render(context)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/template/base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/template/base.py", line 905, in render_annotated
+    return self.render(context)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/template/base.py", line 988, in render
+    output = self.filter_expression.resolve(context)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/template/base.py", line 671, in resolve
+    obj = self.var.resolve(context)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/template/base.py", line 796, in resolve
+    value = self._resolve_lookup(context)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/template/base.py", line 858, in _resolve_lookup
+    current = current()
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/forms/forms.py", line 297, in as_p
+    errors_on_separate_row=True,
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/forms/forms.py", line 236, in _html_output
+    'field_name': bf.html_name,
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/utils/html.py", line 376, in <lambda>
+    klass.__str__ = lambda self: mark_safe(klass_str(self))
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/forms/boundfield.py", line 34, in __str__
+    return self.as_widget()
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/forms/boundfield.py", line 90, in as_widget
+    attrs = self.build_widget_attrs(attrs, widget)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/forms/boundfield.py", line 225, in build_widget_attrs
+    if widget.use_required_attribute(self.initial) and self.field.required and self.form.use_required_attribute:
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/forms/widgets.py", line 700, in use_required_attribute
+    return use_required_attribute and first_choice is not None and self._choice_has_empty_value(first_choice)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/forms/widgets.py", line 686, in _choice_has_empty_value
+    value, _ = choice
+TypeError: cannot unpack non-iterable numpy.int64 object
+ERROR Internal Server Error: /welcome
+Traceback (most recent call last):
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/core/handlers/base.py", line 188, in _get_response
+    self.check_response(response, callback)
+  File "/Users/wpettine/opt/anaconda3/envs/py37aa/lib/python3.7/site-packages/django/core/handlers/base.py", line 311, in check_response
+    "instead." % name
+ValueError: The view alienartifacts.views.welcome didn't return an HttpResponse object. It returned None instead.
+ERROR "GET /welcome HTTP/1.1" 500 67017
+INFO Watching for file changes with StatReloader
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123zaxwv&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4536
+INFO In welcome function
+INFO Watching for file changes with StatReloader
+INFO In welcome function
+INFO "GET /welcome HTTP/1.1" 200 4880
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123zaxwv&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4536
+INFO In welcome function
+INFO "GET /welcome HTTP/1.1" 200 4950
+INFO In welcome function
+INFO In instructions function
+INFO "POST /welcome HTTP/1.1" 200 649

@@ -1,10 +1,11 @@
 import os
+import numpy as np
 from .questionnaires_text import *
 
 
 #### USE THESE FOR DEBUGGING
-# http://127.0.0.1:8000/?PROLIFIC_PID=123zxxcv&SESSION_ID=456&STUDY_ID=789
-# https://umalienartifactstask.azurewebsites.net?PROLIFIC_PID=12xxcv&SESSION_ID=456&STUDY_ID=787
+# http://127.0.0.1:8000/?PROLIFIC_PID=123zaxwv&SESSION_ID=456&STUDY_ID=789
+# https://umalienartifactstask.azurewebsites.net?PROLIFIC_PID=12xacv&SESSION_ID=456&STUDY_ID=787
 
 #Choose task
 TASK = 'context-generalization_v2' # 'example-generalization', 'context-generalization_v1', 'context-generalization_v2', 'diagnostic'
@@ -49,6 +50,7 @@ GENDERS = [('','Please Select Response'),('female', 'Female'), ('male', 'Male'),
 SEX = [('','Plese Select Response'),('female', 'Female'), ('male', 'Male')]
 AGES = [('','Please Select Response'),('<10', "Under 10"), ('10-20', '11-20'), ('21-30', '21-30'), ('31-45', '31-45'),
         ('46-65', '46-65'), ('>65', 'Over 65')]
+AGES_NUMERIC = [(None,'Please Select Response')] + [(i,i) for i in np.arange(18,100).astype(int)]
 EDUCATION = [('','Please Select Response'),('<highschool', "Some Highschool"), ('highschool', 'Highschool Graduate'),
              ('<college', 'Some College'),
              ('college', 'College Graduate'), ('postgrad', 'Postgraduate')]

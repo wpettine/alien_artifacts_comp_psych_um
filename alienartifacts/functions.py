@@ -506,7 +506,8 @@ class RegistrationForm(forms.Form):
         user_ID = forms.CharField(label="Your ID Number")
         subject_source = forms.CharField(label="Who Sent You", required=True,
                                          widget=forms.Select(choices=SUBJECT_SOURCES))
-    age = forms.CharField(label="Age", required=True, widget=forms.Select(choices=AGES))
+    # age = forms.CharField(label="Age", required=True, widget=forms.Select(choices=AGES))
+    age = forms.IntegerField(label="Age", required=True, widget=forms.Select(choices=AGES_NUMERIC))
     education = forms.CharField(label="Education Level", required=True, widget=forms.Select(choices=EDUCATION))
     sex = forms.CharField(label="Sex assigned at birth", required=True, widget=forms.Select(choices=SEX))
     gender = forms.CharField(label="Gender identity", required=True, widget=forms.Select(choices=GENDERS))
@@ -530,6 +531,7 @@ class strategyForm(forms.Form):
 class difficultyForm(forms.Form):
     perceived_difficulty = forms.ChoiceField(choices=DIFFICULTY, widget=forms.RadioSelect(attrs={'class': "custom-radio-list"}), label=False)
 
+
 class attentionCheckList(forms.Form):
     label = 'Have you been reading closely? If so, choose prosochiphelia from the following fake conditions.'
     attention_checkbox = forms.CharField(label=label, required=False, widget=\
@@ -537,6 +539,23 @@ class attentionCheckList(forms.Form):
 
 
 # Helper and analysis functions
+def getAgeStr(age_numeric,age_list=None):
+    if age_list is None:
+        age_list = AGES
+    for age_ in age_list:
+        if '<' in age_[0]:
+            age_min, age_max = 0, int(age_[0].split('<')[1])
+        elif '>' in age_[0]:
+            age_min, age_max = int(age_[0].split('>')[1]), np.inf
+        elif '-' in age_[0]:
+            age_min, age_max = int(age_[0].split('-')[0]), int(age_[0].split('-')[1])
+        else:
+            continue
+        if (age_numeric >= age_min) & (age_numeric < age_max):
+            age_str = age_[0]
+            break
+    return age_str
+
 def chooseLargest(response, reward_probabilities):
     vals = np.array(list(reward_probabilities.values()))
     keys = np.array(list(reward_probabilities.keys()))
