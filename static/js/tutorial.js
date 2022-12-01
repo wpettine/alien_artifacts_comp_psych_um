@@ -117,7 +117,8 @@ function tutorialTask() {
             console.log(`Choice record mean ${mean(choice_record)}`)
             if (mean(choice_record) < 0.8) {
                 if (n_sessions >= session_max) {
-                    document.querySelector(`#goodbye`).style.display = 'block';
+                    // document.querySelector(`#goodbye`).style.display = 'block';
+                    document.querySelector(`#to-goobye`).style.display = 'block';
                 } else {
                     document.querySelector(`#not_good_enough`).style.display = 'block';
                     trial_num = 0;
@@ -206,7 +207,6 @@ function runTutorial() {
             document.querySelector(`#instruction_8`).style.display = 'block';
             document.querySelector(`#to-task`).style.display = 'block';
     }
-
 }
 
 document.addEventListener('DOMContentLoaded', function () {

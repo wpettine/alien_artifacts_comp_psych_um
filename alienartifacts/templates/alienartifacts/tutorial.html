@@ -65,7 +65,7 @@
     </div>
 
     <div id="instruction_8" style="display: none;">
-        Congratulations! You're onto the real task, getting money out of alien artifacts. You will be paid based on
+        Congratulations! You're on to the real task, getting money out of alien artifacts. You will be paid based on
         your performance, so do the best you can!
     </div>
 
@@ -96,6 +96,8 @@
     </div>
 
     <a id="to-task" href="{% url task_link %}" style="display: none;">To the artifacts!</a>
+
+    <a id="to-goobye" href="{% url goodbye_link %}" style="display: none;">Inspect the rockets.</a>
 
     <div id="image_shown">
     {% for url in stimulus_urls %}

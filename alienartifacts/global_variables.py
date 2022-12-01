@@ -31,7 +31,6 @@ elif WEBAPP_USE == 'both':
     PAYMENT_TOKEN = 'PBLE9Z0Z'
     ATTENTION_FAILURE_TOKEN = 'Q1L4XV7L'
 
-
 # Specific  text
 INSTRUCTIONS = "You're a space pirate roving the galaxy, trying to get rich. On this quest for fame \
             and fortune, you come across a store of alien artifacts. They hold incredible power - if you can figure out \
@@ -47,7 +46,7 @@ else:
 GENDERS = [('','Please Select Response'),('female', 'Female'), ('male', 'Male'), ('trans_male', 'Trans Male/Trans Man'),
            ('trans_female', 'Trans Female/Trans Woman'),('genderqueer', 'Genderqueer/Gender NonConforming'),
            ('other', 'Different Identity'),('none', 'Prefer not to say')]
-SEX = [('','Plese Select Response'),('female', 'Female'), ('male', 'Male'), ('intersex', 'Intersex')]
+SEX = [('','Plese Select Response'),('female', 'Female'), ('male', 'Male')]
 AGES = [('','Please Select Response'),('<10', "Under 10"), ('10-20', '11-20'), ('21-30', '21-30'), ('31-45', '31-45'),
         ('46-65', '46-65'), ('>65', 'Over 65')]
 EDUCATION = [('','Please Select Response'),('<highschool', "Some Highschool"), ('highschool', 'Highschool Graduate'),

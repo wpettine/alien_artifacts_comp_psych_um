@@ -444,7 +444,7 @@ QUESTIONNAIRE_CONNERS_SCREEN = {
         'question_number': 24
     },
     'I give answers to questions before the questions have been completed.': {
-        'subscale': 'Hyperactive-Impulsive Symptoms',
+        'subscale': 'DSM-IV Hyperactive-Impulsive Symptoms',
         'answers': answers,
         'question_number': 25
     },
@@ -776,7 +776,7 @@ QUESTIONNAIRE_CONNERS_FULL = {
         'question_number': 57
     },
     'I give answers to questions before the questions have been completed.': {
-        'subscale': 'Hyperactive-Impulsive Symptoms',
+        'subscale': 'DSM-IV Hyperactive-Impulsive Symptoms',
         'answers': answers,
         'question_number': 58
     },

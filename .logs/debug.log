@@ -1793,3 +1793,97 @@ INFO "GET /static/style.css HTTP/1.1" 200 1058
 INFO In welcome function
 INFO "GET /welcome HTTP/1.1" 200 859
 INFO "GET /static/style.css HTTP/1.1" 304 0
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123zxxcv&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4536
+INFO "GET /static/style.css HTTP/1.1" 200 1058
+WARNING Not Found: /favicon.ico
+WARNING "GET /favicon.ico HTTP/1.1" 404 5562
+INFO In welcome function
+INFO "GET /welcome HTTP/1.1" 200 859
+INFO In welcome function
+INFO In instructions function
+INFO "POST /welcome HTTP/1.1" 200 649
+INFO "GET /tutorial HTTP/1.1" 200 5330
+INFO "GET /static/js/tutorial.js HTTP/1.1" 200 6620
+INFO "GET /media/images/noreward_diamond_reward_stim_2dKz0ZE.png HTTP/1.1" 200 51344
+INFO "GET /media/images/purple-spaceship_green-planet_qIq0lyv.png HTTP/1.1" 200 154035
+INFO "GET /media/images/no-spaceship_blue-planet_2a7iLhv.png HTTP/1.1" 200 134106
+INFO "GET /media/images/blue-spaceship_tan-planet_x7ebDjR.png HTTP/1.1" 200 161819
+INFO "GET /media/images/red-spaceship_space_oxrn8zW.png HTTP/1.1" 200 195879
+INFO "GET /media/images/no-spaceship_gold-planet_MSoSU1g.png HTTP/1.1" 200 113793
+INFO "GET /media/images/green-spaceship_space_cRbAqp5.png HTTP/1.1" 200 152060
+INFO "GET /media/images/reward_diamond_reward_stim_Uza0HcM.png HTTP/1.1" 200 1284663
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123zxxcv&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4536
+INFO "GET /static/style.css HTTP/1.1" 200 1058
+WARNING Not Found: /favicon.ico
+WARNING "GET /favicon.ico HTTP/1.1" 404 5562
+INFO In welcome function
+INFO "GET /welcome HTTP/1.1" 200 859
+INFO In welcome function
+INFO In instructions function
+INFO "POST /welcome HTTP/1.1" 200 649
+INFO "GET /tutorial HTTP/1.1" 200 5330
+INFO "GET /static/js/tutorial.js HTTP/1.1" 200 6813
+INFO "GET /media/images/noreward_diamond_reward_stim_2dKz0ZE.png HTTP/1.1" 200 51344
+INFO "GET /media/images/no-spaceship_blue-planet_2a7iLhv.png HTTP/1.1" 200 134106
+INFO "GET /media/images/red-spaceship_space_oxrn8zW.png HTTP/1.1" 200 195879
+INFO "GET /media/images/green-spaceship_space_cRbAqp5.png HTTP/1.1" 200 152060
+INFO "GET /media/images/purple-spaceship_green-planet_qIq0lyv.png HTTP/1.1" 200 154035
+INFO "GET /media/images/blue-spaceship_tan-planet_x7ebDjR.png HTTP/1.1" 200 161819
+INFO "GET /media/images/no-spaceship_gold-planet_MSoSU1g.png HTTP/1.1" 200 113793
+INFO "GET /media/images/reward_diamond_reward_stim_Uza0HcM.png HTTP/1.1" 200 1284663
+INFO "GET /token HTTP/1.1" 200 371
+INFO /Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/views.py changed, reloading.
+INFO Watching for file changes with StatReloader
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123zxxcv&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4536
+INFO "GET /static/style.css HTTP/1.1" 200 1058
+WARNING Not Found: /apple-touch-icon-precomposed.png
+WARNING "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 5625
+WARNING Not Found: /apple-touch-icon.png
+WARNING "GET /apple-touch-icon.png HTTP/1.1" 404 5589
+WARNING Not Found: /favicon.ico
+WARNING "GET /favicon.ico HTTP/1.1" 404 5562
+INFO In welcome function
+INFO "GET /welcome HTTP/1.1" 200 859
+INFO In welcome function
+INFO In instructions function
+INFO "POST /welcome HTTP/1.1" 200 649
+INFO "GET /tutorial HTTP/1.1" 200 5330
+INFO "GET /static/js/tutorial.js HTTP/1.1" 200 7080
+INFO "GET /media/images/noreward_diamond_reward_stim_2dKz0ZE.png HTTP/1.1" 200 51344
+INFO "GET /media/images/no-spaceship_blue-planet_2a7iLhv.png HTTP/1.1" 200 134106
+INFO "GET /media/images/blue-spaceship_tan-planet_x7ebDjR.png HTTP/1.1" 200 161819
+INFO "GET /media/images/purple-spaceship_green-planet_qIq0lyv.png HTTP/1.1" 200 154035
+INFO "GET /media/images/green-spaceship_space_cRbAqp5.png HTTP/1.1" 200 152060
+INFO "GET /media/images/red-spaceship_space_oxrn8zW.png HTTP/1.1" 200 195879
+INFO "GET /media/images/no-spaceship_gold-planet_MSoSU1g.png HTTP/1.1" 200 113793
+INFO "GET /media/images/reward_diamond_reward_stim_Uza0HcM.png HTTP/1.1" 200 1284663
+INFO "GET /token HTTP/1.1" 200 482
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123zxxcv&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4536
+INFO In welcome function
+INFO "GET /welcome HTTP/1.1" 200 859
+INFO In welcome function
+INFO In instructions function
+INFO "POST /welcome HTTP/1.1" 200 649
+INFO "GET /tutorial HTTP/1.1" 200 5330
+INFO "GET /static/js/tutorial.js HTTP/1.1" 200 6812
+INFO "GET /static/js/tutorial.js HTTP/1.1" 200 6812
+INFO "GET /token HTTP/1.1" 200 482
+INFO /Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/views.py changed, reloading.
+INFO Watching for file changes with StatReloader
+INFO /Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/views.py changed, reloading.
+INFO Watching for file changes with StatReloader
+INFO /Users/wpettine/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/views.py changed, reloading.
+INFO Watching for file changes with StatReloader
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123zxxcv&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4536
+INFO In welcome function
+INFO "GET /welcome HTTP/1.1" 200 2309
+INFO In welcome function
+INFO In instructions function
+INFO "POST /welcome HTTP/1.1" 200 649
+INFO "GET /tutorial HTTP/1.1" 200 5335
+INFO "GET /media/images/reward_diamond_reward_stim_Uza0HcM.png HTTP/1.1" 200 1284663

@@ -55,9 +55,9 @@ def consentformProlific(request):
 
 def welcome(request):
     logger.info('In welcome function')
+    check_sustance_form = False
     try:
         # return render(request, "alienartifacts/welcome.html")
-        
         if request.method == "POST":
             # Check the reCAPTCHA
             recaptcha_valid = True            
@@ -77,7 +77,6 @@ def welcome(request):
                 if not result['success']:
                     recaptcha_valid = False
             if recaptcha_valid:
-                
                 # Check if a new user needs to be created
                 if (not 'external_ID' in request.session) or(('external_ID' in request.session) and\
                         (not Subject.objects.filter(external_ID=request.session['external_ID']).exists())):
@@ -120,6 +119,7 @@ def welcome(request):
                     external_session_ID = request.session['external_session_ID']
                     subject = Subject.objects.filter(external_ID=user_ID)[0]
                     start_time = datetime.now()
+                    check_sustance_form = True
                 #Create a new Session
                 payment_token = getPaymentToken()
                 end_time = datetime.now()  # Will update on each refresh
@@ -184,6 +184,13 @@ def welcome(request):
                     session.task = TASK
                 session.project = PROJECT_NAME
                 session.save()
+                # If we need to check for substances
+                if check_sustance_form:
+                    form_substance = substancesModelForm(request.POST, instance=session)
+                    if form_substance.is_valid():
+                        form_substance.save()
+                    else:
+                        raise ValueError('Problem with the checking substances in the welcome view')
                 #Set variables for this visit to the site
                 request.session['session_ID'] = session.id
                 request.session['subject_ID'] = subject.id
@@ -212,7 +219,8 @@ def welcome(request):
                 Subject.objects.filter(external_ID=request.session['external_ID']).exists()
         welcome_message = createWelcomeMessage(new_user=(existing_subject<1), webapp_use=WEBAPP_USE)
         if existing_subject:            
-            form = forms.Form()
+            # form = forms.Form()
+            form = makeSubstancesModelForm()
         else:            
             form = RegistrationForm(initial={'start_time': datetime.now()})
         return render(request, "alienartifacts/welcome.html", {
@@ -344,6 +352,7 @@ def tutorial(request):
         task_link = 'alienartifacts:onepagecontextgentask'
     elif TASK == 'diagnostic':
         task_link = 'alienartifacts:onepagediagnostic'
+    goodbye_link = 'alienartifacts:token'
 
     return render(request, "alienartifacts/tutorial.html", {
         'stimulus_urls': stimulus_urls,
@@ -354,7 +363,8 @@ def tutorial(request):
         'valid_keys': valid_keys,
         'instruction_stimuli': instruction_stimuli,
         'payment_token': payment_token,
-        'task_link': task_link
+        'task_link': task_link,
+        'goodbye_link': goodbye_link
     })
 
 
@@ -730,9 +740,22 @@ def feedback(request,response):
 def token(request):
     session = Session.objects.filter(id=request.session['session_ID'])[0]
     payment_token = session.payment_token
+    if session.tutorial_completed is False:
+        session.tutorial_completed = True
+        session.task_completed = False
+        session.session_completed = False
+        session.end_time = datetime.now()  # Will update on each refresh
+        session.save()
+        token_message = f"Unfortunately, looks like you're having trouble learning the task. Space just isn't for you. " +\
+                       "Even so, we'll give you a reward for trying. Back where you came from, enter the payment " +\
+                        f"token: {PAYMENT_TOKEN}"
+        return render(request, "alienartifacts/token.html", {
+            # 'payment_token': payment_token,
+            'token_message': token_message
+        })
     if WEBAPP_USE == 'screen':
         token_message = f'Thanks for taking the time to answer the questions! We will analyze your responses and ' + \
-            f'determine if you are eligible for future studies. Your payment token for the task is {payment_token}. ' +\
+            f'determine if you are eligible for future studies. Your payment token for the task is: {payment_token}. ' +\
             'To register for payment, please enter that token in the Prolific page. You can close this window.'
     elif (WEBAPP_USE == 'task') or (WEBAPP_USE == 'both'):
         token_message = f'Your payment code for the task is {payment_token}. To register for payment, please enter ' + \
