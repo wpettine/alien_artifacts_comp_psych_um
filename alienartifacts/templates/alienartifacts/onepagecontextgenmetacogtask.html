@@ -1,0 +1,83 @@
+{% extends "alienartifacts/layout.html" %}
+
+
+{% block body %}
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    {{ valid_keys_response|json_script:"valid_keys_response" }}
+    {{ valid_keys_confidence|json_script:"valid_keys_confidence" }}
+
+    <script type="text/javascript">
+        var valid_keys_response = JSON.parse(document.getElementById('valid_keys_response').textContent);
+        var valid_keys_confidence = JSON.parse(document.getElementById('valid_keys_confidence').textContent);
+    </script>
+
+    <script type="text/javascript">
+    var updateurl = "{% url 'alienartifacts:onepagecontextgenupdate' %}";
+    {#var goodbyeurl = "{% url 'alienartifacts:goodbye' %}";#}
+    var goodbyeurl = "{% url 'alienartifacts:onepagecontextgentask' %}";
+    var block_trial_number = 0;
+    var stimuli = {{ stimuli }};
+    var responses = new Array();
+    var confidence = new Array();
+    var hues = {{ obscured | safe }};
+    var start_times = new Array();
+    var end_times = new Array();
+    var feedback_bool =  {{ feedback_bool|yesno:"true,false" }}
+    var total_possible = 0;
+    var block_possible = 0;
+    var total_earned = 0;
+    var block_earned = 0;
+    var listening_response = false;
+    var listening_confidence = false;
+    var last = false;
+
+    </script>
+
+
+    {% load static %}
+    <script src="{% static 'js/onepagecontextgenmetacogtask.js' %}"></script>
+
+    <h2 id="instructions" style="display: none;">
+    {{ response_text }}
+    </h2>
+
+    <div id="planet_intro">
+    {{ planet_intro|linebreaks }}
+    </div>
+
+    <div id="image_shown">
+    {% for url in stimulus_urls %}
+        <img id="stimulus_{{ forloop.counter0 }}" alt="stimulus_{{ forloop.counter0 }}" src="{{ url }}" style="display: none;" class="center">
+    {% endfor %}
+    </div>
+
+
+    <div id="feedback_correct" style="display: none;">
+        Rewarded! The power is growing...
+        <img id="rewarded_stim" src="{{ reward_stim_urls.0 }}" style="display: none;" class="center">
+    </div>
+
+
+    <div id="feedback_incorrect" style="display: none;">
+        Nothing happens. Bummer
+        <img id="nonrewarded_stim" src="{{ reward_stim_urls.1 }}" style="display: none;" class="center">
+    </div>
+
+    <div id="confidence_estimate" style="display: none;">
+        How confident are you that you chose the right action?
+
+        0% (Press 0)
+        33% (Press 1)
+        66% (Press 2)
+        100% (Press 3)
+
+    </div>
+
+
+    <div id="results_summary">
+
+    </div>
+
+
+{% endblock %}
