@@ -2137,3 +2137,9 @@ INFO "GET /welcome HTTP/1.1" 200 4950
 INFO In welcome function
 INFO In instructions function
 INFO "POST /welcome HTTP/1.1" 200 649
+INFO Watching for file changes with StatReloader
+INFO Watching for file changes with StatReloader
+INFO "GET / HTTP/1.1" 200 4536
+INFO "GET /static/style.css HTTP/1.1" 200 1058
+WARNING Not Found: /favicon.ico
+WARNING "GET /favicon.ico HTTP/1.1" 404 5562
