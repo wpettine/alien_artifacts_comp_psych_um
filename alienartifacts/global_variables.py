@@ -100,7 +100,7 @@ else:
 
 # Task Structure
 
-SINGLE_PAGE_BLOCK_LENGTH = 10 # 10
+SINGLE_PAGE_BLOCK_LENGTH = 80 # 10
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 STRUCTURED = True
 PAYMENT_TOKEN_LENGTH = 16
