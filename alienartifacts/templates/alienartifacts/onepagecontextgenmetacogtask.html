@@ -13,9 +13,9 @@
     </script>
 
     <script type="text/javascript">
-    var updateurl = "{% url 'alienartifacts:onepagecontextgenupdate' %}";
+    var updateurl = "{% url 'alienartifacts:onepagecontextgenmetacogupdate' %}";
     {#var goodbyeurl = "{% url 'alienartifacts:goodbye' %}";#}
-    var goodbyeurl = "{% url 'alienartifacts:onepagecontextgentask' %}";
+    var goodbyeurl = "{% url 'alienartifacts:onepagecontextgenmetacogtask' %}";
     var block_trial_number = 0;
     var stimuli = {{ stimuli }};
     var responses = new Array();
@@ -31,6 +31,8 @@
     var listening_response = false;
     var listening_confidence = false;
     var last = false;
+    var key_pressed_response = 'q'
+    var key_pressed_confidence = 'q'
 
     </script>
 
@@ -66,12 +68,14 @@
 
     <div id="confidence_estimate" style="display: none;">
         How confident are you that you chose the right action?
-
-        0% (Press 0)
-        33% (Press 1)
-        66% (Press 2)
-        100% (Press 3)
-
+        <br><br>
+        0% (Press 1)
+        <br>
+        33% (Press 2)
+        <br>
+        66% (Press 3)
+        <br>
+        100% (Press 4)
     </div>
 
 
