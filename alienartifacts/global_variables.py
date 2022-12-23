@@ -12,11 +12,12 @@ TASK = 'context-generalization_v2' # 'example-generalization', 'context-generali
 
 #What we're using the webapp for
 WEBAPP_USE = 'task' # 'screen', 'task', 'both'
+# SOURCE = 'prolific' # 'prolific', 'internal'
 GENERALIZATION_FEEDBACK = False
 CONFIDENCE_REPORT = True
 PROJECT_NAME = 'P50'
 CREATE_NEW_USER = True
-PROLIFIC = True
+PROLIFIC = False
 
 # Specify if deploying
 DEPLOYMENT = True
@@ -41,7 +42,8 @@ EXIT_TEXT = "Good work Space Pirate! You accumulated %d units of energy from the
 
 # Questions
 if DEPLOYMENT:
-    SUBJECT_SOURCES = [("prolific", "Prolific"),('amazon', "Amazon Mechanical Turk"), ("pavlovia", "Pavlovia")]
+    # SUBJECT_SOURCES = [("prolific", "Prolific"),('amazon', "Amazon Mechanical Turk"), ("pavlovia", "Pavlovia")]
+    SUBJECT_SOURCES = [('internal', 'Internal')]
 else:
     SUBJECT_SOURCES = [('internal', 'Internal')]
 

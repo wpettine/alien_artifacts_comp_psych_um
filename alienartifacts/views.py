@@ -95,8 +95,8 @@ def welcome(request):
                         else:
                             user_ID = form.cleaned_data["user_ID"]
                             subject_source = form.cleaned_data["subject_source"]
-                            external_study_ID = ''
-                            external_session_ID = ''
+                            external_study_ID = 'foo'
+                            external_session_ID = 'bar'
                         age = form.cleaned_data["age"]
                         age_str = getAgeStr(age, age_list=AGES)
                         gender = form.cleaned_data["gender"]

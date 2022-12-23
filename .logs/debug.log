@@ -2481,3 +2481,30 @@ INFO "GET /media/images/no-spaceship_gold-planet_MSoSU1g.png HTTP/1.1" 200 11379
 INFO "GET /media/images/red-spaceship_space_oxrn8zW.png HTTP/1.1" 200 195879
 INFO "GET /media/images/reward_diamond_reward_stim_Uza0HcM.png HTTP/1.1" 200 1284663
 INFO Watching for file changes with StatReloader
+INFO Watching for file changes with StatReloader
+INFO "GET / HTTP/1.1" 200 4536
+INFO In welcome function
+INFO "GET /welcome HTTP/1.1" 200 2309
+INFO In welcome function
+INFO In instructions function
+INFO "POST /welcome HTTP/1.1" 200 654
+INFO "GET /tutorialmetacog HTTP/1.1" 200 5849
+INFO "GET /static/js/tutorialmetacog.js HTTP/1.1" 200 7257
+INFO "GET /static/js/tutorialmetacog.js HTTP/1.1" 200 7257
+INFO Watching for file changes with StatReloader
+INFO "GET / HTTP/1.1" 200 4536
+INFO In welcome function
+INFO "GET /welcome HTTP/1.1" 200 2309
+INFO In welcome function
+INFO In instructions function
+INFO "POST /welcome HTTP/1.1" 200 654
+INFO Watching for file changes with StatReloader
+INFO "GET / HTTP/1.1" 200 4536
+INFO In welcome function
+INFO Watching for file changes with StatReloader
+INFO "GET / HTTP/1.1" 200 4536
+INFO "GET /static/style.css HTTP/1.1" 200 1058
+WARNING Not Found: /favicon.ico
+WARNING "GET /favicon.ico HTTP/1.1" 404 6176
+INFO In welcome function
+INFO "GET /welcome HTTP/1.1" 200 5235
