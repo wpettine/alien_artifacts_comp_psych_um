@@ -13,6 +13,7 @@ TASK = 'context-generalization_v2' # 'example-generalization', 'context-generali
 #What we're using the webapp for
 WEBAPP_USE = 'task' # 'screen', 'task', 'both'
 GENERALIZATION_FEEDBACK = False
+CONFIDENCE_REPORT = True
 PROJECT_NAME = 'P50'
 CREATE_NEW_USER = True
 PROLIFIC = True
@@ -63,7 +64,9 @@ MH_HISTORY = [('asd','Autism spectrum disorder'),('adhd','Attention deficit hype
               ('schizotypy','Schizotypal personality'),('addiction','Substance use disorder')]
 ATTENTION_CHECK_HISTORY = [('fail_attention_check','Femur dissolution'),('fail_attention_check','Malconforsethia'),
               ('pass_attention_check','Prosochiphelia'),('fail_attention_check','Retinal dermatitis')]
-
+VALID_CONFIDENCE_KEYS = ['1','2','3','4']
+CONVERSION_CONFIDENCE_KEYS = {'confidence': list(np.linspace(0,1,len(VALID_CONFIDENCE_KEYS))),
+                              'keys': VALID_CONFIDENCE_KEYS}
 
 if ATTENTION_CHECK:
     QUESTIONNAIRES = {

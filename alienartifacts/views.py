@@ -140,7 +140,8 @@ def welcome(request):
                         session = Session(start_time=start_time, end_time=end_time, payment_token=payment_token,
                                     subject=subject, conditioning_attributes=conditioning,key_conversion=conversion,
                                     external_study_ID=external_study_ID,external_session_ID=external_session_ID,
-                                    generalization_attributes=generalization)
+                                    generalization_attributes=generalization,
+                                    confidence_key_conversion=CONVERSION_CONFIDENCE_KEYS)
                         #Organize Stimulus Information
                         stimulus_order_block_0 = getStimulusOrder(STIMULUS_COMBINATIONS_BLOCK_0, N_TRIALS_BLOCK_0,
                                                       trials_per_stim=TRIALS_PER_STIM_BLOCK_0, structured=STRUCTURED)
@@ -161,7 +162,7 @@ def welcome(request):
                         session = Session(start_time=start_time, end_time=end_time, payment_token=payment_token,
                                     subject=subject, set_1_attribute=set_1, set_2_attribute=set_2,
                                     external_study_ID=external_study_ID,external_session_ID=external_session_ID,
-                                    key_conversion=conversion)
+                                    key_conversion=conversion, confidence_key_conversion=CONVERSION_CONFIDENCE_KEYS)
                         stimulus_order_block_0 = getStimulusOrder(STIMULUS_COMBINATIONS_BLOCK_0, N_TRIALS_BLOCK_0,
                                                                   trials_per_stim=TRIALS_PER_STIM_BLOCK_0,
                                                                   structured=STRUCTURED)
@@ -349,7 +350,10 @@ def tutorial(request):
         task_link = 'alienartifacts:onepageexamplegentask'
     elif (TASK == 'context-generalization') or (TASK == 'context-generalization_v1') or \
             (TASK == 'context-generalization_v2'):
-        task_link = 'alienartifacts:onepagecontextgentask'
+        if CONFIDENCE_REPORT:
+            task_link = 'alienartifacts:onepagecontextgenmetacogtask'
+        else:
+            task_link = 'alienartifacts:onepagecontextgentask'
     elif TASK == 'diagnostic':
         task_link = 'alienartifacts:onepagediagnostic'
     goodbye_link = 'alienartifacts:token'
@@ -368,6 +372,59 @@ def tutorial(request):
     })
 
 
+def tutorialmetacog(request):
+    stimuli = TutorialStimulus.objects.all()
+    session = Session.objects.filter(id=request.session['session_ID'])[0]
+    payment_token = session.payment_token
+    stimulus_urls = []
+    spaceship = []
+    setting = []
+    reward_probabilities = []
+    valid_keys = []
+    for s in range(len(stimuli)):
+        stimulus_urls.append(stimuli[s].image.url)
+        spaceship.append(stimuli[s].spaceship)
+        setting.append(stimuli[s].setting)
+        reward_probabilities.append(list(stimuli[s].reward_probabilities.values()))
+        valid_keys.append(list(stimuli[s].reward_probabilities.keys()))
+    instruction_stimuli = [
+        ['green-spaceship', 'space'],
+        ['red-spaceship', 'space'],
+        ['blue-spaceship', 'tan-planet'],
+        ['purple-spaceship', 'green-planet'],
+        ['no-spaceship', 'gold-planet'],
+        ['no-spaceship', 'blue-planet'],
+        ['no-spaceship', 'gold-planet']
+    ]
+    reward_stim_urls = [RewardStimulus.objects.filter(outcome='reward',type='diamond').first().image.url,
+                        RewardStimulus.objects.filter(outcome='noreward',type='diamond').first().image.url]
+    if TASK == 'example-generalization':
+        task_link = 'alienartifacts:onepageexamplegentask'
+    elif (TASK == 'context-generalization') or (TASK == 'context-generalization_v1') or \
+            (TASK == 'context-generalization_v2'):
+        if CONFIDENCE_REPORT:
+            task_link = 'alienartifacts:onepagecontextgenmetacogtask'
+        else:
+            task_link = 'alienartifacts:onepagecontextgentask'
+    elif TASK == 'diagnostic':
+        task_link = 'alienartifacts:onepagediagnostic'
+    goodbye_link = 'alienartifacts:token'
+
+    return render(request, "alienartifacts/tutorialmetacog.html", {
+        'stimulus_urls': stimulus_urls,
+        'reward_stim_urls': reward_stim_urls,
+        'spaceship': spaceship,
+        'setting': setting,
+        'reward_probabilities': reward_probabilities,
+        'valid_keys_response': valid_keys,
+        'valid_keys_confidence': VALID_CONFIDENCE_KEYS,
+        'instruction_stimuli': instruction_stimuli,
+        'payment_token': payment_token,
+        'task_link': task_link,
+        'goodbye_link': goodbye_link
+    })
+
+
 def alreadyCompleted(request):
     return render(request,"alienartifacts/alreadycompleted.html")
 
@@ -375,13 +432,19 @@ def alreadyCompleted(request):
 def instructions(request):
     logger.info('In instructions function')
     if DEPLOYMENT:
-        link_url = 'alienartifacts:tutorial'
+        if CONFIDENCE_REPORT:
+            link_url = 'alienartifacts:tutorialmetacog'
+        else:
+            link_url = 'alienartifacts:tutorial'
     else:
         if TASK == 'example-generalization':
             link_url = 'alienartifacts:onepageexamplegentask'
         elif (TASK == 'context-generalization') or (TASK == 'context-generalization_v1') or \
                 (TASK == 'context-generalization_v2'):
-            link_url = 'alienartifacts:onepagecontextgentask'
+            if CONFIDENCE_REPORT:
+                link_url = 'alienartifacts:onepagecontextgenmetacogtask'
+            else:
+                link_url = 'alienartifacts:onepagecontextgentask'
         elif TASK == 'diagnostic':
             link_url = 'alienartifacts:onepagediagnostic'
     #Provide the user instructions on how to perform the task
@@ -673,6 +736,148 @@ def onePageDiagnosticUpdate(request):
             "diagnostic_counter": diagnostic_counter,
             "last": 0
         })
+
+
+def onePageContextGenMetacogUpdate(request):
+    print('In onepageupdate')
+    if request.method == 'GET':
+        # Get data from request
+        start_times = json.loads(request.GET.get("start_times"))
+        end_times = json.loads(request.GET.get("end_times"))
+        responses = json.loads(request.GET.get("responses"))
+        confidence = json.loads(request.GET.get("confidence"))
+        # Store data from request
+        outcomes = np.array(request.session['outcomes'])
+        # Add the data to the trial and the trial to the session
+        session = Session.objects.filter(id=request.session['session_ID'])[0]
+        initial_planet = request.session['block'][request.session['trial_number']]
+        for t in range(len(responses)):
+            start_time = datetime.fromtimestamp(int(start_times[t]) / 1000.0)
+            end_time = datetime.fromtimestamp(int(end_times[t]) / 1000.0)
+            current_planet = request.session['block'][request.session['trial_number'] + t]
+            reward = outcomes[t, request.session['valid_keys'][current_planet].index(responses[t])]
+            stimulus_key = getStimulusKey(request, request.session['trial_number'] + t)
+            stimulus = Stimulus.objects.filter(color=stimulus_key[0], shape=stimulus_key[1], texture=stimulus_key[2], \
+                                               size=stimulus_key[3])[0]
+            reward_prob_dict = getRewardProbabilities(color=stimulus_key[0], shape=stimulus_key[1],
+                                                      texture=stimulus_key[2], size=stimulus_key[3],
+                                                      reward_rules=request.session['reward_rules'])
+            largest_chosen, _ = chooseLargest(responses[t], reward_prob_dict)
+            trial = Trial(stimulus_id=stimulus.id, reward=reward, reward_probs_record=reward_prob_dict,
+                          block=BLOCK_NAMES[current_planet], start_time=start_time, end_time=end_time,
+                          response=responses[t], stimulus=stimulus, session=session, confidence=confidence[t])
+            trial.save()
+            session.n_trials += 1
+            session.total_reward += reward
+            session.end_time = end_time
+            if current_planet > 0: session.conditioning_completed = True
+            session.save()
+        request.session['trial_number'] += len(responses)
+        try:
+            next_planet = request.session['block'][request.session['trial_number'] + 1]
+        except:
+            next_planet = current_planet
+        # If it's the last trial, send them to the next planet
+        if request.session['trial_number'] >= (sum(N_TRIALS_PER_BLOCK) - 1) or initial_planet != next_planet:
+            return JsonResponse({
+                # "outcomes": outcomes,
+                "stimuli": '[]',
+                "obscured": '[]',
+                "last": 1
+            })
+        # Otherwise, prepare for next set of trials.
+        current_block = request.session['block'][request.session['trial_number']]
+        if (request.session['trial_number'] + SINGLE_PAGE_BLOCK_LENGTH) > sum(N_TRIALS_PER_BLOCK[:current_block + 1]):
+            block_length = sum(N_TRIALS_PER_BLOCK[:current_block + 1]) - request.session['trial_number']
+        else:
+            block_length = SINGLE_PAGE_BLOCK_LENGTH
+        # Return info for the next set of trials
+        indx_block = np.arange(request.session['trial_number'],
+                               (request.session['trial_number'] + block_length))
+        block_reward_probs = np.array(request.session['reward_probabilities'])[
+                             np.array(request.session['stimulus_order'])[indx_block], :]
+        outcomes = (np.random.rand(block_reward_probs.shape[0],
+                                   block_reward_probs.shape[1]) < block_reward_probs).astype(int)
+        obscured = json.dumps(obscureOutcomes(outcomes))
+        request.session['outcomes'] = outcomes.tolist()
+        stimuli = np.array(request.session['stimulus_order'])[indx_block]
+        stimuli = json.dumps(stimuli.tolist())
+        if (current_block == 2) and (not GENERALIZATION_FEEDBACK):
+            print('here')
+        return JsonResponse({
+            "stimuli": stimuli,
+            "obscured": obscured,
+            "last": 0
+        })
+
+
+def onePageContextGenMetacogTask(request):
+    try:
+        # If this is the first, save the tutorial
+        if request.session['trial_number'] == 0:
+            session = Session.objects.filter(id=request.session['session_ID'])[0]
+            session.tutorial_completed = True
+            session.save()
+        # if the last, send them on their way!
+        elif request.session['trial_number'] >= (sum(N_TRIALS_PER_BLOCK) - 1):
+            session = Session.objects.filter(id=request.session['session_ID'])[0]
+            session.task_completed = True
+            session.save()
+            return goodbye(request)
+        # Put together the stimuli and outcomes
+        current_block = request.session['block'][request.session['trial_number']]
+        trial_n = request.session['trial_number']
+        if (request.session['trial_number'] + SINGLE_PAGE_BLOCK_LENGTH) > sum(N_TRIALS_PER_BLOCK[:current_block + 1]):
+            BLOCK_LENGTH = sum(N_TRIALS_PER_BLOCK[:current_block + 1]) - request.session['trial_number']
+        else:
+            BLOCK_LENGTH = SINGLE_PAGE_BLOCK_LENGTH
+
+        stimulus_urls, reward_probabilities = sessionStimulisRewardProbs(
+            valid_keys=request.session['valid_keys'][current_block],
+            stimulus_combinations=STIMULUS_COMBINATIONS[current_block],
+            reward_rules=request.session['reward_rules'])
+        block_reward_probs = reward_probabilities[request.session['stimulus_order'][trial_n:(trial_n + BLOCK_LENGTH)],
+                             :]
+        outcomes = (np.random.rand(block_reward_probs.shape[0],
+                                   block_reward_probs.shape[1]) <= block_reward_probs).astype(int)
+        obscured = obscureOutcomes(outcomes)
+        request.session['outcomes'] = outcomes.tolist()
+        request.session['reward_probabilities'] = reward_probabilities.tolist()
+        stimuli = request.session['stimulus_order'][trial_n:(trial_n + BLOCK_LENGTH)]
+        reward_stim_urls = [RewardStimulus.objects.filter(outcome='reward', type='diamond').first().image.url,
+                            RewardStimulus.objects.filter(outcome='noreward', type='diamond').first().image.url]
+        # Construct the instructions that appear above the stimulus
+        response_text = 'Ways to activate:'
+
+        for key, action in zip(request.session['valid_keys'][current_block], KEY_ACTIONS[current_block]):
+            response_text += f' {action.lower()} (press "{key}"),'
+
+        response_text = response_text[:-1] + '.'
+        planet_intros = createPlanetIntros(valid_keys=request.session['valid_keys'], key_actions=KEY_ACTIONS)
+
+        # Determine if feedback will be provided
+
+        if (current_block == 2) and (not GENERALIZATION_FEEDBACK):
+
+            feedback_bool = False
+        else:
+
+            feedback_bool = True
+        # Get rolling!xz
+        return render(request, "alienartifacts/onepagecontextgenmetacogtask.html", {
+            "planet_intro": planet_intros[current_block],
+            "valid_keys_response": request.session['valid_keys'][current_block],
+            "valid_keys_confidence": VALID_CONFIDENCE_KEYS,
+            "response_text": response_text,
+            "stimulus_urls": stimulus_urls,
+            "reward_stim_urls": reward_stim_urls,
+            # 'outcomes': outcomes,
+            "stimuli": stimuli,
+            'obscured': json.dumps(obscured),
+            'feedback_bool': feedback_bool
+        })
+    except Exception as e:
+        logger.error('Error at %s', 'onePageContextGenMetacogTask', exc_info=e)
 
 
 def onePageDiagnostic(request):

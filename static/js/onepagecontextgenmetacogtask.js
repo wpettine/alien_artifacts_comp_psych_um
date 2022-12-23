@@ -95,6 +95,7 @@ function showStimulus() {
 }
 
 function showConfidenceEstimate() {
+    hideAllElements()
     document.querySelector(`#confidence_estimate`).style.display = 'block';
     listening_confidence = true;
 }
@@ -158,7 +159,7 @@ function feedback(key_pressed) {
                 resultsSummary();
             } else {
                 block_trial_number++;
-                showConfidenceEstimate();
+                showStimulus();
             }
         }
     , 1000);
@@ -182,7 +183,7 @@ function nofeedback(key_pressed) {
             // }, 500);
         } else {
             block_trial_number++;
-            showConfidenceEstimate();
+            showStimulus();
         }
 }
 
@@ -195,19 +196,21 @@ document.addEventListener('DOMContentLoaded', function () {
             document.onkeydown = function(event) {
             let key_pressed = event.key;
             if (key_pressed && listening_response && valid_keys_response.includes(key_pressed)) {
+                key_pressed_response = key_pressed
                 listening_response = false
                 end_times.push(Date.now())
                 responses.push(key_pressed)
-                if (feedback_bool) {
-                    feedback(key_pressed)
-                } else {
-                    nofeedback(key_pressed)
-                }
+                showConfidenceEstimate()
             }
             else if (key_pressed && listening_confidence && valid_keys_confidence.includes(key_pressed)) {
+                key_pressed_confidence = key_pressed
                 listening_confidence = false
-                confidence.push(key_pressed)
-                showStimulus()
+                confidence.push(key_pressed_confidence)
+                if (feedback_bool) {
+                    feedback(key_pressed_response)
+                } else {
+                    nofeedback(key_pressed_response)
+                }
             }
         }
         showStimulus()

@@ -164,6 +164,7 @@ def orderIndx(lst, ref):
              indx.append(ref.index(lst[i]))
      return indx
 
+
 def createPlanetIntros(valid_keys,key_actions,task='context-generalization'):
     if 'context-generalization' in task:
         planet_intros = [
@@ -192,8 +193,9 @@ def createPlanetIntros(valid_keys,key_actions,task='context-generalization'):
                 f"discover artifacts from both civilizations. That means you can {key_actions[0][0].lower()} (press " +
                 f"'{valid_keys[0][0]}'), {key_actions[0][1].lower()} (press '{valid_keys[0][1]}'), {key_actions[1][0].lower()} (press " +
                 f"'{valid_keys[1][0]}') or {key_actions[1][1].lower()} (press '{valid_keys[1][1]}'). \n\nUnfortunately, " +\
-                "your sensor for detecting activation broke. The artifacts are still collecting energy (and your " +\
-                "reward is being tracked), but you won't receive feedback. Go collect!"
+                "your sensor for detecting activation broke. You won't be getting the fancy diamonds as feedback. " +\
+                "However, the artifacts are still collecting energy, and your performance bonus is based on how " +\
+                "you do on this planet. Go collect!"
             ]
     elif task == 'example-generalization':
         planet_intro = 'You stumbled upon a treasure trove of alien artifacts! To activate the alien artifacts, you might'
@@ -310,7 +312,7 @@ def buildStimulusDB(reward_rules=None,
                 if (shape in reward_rules[rule]['attributes']['shape']) and \
                    (color in reward_rules[rule]['attributes']['color']) and \
                    (texture in reward_rules[rule]['attributes']['texture']) and \
-                   (size in reward_rules[rule]['attributes']['size'])     :
+                   (size in reward_rules[rule]['attributes']['size']):
                     if probs_set:
                         raise ValueError("Two rules have overlapping membership")
                     else:

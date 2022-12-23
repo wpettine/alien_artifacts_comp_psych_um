@@ -57,14 +57,21 @@ function hideAllElements() {
 function showStimulus(stim_indx) {
     document.querySelector(`#stimulus_${stim_indx}`).style.display = 'block';
     document.querySelector(`#image_shown`).style.display = 'block';
-    listening = true;
+    listening_response = true;
+}
+
+
+function showConfidenceEstimate() {
+    hideAllElements()
+    document.querySelector(`#confidence_estimate`).style.display = 'block';
+    listening_confidence = true;
 }
 
 
 function feedback(key_pressed) {
     hideAllElements()
-    let outcome = reward_probabilities[stim_indx][valid_keys[stim_indx].indexOf(key_pressed)] > Math.random();
-    chose_largest = (key_pressed == valid_keys[stim_indx][indexOfMax(reward_probabilities[stim_indx])]);
+    let outcome = reward_probabilities[stim_indx][valid_keys_response[stim_indx].indexOf(key_pressed)] > Math.random();
+    chose_largest = (key_pressed == valid_keys_response[stim_indx][indexOfMax(reward_probabilities[stim_indx])]);
 
     if (outcome == 1) {
         document.querySelector(`#feedback_correct`).style.display = 'block';
@@ -75,8 +82,8 @@ function feedback(key_pressed) {
     }
 
     let reminder = document.querySelector(`#reminder`);
-    reminder.innerHTML = `For that image, "${valid_keys[stim_indx][0]}" has a ${reward_probabilities[stim_indx][0]*100}% ` +
-        `chance of reward, and "${valid_keys[stim_indx][1]}" has a ${reward_probabilities[stim_indx][1]*100}%` +
+    reminder.innerHTML = `For that image, "${valid_keys_response[stim_indx][0]}" has a ${reward_probabilities[stim_indx][0]*100}% ` +
+        `chance of reward, and "${valid_keys_response[stim_indx][1]}" has a ${reward_probabilities[stim_indx][1]*100}%` +
         " chance of reward.";
     reminder.style.display = 'block';
 
@@ -93,7 +100,7 @@ function showInstructions(stimulus_keys, div_indx) {
     if (stimulus_keys.length > 0) {
         stim_indx = intersect(getAllIndexes(spaceship, stimulus_keys[0]),getAllIndexes(setting, stimulus_keys[1]));
         showStimulus(stim_indx);
-        listening = true;
+        listening_response = true;
     }
 }
 
@@ -213,9 +220,15 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log('in onLoad')
     document.onkeydown = function(event) {
         let key_pressed = event.key;
-        if (key_pressed && listening && valid_keys[0].includes(key_pressed)) {
-            listening = false
-            feedback(key_pressed)
+        if (key_pressed && listening_response && valid_keys_response[0].includes(key_pressed)) {
+            key_pressed_response = key_pressed;
+            listening_response = false;
+            showConfidenceEstimate();
+        }
+        else if (key_pressed && listening_confidence && valid_keys_confidence.includes(key_pressed)) {
+            key_pressed_confidence = key_pressed;
+            listening_confidence = false;
+            feedback(key_pressed_response);
         }
     }
     runTutorial()

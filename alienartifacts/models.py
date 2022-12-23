@@ -67,6 +67,7 @@ class Session(models.Model):
     set_2_attribute = models.JSONField(default=list)
     task = models.CharField(max_length=100, default="")
     key_conversion = models.JSONField(default=dict)
+    confidence_key_conversion = models.JSONField(default=dict) # For confidence estimates
     substances = models.JSONField(default=list,blank=True,null=True)
     passed_attention_check = models.BooleanField(default=True)
     project = models.CharField(max_length=40,default='initial')
@@ -88,6 +89,7 @@ class Trial(models.Model):
     stimulus = models.ForeignKey(Stimulus, on_delete=models.CASCADE, related_name='trials')
     session = models.ForeignKey(Session, on_delete=models.CASCADE, related_name='trials')
     response = models.CharField(max_length=2)
+    confidence = models.FloatField(default=None, blank=True, null=True)
     reward = models.BooleanField(null=True)
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()
