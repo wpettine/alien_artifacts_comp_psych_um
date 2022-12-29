@@ -953,18 +953,19 @@ def token(request):
         session.save()
         token_message = f"Unfortunately, looks like you're having trouble learning the task. Space just isn't for you. " +\
                        "Even so, we'll give you a reward for trying. Back where you came from, enter the payment " +\
-                        f"token: {PAYMENT_TOKEN}"
+                        f"token:<br><br>{PAYMENT_TOKEN}"
         return render(request, "alienartifacts/token.html", {
             # 'payment_token': payment_token,
             'token_message': token_message
         })
     if WEBAPP_USE == 'screen':
         token_message = f'Thanks for taking the time to answer the questions! We will analyze your responses and ' + \
-            f'determine if you are eligible for future studies. Your payment token for the task is: {payment_token}. ' +\
-            'To register for payment, please enter that token in the Prolific page. You can close this window.'
+            f'determine if you are eligible for future studies. Your payment token for the task is:<br><br>' +\
+            f'{payment_token}<br><br>To register for payment, please enter that token in the Prolific page. ' +\
+            'You can close this window.'
     elif (WEBAPP_USE == 'task') or (WEBAPP_USE == 'both'):
-        token_message = f'Your payment code for the task is {payment_token}. To register for payment, please enter ' + \
-                        'that in the Prolific page. You can close this window.'
+        token_message = f'Your payment code for the task is:<br><br>{payment_token}<br><br>To register for ' + \
+            'payment, please enter that in the Prolific page. You can close this window.'
     else:
         raise ValueError(f'{WEBAPP_USE} is invalid for WEBAPP_USE')
 

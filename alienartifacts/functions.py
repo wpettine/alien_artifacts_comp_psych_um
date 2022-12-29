@@ -170,21 +170,23 @@ def createPlanetIntros(valid_keys,key_actions,task='context-generalization'):
         planet_intros = [
             f'Welcome to Planet Waz-up, home to the long-deceased Waz civilization. Here you will find artifacts that ' +
             f"are activated with either a {key_actions[0][0].lower()} (press '{valid_keys[0][0]}') or a  {key_actions[0][1].lower()} " +
-            f"(press '{valid_keys[0][1]}'). You'll have to figure out what works!",
+            f"(press '{valid_keys[0][1]}'). You'll have to figure out what works! Press any key to get started.",
 
             f"Your work on Planet Waz-up is complete!\n\n"
             f"After hopping in your spaceship, you traveled to Planet Oh-Kay. " +
             f"Here once lived the proud species Oh. Their artifacts operate completely differently, and " +
             f"are activated with either a " +
             f"{key_actions[1][0].lower()} (press '{valid_keys[1][0]}') or a  {key_actions[1][1].lower()} (press '{valid_keys[1][1]}'). " +
-            f"Set aside what you learned on Planet Waz-up. Planet Oh-Kay's artifacts have their own rules!"]
+            f"Set aside what you learned on Planet Waz-up. Planet Oh-Kay's artifacts have their own rules! Press any " +
+            f"key to jump in."]
         if GENERALIZATION_FEEDBACK:
             planet_intros += [
                 f"Good work space pirate!\n\n" +
                 f"You learned of planet Blabla, the only place in the galaxy where both the Waz and Oh once lived! Here you " +
                 f"discover artifacts from both civilizations. That means you can {key_actions[0][0].lower()} (press " +
                 f"'{valid_keys[0][0]}'), {key_actions[0][1].lower()} (press '{valid_keys[0][1]}'), {key_actions[1][0].lower()} (press " +
-                f"'{valid_keys[1][0]}') or {key_actions[1][1].lower()} (press '{valid_keys[1][1]}'). Go collect some energy!"
+                f"'{valid_keys[1][0]}') or {key_actions[1][1].lower()} (press '{valid_keys[1][1]}'). Press any key to " +
+                "go collect some energy!"
             ]
         else:
             planet_intros += [
@@ -195,7 +197,7 @@ def createPlanetIntros(valid_keys,key_actions,task='context-generalization'):
                 f"'{valid_keys[1][0]}') or {key_actions[1][1].lower()} (press '{valid_keys[1][1]}'). \n\nUnfortunately, " +\
                 "your sensor for detecting activation broke. You won't be getting the fancy diamonds as feedback. " +\
                 "However, the artifacts are still collecting energy, and your performance bonus is based on how " +\
-                "you do on this planet. Go collect!"
+                "you do on this planet. Press any key to start collecting!"
             ]
     elif task == 'example-generalization':
         planet_intro = 'You stumbled upon a treasure trove of alien artifacts! To activate the alien artifacts, you might'

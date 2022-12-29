@@ -12,12 +12,11 @@ TASK = 'context-generalization_v2' # 'example-generalization', 'context-generali
 
 #What we're using the webapp for
 WEBAPP_USE = 'task' # 'screen', 'task', 'both'
-# SOURCE = 'prolific' # 'prolific', 'internal'
 GENERALIZATION_FEEDBACK = False
 CONFIDENCE_REPORT = True
 PROJECT_NAME = 'P50'
 CREATE_NEW_USER = True
-PROLIFIC = False
+PROLIFIC = True
 
 # Specify if deploying
 DEPLOYMENT = True
@@ -99,8 +98,7 @@ else:
 
 
 # Task Structure
-
-SINGLE_PAGE_BLOCK_LENGTH = 80 # 10
+SINGLE_PAGE_BLOCK_LENGTH = 80 # 10 80
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 STRUCTURED = True
 PAYMENT_TOKEN_LENGTH = 16

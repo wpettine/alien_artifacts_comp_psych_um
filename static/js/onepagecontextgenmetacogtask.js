@@ -192,29 +192,54 @@ document.addEventListener('DOMContentLoaded', function () {
     hideAllElements()
     document.querySelector(`#planet_intro`).style.display = 'block';
 
-    setTimeout( () => {
-            document.onkeydown = function(event) {
-            let key_pressed = event.key;
-            if (key_pressed && listening_response && valid_keys_response.includes(key_pressed)) {
-                key_pressed_response = key_pressed
-                listening_response = false
-                end_times.push(Date.now())
-                responses.push(key_pressed)
-                showConfidenceEstimate()
+    document.onkeydown = function(event) {
+        let key_pressed = event.key;
+        if (key_pressed && listening_intro) {
+            listening_intro = false;
+            showStimulus();
+        }
+        else if (key_pressed && listening_response && valid_keys_response.includes(key_pressed)) {
+                key_pressed_response = key_pressed;
+                listening_response = false;
+                end_times.push(Date.now());
+                responses.push(key_pressed);
+                showConfidenceEstimate();
             }
-            else if (key_pressed && listening_confidence && valid_keys_confidence.includes(key_pressed)) {
-                key_pressed_confidence = key_pressed
-                listening_confidence = false
-                confidence.push(key_pressed_confidence)
+        else if (key_pressed && listening_confidence && valid_keys_confidence.includes(key_pressed)) {
+                key_pressed_confidence = key_pressed;
+                listening_confidence = false;
+                confidence.push(key_pressed_confidence);
                 if (feedback_bool) {
-                    feedback(key_pressed_response)
+                    feedback(key_pressed_response);
                 } else {
-                    nofeedback(key_pressed_response)
+                    nofeedback(key_pressed_response);
                 }
             }
         }
-        showStimulus()
-    }, 10000);
+
+    // setTimeout( () => {
+    //         document.onkeydown = function(event) {
+    //         let key_pressed = event.key;
+    //         if (key_pressed && listening_response && valid_keys_response.includes(key_pressed)) {
+    //             key_pressed_response = key_pressed
+    //             listening_response = false
+    //             end_times.push(Date.now())
+    //             responses.push(key_pressed)
+    //             showConfidenceEstimate()
+    //         }
+    //         else if (key_pressed && listening_confidence && valid_keys_confidence.includes(key_pressed)) {
+    //             key_pressed_confidence = key_pressed
+    //             listening_confidence = false
+    //             confidence.push(key_pressed_confidence)
+    //             if (feedback_bool) {
+    //                 feedback(key_pressed_response)
+    //             } else {
+    //                 nofeedback(key_pressed_response)
+    //             }
+    //         }
+    //     }
+    //     showStimulus()
+    // }, 10000);
 
 
 });
