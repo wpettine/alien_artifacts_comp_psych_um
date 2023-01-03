@@ -5,10 +5,11 @@ from .questionnaires_text import *
 
 #### USE THESE FOR DEBUGGING
 # http://127.0.0.1:8000/?PROLIFIC_PID=123zaxwv&SESSION_ID=456&STUDY_ID=789
-# https://umalienartifactstask.azurewebsites.net?PROLIFIC_PID=12xacv&SESSION_ID=456&STUDY_ID=787
+# https://umalienartifactstask.azurewebsites.net?PROLIFIC_PID=12xacv&SESSION_ID=457&STUDY_ID=788
 
 #Choose task
 TASK = 'context-generalization_v2' # 'example-generalization', 'context-generalization_v1', 'context-generalization_v2', 'diagnostic'
+CG_RESTRICT_KEY_PATTERN = True
 
 #What we're using the webapp for
 WEBAPP_USE = 'task' # 'screen', 'task', 'both'

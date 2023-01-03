@@ -2636,3 +2636,119 @@ INFO /Users/wwp9/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifac
 INFO Watching for file changes with StatReloader
 INFO /Users/wwp9/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/global_variables.py changed, reloading.
 INFO Watching for file changes with StatReloader
+INFO /Users/wwp9/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/global_variables.py changed, reloading.
+INFO Watching for file changes with StatReloader
+INFO /Users/wwp9/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/azuresite/settings.py changed, reloading.
+INFO Watching for file changes with StatReloader
+INFO Watching for file changes with StatReloader
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123zaxwv&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4536
+INFO "GET /static/style.css HTTP/1.1" 304 0
+INFO In welcome function
+INFO "GET /welcome HTTP/1.1" 200 2309
+INFO In welcome function
+INFO /Users/wwp9/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/functions.py changed, reloading.
+INFO Watching for file changes with StatReloader
+INFO /Users/wwp9/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/functions.py changed, reloading.
+INFO Watching for file changes with StatReloader
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123zaxwv&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4536
+INFO In welcome function
+INFO "GET /welcome HTTP/1.1" 200 2309
+INFO In welcome function
+INFO /Users/wwp9/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/functions.py changed, reloading.
+INFO Watching for file changes with StatReloader
+INFO /Users/wwp9/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/functions.py changed, reloading.
+INFO Watching for file changes with StatReloader
+INFO /Users/wwp9/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/functions.py changed, reloading.
+INFO Watching for file changes with StatReloader
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123zaxwv&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4536
+INFO In welcome function
+INFO "GET /welcome HTTP/1.1" 200 2309
+INFO In welcome function
+INFO In instructions function
+INFO "POST /welcome HTTP/1.1" 200 667
+INFO "GET /onepagecontextgenmetacogtask HTTP/1.1" 200 3591
+INFO "GET /static/js/onepagecontextgenmetacogtask.js HTTP/1.1" 304 0
+INFO "GET /media/images/noreward_diamond_reward_stim_2dKz0ZE.png HTTP/1.1" 200 51344
+INFO "GET /media/images/reward_diamond_reward_stim_Uza0HcM.png HTTP/1.1" 200 1284663
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123zaxwv&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4536
+INFO In welcome function
+INFO "GET /welcome HTTP/1.1" 200 2309
+INFO In welcome function
+INFO In instructions function
+INFO "POST /welcome HTTP/1.1" 200 667
+INFO "GET /onepagecontextgenmetacogtask HTTP/1.1" 200 3591
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123zaxwv&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4536
+INFO In welcome function
+INFO "GET /welcome HTTP/1.1" 200 2309
+INFO In welcome function
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123zaxwv&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4536
+INFO In welcome function
+INFO "GET /welcome HTTP/1.1" 200 2309
+INFO In welcome function
+INFO In instructions function
+INFO "POST /welcome HTTP/1.1" 200 667
+INFO "GET /onepagecontextgenmetacogtask HTTP/1.1" 200 3591
+INFO "GET /onepagecontextgenmetacogupdate?responses=%5B%22v%22%2C%22v%22%2C%22v%22%2C%22v%22%2C%22v%22%2C%22z%22%2C%22z%22%2C%22v%22%5D&confidence=%5B%221%22%2C%224%22%2C%224%22%2C%224%22%2C%224%22%2C%224%22%2C%224%22%2C%224%22%5D&start_times=%5B1672518175080%2C1672518182509%2C1672518185865%2C1672518188170%2C1672518190852%2C1672518193819%2C1672518195973%2C1672518198154%5D&end_times=%5B1672518176108%2C1672518183371%2C1672518186590%2C1672518189365%2C1672518192368%2C1672518194703%2C1672518196914%2C1672518198873%5D HTTP/1.1" 200 46
+INFO "GET /onepagecontextgenmetacogtask HTTP/1.1" 200 3752
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123zaxwv&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4536
+INFO In welcome function
+INFO "GET /welcome HTTP/1.1" 200 2309
+INFO In welcome function
+INFO /Users/wwp9/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/functions.py changed, reloading.
+INFO Watching for file changes with StatReloader
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123zaxwv&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4536
+INFO In welcome function
+INFO "GET /welcome HTTP/1.1" 200 2309
+INFO In welcome function
+INFO In instructions function
+INFO "POST /welcome HTTP/1.1" 200 667
+INFO "GET /onepagecontextgenmetacogtask HTTP/1.1" 200 3591
+INFO "GET /onepagecontextgenmetacogupdate?responses=%5B%22c%22%2C%22z%22%2C%22c%22%2C%22z%22%2C%22c%22%2C%22z%22%2C%22c%22%2C%22z%22%5D&confidence=%5B%221%22%2C%224%22%2C%224%22%2C%224%22%2C%224%22%2C%224%22%2C%224%22%2C%224%22%5D&start_times=%5B1672522371175%2C1672522375088%2C1672522377978%2C1672522382508%2C1672522384355%2C1672522386248%2C1672522388227%2C1672522390186%5D&end_times=%5B1672522372114%2C1672522375872%2C1672522380763%2C1672522383094%2C1672522384989%2C1672522386922%2C1672522388849%2C1672522390657%5D HTTP/1.1" 200 46
+INFO "GET /onepagecontextgenmetacogtask HTTP/1.1" 200 3752
+INFO "GET /onepagecontextgenmetacogupdate?responses=%5B%22v%22%2C%22x%22%2C%22v%22%2C%22x%22%2C%22x%22%2C%22v%22%2C%22x%22%2C%22v%22%5D&confidence=%5B%224%22%2C%224%22%2C%224%22%2C%224%22%2C%224%22%2C%224%22%2C%224%22%2C%224%22%5D&start_times=%5B1672522396655%2C1672522401663%2C1672522404453%2C1672522406139%2C1672522408277%2C1672522410745%2C1672522412939%2C1672522415323%5D&end_times=%5B1672522399624%2C1672522402959%2C1672522404853%2C1672522406974%2C1672522409482%2C1672522411666%2C1672522414039%2C1672522415989%5D HTTP/1.1" 200 46
+INFO "GET /onepagecontextgenmetacogtask HTTP/1.1" 200 5126
+INFO "GET /onepagecontextgenmetacogupdate?responses=%5B%22c%22%2C%22z%22%2C%22v%22%2C%22v%22%2C%22z%22%2C%22c%22%2C%22x%22%2C%22x%22%2C%22c%22%2C%22z%22%2C%22c%22%2C%22v%22%2C%22x%22%2C%22v%22%2C%22x%22%2C%22z%22%5D&confidence=%5B%224%22%2C%224%22%2C%224%22%2C%224%22%2C%224%22%2C%224%22%2C%224%22%2C%224%22%2C%224%22%2C%224%22%2C%224%22%2C%224%22%2C%224%22%2C%224%22%2C%224%22%2C%224%22%5D&start_times=%5B1672522433532%2C1672522438077%2C1672522439992%2C1672522441167%2C1672522442793%2C1672522444093%2C1672522445583%2C1672522446696%2C1672522447702%2C1672522448932%2C1672522451416%2C1672522452480%2C1672522455996%2C1672522456833%2C1672522459887%2C1672522461006%5D&end_times=%5B1672522436613%2C1672522439621%2C1672522440822%2C1672522442512%2C1672522443791%2C1672522445305%2C1672522446415%2C1672522447527%2C1672522448760%2C1672522451161%2C1672522452222%2C1672522455749%2C1672522456615%2C1672522459589%2C1672522460767%2C1672522461912%5D HTTP/1.1" 200 46
+INFO "GET /onepagecontextgenmetacogtask HTTP/1.1" 200 1352
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123zaxwv&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4536
+INFO In welcome function
+INFO "GET /welcome HTTP/1.1" 200 2309
+INFO In welcome function
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123zaxwv&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4536
+INFO "GET /static/style.css HTTP/1.1" 304 0
+WARNING Not Found: /favicon.ico
+WARNING "GET /favicon.ico HTTP/1.1" 404 6176
+INFO In welcome function
+INFO "GET /welcome HTTP/1.1" 200 2309
+INFO In welcome function
+INFO In instructions function
+INFO "POST /welcome HTTP/1.1" 200 667
+INFO "GET /onepagecontextgenmetacogtask HTTP/1.1" 200 3591
+INFO "GET /static/js/onepagecontextgenmetacogtask.js HTTP/1.1" 200 7787
+INFO "GET /media/images/circle_orange_dots_large_9Oe21uz.png HTTP/1.1" 200 8615
+INFO "GET /media/images/circle_magenta_dots_small_Sj5fmep.png HTTP/1.1" 200 4746
+INFO "GET /media/images/square_magenta_dots_large_WIoiQ3H.png HTTP/1.1" 200 5475
+INFO "GET /media/images/square_orange_dots_large_mubGoG2.png HTTP/1.1" 200 5687
+INFO "GET /media/images/noreward_diamond_reward_stim_2dKz0ZE.png HTTP/1.1" 200 51344
+INFO "GET /media/images/reward_diamond_reward_stim_Uza0HcM.png HTTP/1.1" 200 1284663
+INFO "POST /onepagecontextgenmetacogupdate HTTP/1.1" 200 46
+INFO "GET /onepagecontextgenmetacogtask HTTP/1.1" 200 3752
+INFO "GET /static/js/onepagecontextgenmetacogtask.js HTTP/1.1" 304 0
+INFO "GET /media/images/square_magenta_diagonal_small_iw4Sfcz.png HTTP/1.1" 200 4452
+INFO "GET /media/images/square_blue_diagonal_large_pGnMgZu.png HTTP/1.1" 200 10526
+INFO "GET /media/images/circle_blue_diagonal_large_aysDMmW.png HTTP/1.1" 200 13646
+INFO "GET /media/images/circle_magenta_diagonal_large_MSxMIGx.png HTTP/1.1" 200 12305
+INFO "POST /onepagecontextgenmetacogupdate HTTP/1.1" 200 46
+INFO "GET /onepagecontextgenmetacogtask HTTP/1.1" 200 5126
+INFO "GET /static/js/onepagecontextgenmetacogtask.js HTTP/1.1" 304 0
+INFO "POST /onepagecontextgenmetacogupdate HTTP/1.1" 200 46
+INFO "GET /onepagecontextgenmetacogtask HTTP/1.1" 200 1352

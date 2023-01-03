@@ -88,7 +88,9 @@ def getRewardProbabilities(shape,color,texture,size=None,reward_rules=None):
     return reward_probabilities
 
 
-def assignKeys(reward_rules_in, possible_keys_in, block_categories_in):
+def assignKeys(reward_rules_in, possible_keys_in, block_categories_in, restrict_key_pattern=False):
+    if restrict_key_pattern and (len(block_categories_in) != 3):
+        raise ValueError('restrict_pattern currently only implemented for context generalization, which has three blocks')
     # Check to make sure the inputs all add up
     categories = []
     possible_keys = copy.deepcopy(possible_keys_in)
@@ -103,7 +105,16 @@ def assignKeys(reward_rules_in, possible_keys_in, block_categories_in):
     if len(categories) != len(possible_keys):
         raise ValueError('The number of categories and key do not match')
     # Randomize key order
-    np.random.shuffle(possible_keys)
+    if restrict_key_pattern:
+        # possible_indx = [[0, 3, 2, 1], [3, 0, 2, 1], [0, 3, 1, 2], [3, 0, 1, 2],
+        #                  [2, 1, 0, 3], [2, 1, 3, 0], [1, 2, 0, 3], [1, 2, 3, 0]]
+        possible_indx = [[3, 0, 2, 1], [0, 3, 1, 2],[2, 1,3, 0], [1, 2, 0, 3]]
+        categories = np.array(block_categories_in[2])
+        categories_shuffled = np.array(categories)[possible_indx[np.random.randint(len(possible_indx))]]
+        possible_keys = list(np.array(possible_keys)[np.argsort(categories_shuffled)])
+        # possible_keys = list(np.array(possible_keys)[possible_indx[np.random.randint(len(possible_indx))]])
+    else:
+        np.random.shuffle(possible_keys)
     # Go back through and replace responses
     for rule in rules:
         keys = list(reward_rules[rule]['reward_probabilities'].keys())
@@ -831,6 +842,7 @@ if TASK == 'example-generalization':
             }
     }
 
+    RESTRICT_KEY_PATTERN = False
     TRIALS_PER_STIM_BLOCK_0 = 16 # 16  # 10 #If trial order is structured
     TRIALS_PER_STIM_BLOCK_1 = 5 #5  # 5 #If trial order is structured
 
@@ -1047,6 +1059,8 @@ elif (TASK == 'context-generalization') or (TASK == 'context-generalization_v1')
         TRIALS_PER_STIM_BLOCK_0 = 2  # 12  # 10 #If trial order is structured
         TRIALS_PER_STIM_BLOCK_1 = 2  # 12  # 5 #If trial order is structured
         TRIALS_PER_STIM_BLOCK_2 = 2  # 10  # 5 #If trial order is structured
+
+    RESTRICT_KEY_PATTERN = CG_RESTRICT_KEY_PATTERN
 
     STIMULUS_COMBINATIONS_BLOCK_0 = stimulusCombinations(STIMULI_BLOCK_0,reward_rules=REWARD_RULES)
     STIMULUS_COMBINATIONS_BLOCK_1 = stimulusCombinations(STIMULI_BLOCK_1,reward_rules=REWARD_RULES)

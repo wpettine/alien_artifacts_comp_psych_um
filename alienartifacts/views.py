@@ -135,8 +135,8 @@ def welcome(request):
                     if TASK == 'example-generalization':
                         conditioning, generalization = checkSessionAtts(task=TASK,STIMULI_BLOCK_0=STIMULI_BLOCK_0,
                                                                         STIMULI_BLOCK_1=STIMULI_BLOCK_1)
-                        reward_rules, valid_keys, conversion = assignKeys(REWARD_RULES, POSSIBLE_KEYS,
-                                                                          BLOCK_CATEGORIES)
+                        reward_rules, valid_keys, conversion = assignKeys(REWARD_RULES, POSSIBLE_KEYS,\
+                                                BLOCK_CATEGORIES, restrict_key_pattern=RESTRICT_KEY_PATTERN)
                         session = Session(start_time=start_time, end_time=end_time, payment_token=payment_token,
                                     subject=subject, conditioning_attributes=conditioning,key_conversion=conversion,
                                     external_study_ID=external_study_ID,external_session_ID=external_session_ID,
@@ -158,7 +158,8 @@ def welcome(request):
                             (TASK == 'context-generalization_v2') or (TASK == 'diagnostic'):
                         set_1, set_2 = checkSessionAtts(task=TASK,STIMULI_BLOCK_0=STIMULI_BLOCK_0,
                                                                         STIMULI_BLOCK_1=STIMULI_BLOCK_1)
-                        reward_rules, valid_keys, conversion = assignKeys(REWARD_RULES, POSSIBLE_KEYS, BLOCK_CATEGORIES)
+                        reward_rules, valid_keys, conversion = assignKeys(REWARD_RULES, POSSIBLE_KEYS,\
+                                                        BLOCK_CATEGORIES, restrict_key_pattern=RESTRICT_KEY_PATTERN)
                         session = Session(start_time=start_time, end_time=end_time, payment_token=payment_token,
                                     subject=subject, set_1_attribute=set_1, set_2_attribute=set_2,
                                     external_study_ID=external_study_ID,external_session_ID=external_session_ID,
@@ -740,12 +741,17 @@ def onePageDiagnosticUpdate(request):
 
 def onePageContextGenMetacogUpdate(request):
     print('In onepageupdate')
-    if request.method == 'GET':
+    # if request.method == 'GET':
+    if request.method == 'POST':
         # Get data from request
-        start_times = json.loads(request.GET.get("start_times"))
-        end_times = json.loads(request.GET.get("end_times"))
-        responses = json.loads(request.GET.get("responses"))
-        confidence = json.loads(request.GET.get("confidence"))
+        # start_times = json.loads(request.GET.get("start_times"))
+        # end_times = json.loads(request.GET.get("end_times"))
+        # responses = json.loads(request.GET.get("responses"))
+        # confidence = json.loads(request.GET.get("confidence"))
+        start_times = json.loads(request.POST.get("start_times"))
+        end_times = json.loads(request.POST.get("end_times"))
+        responses = json.loads(request.POST.get("responses"))
+        confidence = json.loads(request.POST.get("confidence"))
         # Store data from request
         outcomes = np.array(request.session['outcomes'])
         # Add the data to the trial and the trial to the session

@@ -34,6 +34,7 @@ function serverUpdate() {
     });
 
     $.ajax({
+        type: "POST",
         url: updateurl,
         data: {
             // here getdata should be a string so that
