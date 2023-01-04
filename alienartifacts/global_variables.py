@@ -20,7 +20,7 @@ CREATE_NEW_USER = True
 PROLIFIC = True
 
 # Specify if deploying
-DEPLOYMENT = True
+DEPLOYMENT = False
 ATTENTION_CHECK = True
 
 # Set different token for each one
