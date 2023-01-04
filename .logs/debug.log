@@ -2780,3 +2780,4 @@ INFO "GET /media/images/circle_blue_diagonal_large_aysDMmW.png HTTP/1.1" 200 136
 INFO "GET /media/images/circle_magenta_diagonal_large_MSxMIGx.png HTTP/1.1" 200 12305
 INFO "GET /media/images/square_blue_diagonal_large_pGnMgZu.png HTTP/1.1" 200 10526
 INFO Watching for file changes with StatReloader
+INFO Watching for file changes with StatReloader
