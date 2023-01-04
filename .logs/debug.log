@@ -2752,3 +2752,31 @@ INFO "GET /onepagecontextgenmetacogtask HTTP/1.1" 200 5126
 INFO "GET /static/js/onepagecontextgenmetacogtask.js HTTP/1.1" 304 0
 INFO "POST /onepagecontextgenmetacogupdate HTTP/1.1" 200 46
 INFO "GET /onepagecontextgenmetacogtask HTTP/1.1" 200 1352
+INFO Watching for file changes with StatReloader
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123zaxwv&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4536
+INFO "GET /static/style.css HTTP/1.1" 304 0
+INFO In welcome function
+INFO "GET /welcome HTTP/1.1" 200 2309
+INFO In welcome function
+INFO In instructions function
+INFO "POST /welcome HTTP/1.1" 200 654
+INFO "GET /tutorialmetacog HTTP/1.1" 200 5849
+INFO "GET /static/js/tutorialmetacog.js HTTP/1.1" 200 7257
+INFO "GET /media/images/noreward_diamond_reward_stim_2dKz0ZE.png HTTP/1.1" 200 51344
+INFO "GET /media/images/green-spaceship_space_cRbAqp5.png HTTP/1.1" 200 152060
+INFO "GET /media/images/purple-spaceship_green-planet_qIq0lyv.png HTTP/1.1" 200 154035
+INFO "GET /media/images/blue-spaceship_tan-planet_x7ebDjR.png HTTP/1.1" 200 161819
+INFO "GET /media/images/red-spaceship_space_oxrn8zW.png HTTP/1.1" 200 195879
+INFO "GET /media/images/no-spaceship_blue-planet_2a7iLhv.png HTTP/1.1" 200 134106
+INFO "GET /media/images/no-spaceship_gold-planet_MSoSU1g.png HTTP/1.1" 200 113793
+INFO "GET /media/images/reward_diamond_reward_stim_Uza0HcM.png HTTP/1.1" 200 1284663
+INFO "GET /onepagecontextgenmetacogtask HTTP/1.1" 200 4607
+INFO "GET /static/js/onepagecontextgenmetacogtask.js HTTP/1.1" 200 7787
+INFO "GET /media/images/circle_orange_dots_large_9Oe21uz.png HTTP/1.1" 200 8615
+INFO "POST /onepagecontextgenmetacogupdate HTTP/1.1" 200 46
+INFO "GET /onepagecontextgenmetacogtask HTTP/1.1" 200 4772
+INFO "GET /media/images/circle_blue_diagonal_large_aysDMmW.png HTTP/1.1" 200 13646
+INFO "GET /media/images/circle_magenta_diagonal_large_MSxMIGx.png HTTP/1.1" 200 12305
+INFO "GET /media/images/square_blue_diagonal_large_pGnMgZu.png HTTP/1.1" 200 10526
+INFO Watching for file changes with StatReloader

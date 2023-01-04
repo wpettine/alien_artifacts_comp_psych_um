@@ -22,7 +22,8 @@ function getCookie(name) {
 
 
 function serverUpdate() {
-    const csrftoken = getCookie('csrftoken');
+    // const csrftoken = getCookie('csrftoken');
+    const csrftoken = getCookie('csrf_token');
 
     $.ajaxSetup({
         beforeSend: function (xhr, settings) {
