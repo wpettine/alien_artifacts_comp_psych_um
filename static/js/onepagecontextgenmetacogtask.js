@@ -34,17 +34,20 @@ function serverUpdate() {
     //     }
     // });
 
+    var jsondata = new FormData();
+    jsondata.append("responses", "responses");
+    jsondata.append("confidence", "confidence");
+    jsondata.append("start_times", "start_times");
+    jsondata.append("end_times", "end_times");
+
     $.ajax({
       type: "POST",
       url: updateurl,
-      data: {
-        // here getdata should be a string so that
-        // in your views.py you can fetch the value using get('getdata')
-        responses,
-        confidence,
-        start_times,
-        end_times,
-      },
+      contentType: false,
+      cache: false,
+      processData: false,
+      dataType: "json",
+      data: jsondata,
       headers: { "X-CSRFToken": csrftoken },
       dataType: "json",
       success: function (res, status) {},
