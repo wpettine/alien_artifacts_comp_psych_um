@@ -35,10 +35,10 @@ function serverUpdate() {
     // });
 
     var jsondata = new FormData();
-    jsondata.append("responses", "responses");
-    jsondata.append("confidence", "confidence");
-    jsondata.append("start_times", "start_times");
-    jsondata.append("end_times", "end_times");
+    jsondata.append("responses", responses);
+    jsondata.append("confidence", confidence);
+    jsondata.append("start_times", start_times);
+    jsondata.append("end_times", end_times);
 
     $.ajax({
       type: "POST",
