@@ -23,54 +23,54 @@ function getCookie(name) {
 
 function serverUpdate() {
     // const csrftoken = getCookie('csrftoken');
-    const csrftoken = getCookie('csrf_token');
+    const csrftoken = getCookie("csrftoken");
 
-    $.ajaxSetup({
-        beforeSend: function (xhr, settings) {
-            // if not safe, set csrftoken
-            if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
-                xhr.setRequestHeader("X-CSRFToken", csrftoken);
-            }
-        }
-    });
+    // $.ajaxSetup({
+    //     beforeSend: function (xhr, settings) {
+    //         // if not safe, set csrftoken
+    //         if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+    //             xhr.setRequestHeader("X-CSRFToken", csrftoken);
+    //         }
+    //     }
+    // });
 
     $.ajax({
-        type: "POST",
-        url: updateurl,
-        data: {
-            // here getdata should be a string so that
-            // in your views.py you can fetch the value using get('getdata')
-            responses,
-            confidence,
-            start_times,
-            end_times
-        },
-        dataType: 'json',
-        success: function (res, status) {
-        },
-        error: function (res) {
-            // alert(res.status);
-        }
+      type: "POST",
+      url: updateurl,
+      data: {
+        // here getdata should be a string so that
+        // in your views.py you can fetch the value using get('getdata')
+        responses,
+        confidence,
+        start_times,
+        end_times,
+      },
+      headers: { "X-CSRFToken": csrftoken },
+      dataType: "json",
+      success: function (res, status) {},
+      error: function (res) {
+        // alert(res.status);
+      },
     })
-    .then(response => {
+      .then((response) => {
         hues = JSON.parse(response.obscured);
         stimuli = JSON.parse(response.stimuli);
         last = JSON.parse(response.last);
 
         if (last) {
-            location.href = goodbyeurl;
+          location.href = goodbyeurl;
         }
 
-        block_trial_number = 0
+        block_trial_number = 0;
         block_possible = 0;
         block_earned = 0;
         start_times = new Array();
         end_times = new Array();
         responses = new Array();
-    })
-    .then( () => {
-        setTimeout(showStimulus, 2000)
-    });
+      })
+      .then(() => {
+        setTimeout(showStimulus, 2000);
+      });
 
 }
 
