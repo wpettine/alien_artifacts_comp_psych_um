@@ -39,10 +39,10 @@ function serverUpdate() {
         data: {
             // here getdata should be a string so that
             // in your views.py you can fetch the value using get('getdata')
-            'responses': JSON.stringify(responses),
-            'confidence': JSON.stringify(confidence),
-            'start_times': JSON.stringify(start_times),
-            'end_times': JSON.stringify(end_times)
+            responses,
+            confidence,
+            start_times,
+            end_times
         },
         dataType: 'json',
         success: function (res, status) {
