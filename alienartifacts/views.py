@@ -743,21 +743,34 @@ def onePageContextGenMetacogUpdate(request):
     print('In onepageupdate')
     # if request.method == 'GET':
     if request.method == 'POST':
+        print('POST')
         # Get data from request
         # start_times = json.loads(request.GET.get("start_times"))
         # end_times = json.loads(request.GET.get("end_times"))
         # responses = json.loads(request.GET.get("responses"))
         # confidence = json.loads(request.GET.get("confidence"))
+        print('data loading: start_times')
         start_times = json.loads(request.POST.get("start_times"))
+        print('data loaded: start_times')
+        print('data loading: end_times')
         end_times = json.loads(request.POST.get("end_times"))
+        print('data loaded: end_times')
+        print('data loading: responses')
         responses = json.loads(request.POST.get("responses"))
+        print('data loaded: responses')
+        print('data loading: confidence')
         confidence = json.loads(request.POST.get("confidence"))
+        print('data loaded: confidence')
+        
         # Store data from request
+        print('data loading: outcomes')
         outcomes = np.array(request.session['outcomes'])
+        print('data loaded: outcomes')
         # Add the data to the trial and the trial to the session
         session = Session.objects.filter(id=request.session['session_ID'])[0]
         initial_planet = request.session['block'][request.session['trial_number']]
         for t in range(len(responses)):
+            print(f'Processing t {t}')
             start_time = datetime.fromtimestamp(int(start_times[t]) / 1000.0)
             end_time = datetime.fromtimestamp(int(end_times[t]) / 1000.0)
             current_planet = request.session['block'][request.session['trial_number'] + t]
@@ -778,6 +791,7 @@ def onePageContextGenMetacogUpdate(request):
             session.end_time = end_time
             if current_planet > 0: session.conditioning_completed = True
             session.save()
+            print("Saving Session")
         request.session['trial_number'] += len(responses)
         try:
             next_planet = request.session['block'][request.session['trial_number'] + 1]
@@ -785,6 +799,7 @@ def onePageContextGenMetacogUpdate(request):
             next_planet = current_planet
         # If it's the last trial, send them to the next planet
         if request.session['trial_number'] >= (sum(N_TRIALS_PER_BLOCK) - 1) or initial_planet != next_planet:
+            print("# If it's the last trial, send them to the next planet")
             return JsonResponse({
                 # "outcomes": outcomes,
                 "stimuli": '[]',
@@ -792,12 +807,14 @@ def onePageContextGenMetacogUpdate(request):
                 "last": 1
             })
         # Otherwise, prepare for next set of trials.
+        print("# Otherwise, prepare for next set of trials.")
         current_block = request.session['block'][request.session['trial_number']]
         if (request.session['trial_number'] + SINGLE_PAGE_BLOCK_LENGTH) > sum(N_TRIALS_PER_BLOCK[:current_block + 1]):
             block_length = sum(N_TRIALS_PER_BLOCK[:current_block + 1]) - request.session['trial_number']
         else:
             block_length = SINGLE_PAGE_BLOCK_LENGTH
         # Return info for the next set of trials
+        print("# Return info for the next set of trials")
         indx_block = np.arange(request.session['trial_number'],
                                (request.session['trial_number'] + block_length))
         block_reward_probs = np.array(request.session['reward_probabilities'])[
