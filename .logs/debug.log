@@ -2781,3 +2781,68 @@ INFO "GET /media/images/circle_magenta_diagonal_large_MSxMIGx.png HTTP/1.1" 200 
 INFO "GET /media/images/square_blue_diagonal_large_pGnMgZu.png HTTP/1.1" 200 10526
 INFO Watching for file changes with StatReloader
 INFO Watching for file changes with StatReloader
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123zaxwv&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4536
+INFO In welcome function
+INFO "GET /welcome HTTP/1.1" 200 2202
+INFO In welcome function
+INFO In questionnaires function
+INFO "POST /welcome HTTP/1.1" 200 9966
+INFO In questionnaires function
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123zaxwv&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4543
+INFO "GET /static/style_white.css HTTP/1.1" 200 1033
+INFO In welcome function
+INFO "GET /welcome HTTP/1.1" 200 2209
+INFO In welcome function
+INFO In questionnaires function
+INFO "POST /welcome HTTP/1.1" 200 9975
+INFO "GET /static/style_white.css HTTP/1.1" 304 0
+INFO In questionnaires function
+INFO "POST /questionnaires HTTP/1.1" 200 570
+INFO "GET /static/style_white.css HTTP/1.1" 304 0
+INFO "GET /?PROLIFIC_PID=123zaxwv&SESSION_ID=46&STUDY_ID=789 HTTP/1.1" 200 4543
+INFO "GET /static/style_white.css HTTP/1.1" 304 0
+INFO In welcome function
+INFO "GET /welcome HTTP/1.1" 200 2209
+INFO "GET /?PROLIFIC_PID=123zwv&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4543
+INFO "GET /static/style_white.css HTTP/1.1" 304 0
+INFO In welcome function
+INFO "GET /welcome HTTP/1.1" 200 4957
+INFO In welcome function
+INFO In questionnaires function
+INFO "POST /welcome HTTP/1.1" 200 9971
+INFO "GET /static/style_white.css HTTP/1.1" 304 0
+INFO In questionnaires function
+INFO "POST /questionnaires HTTP/1.1" 200 446
+INFO In questionnaires function
+INFO "POST /questionnaires HTTP/1.1" 200 423
+INFO "GET /static/style_white.css HTTP/1.1" 304 0
+INFO In questionnaires function
+INFO "POST /questionnaires HTTP/1.1" 200 419
+INFO "GET /static/style_white.css HTTP/1.1" 304 0
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123zaxwv&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4543
+INFO In welcome function
+INFO "GET /welcome HTTP/1.1" 200 2209
+INFO In welcome function
+INFO In questionnaires function
+INFO "POST /welcome HTTP/1.1" 200 9975
+INFO In questionnaires function
+INFO "POST /questionnaires HTTP/1.1" 200 570
+INFO "GET /static/style_white.css HTTP/1.1" 304 0
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123zaxwv&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4543
+INFO "GET /static/style_white.css HTTP/1.1" 304 0
+INFO In welcome function
+INFO "GET /welcome HTTP/1.1" 200 2209
+INFO In welcome function
+INFO In questionnaires function
+INFO "POST /welcome HTTP/1.1" 200 9975
+INFO In questionnaires function
+INFO "POST /questionnaires HTTP/1.1" 200 462
+INFO In questionnaires function
+INFO "GET /questionnaires HTTP/1.1" 200 9975
+INFO "GET /static/style_white.css HTTP/1.1" 304 0
+INFO In questionnaires function
+INFO "POST /questionnaires HTTP/1.1" 200 441

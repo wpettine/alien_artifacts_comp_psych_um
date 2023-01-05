@@ -745,10 +745,6 @@ def onePageContextGenMetacogUpdate(request):
     if request.method == 'POST':
         print('POST')
         # Get data from request
-        # start_times = json.loads(request.GET.get("start_times"))
-        # end_times = json.loads(request.GET.get("end_times"))
-        # responses = json.loads(request.GET.get("responses"))
-        # confidence = json.loads(request.GET.get("confidence"))
         print('data loading: start_times')
         start_times = json.loads(request.POST.get("start_times"))
         print('data loaded: start_times')
@@ -761,7 +757,6 @@ def onePageContextGenMetacogUpdate(request):
         print('data loading: confidence')
         confidence = json.loads(request.POST.get("confidence"))
         print('data loaded: confidence')
-        
         # Store data from request
         print('data loading: outcomes')
         outcomes = np.array(request.session['outcomes'])
@@ -968,7 +963,7 @@ def feedback(request,response):
 def token(request):
     session = Session.objects.filter(id=request.session['session_ID'])[0]
     payment_token = session.payment_token
-    if session.tutorial_completed is False:
+    if (WEBAPP_USE == 'task') and (session.tutorial_completed is False):
         session.tutorial_completed = True
         session.task_completed = False
         session.session_completed = False

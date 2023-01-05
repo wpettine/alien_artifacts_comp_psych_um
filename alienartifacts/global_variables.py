@@ -85,7 +85,7 @@ if ATTENTION_CHECK:
     # QUESTIONNAIRES = {
     #     'att_check': QUESTIONNAIRE_ATTENTION_CHECK,
     #     # 'phq9': QUESTIONNAIRE_PHQ9,
-    #     'bapq': QUESTIONNAIRE_BAPQ,
+    #     # 'bapq': QUESTIONNAIRE_BAPQ,
     # }
 else:
     QUESTIONNAIRES = {
