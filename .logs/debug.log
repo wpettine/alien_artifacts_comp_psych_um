@@ -2846,3 +2846,21 @@ INFO "GET /questionnaires HTTP/1.1" 200 9975
 INFO "GET /static/style_white.css HTTP/1.1" 304 0
 INFO In questionnaires function
 INFO "POST /questionnaires HTTP/1.1" 200 441
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123zaxwv&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4537
+INFO "GET /static/style.css HTTP/1.1" 304 0
+INFO In welcome function
+INFO "GET /welcome HTTP/1.1" 200 2310
+INFO In welcome function
+INFO In instructions function
+INFO "POST /welcome HTTP/1.1" 200 655
+INFO "GET /tutorialmetacog HTTP/1.1" 200 5850
+INFO "GET /static/js/tutorialmetacog.js HTTP/1.1" 304 0
+INFO "GET /media/images/noreward_diamond_reward_stim_2dKz0ZE.png HTTP/1.1" 200 51344
+INFO "GET /media/images/blue-spaceship_tan-planet_x7ebDjR.png HTTP/1.1" 200 161819
+INFO "GET /media/images/no-spaceship_blue-planet_2a7iLhv.png HTTP/1.1" 200 134106
+INFO "GET /media/images/purple-spaceship_green-planet_qIq0lyv.png HTTP/1.1" 200 154035
+INFO "GET /media/images/no-spaceship_gold-planet_MSoSU1g.png HTTP/1.1" 200 113793
+INFO "GET /media/images/red-spaceship_space_oxrn8zW.png HTTP/1.1" 200 195879
+INFO "GET /media/images/reward_diamond_reward_stim_Uza0HcM.png HTTP/1.1" 200 1284663
+INFO "GET /media/images/green-spaceship_space_cRbAqp5.png HTTP/1.1" 200 152060

@@ -12,7 +12,7 @@ TASK = 'context-generalization_v2' # 'example-generalization', 'context-generali
 CG_RESTRICT_KEY_PATTERN = True
 
 #What we're using the webapp for
-WEBAPP_USE = 'screen' # 'screen', 'task', 'both'
+WEBAPP_USE = 'task' # 'screen', 'task', 'both'
 GENERALIZATION_FEEDBACK = False
 CONFIDENCE_REPORT = True
 PROJECT_NAME = 'P50'
