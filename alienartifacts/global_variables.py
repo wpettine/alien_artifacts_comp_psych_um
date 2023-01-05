@@ -51,7 +51,7 @@ GENDERS = [('','Please Select Response'),('female', 'Female'), ('male', 'Male'),
            ('trans_female', 'Trans Female/Trans Woman'),('genderqueer', 'Genderqueer/Gender NonConforming'),
            ('other', 'Different Identity'),('none', 'Prefer not to say')]
 SEX = [('','Plese Select Response'),('female', 'Female'), ('male', 'Male')]
-AGES = [('','Please Select Response'),('<10', "Under 10"), ('10-20', '10-20'), ('21-30', '21-30'), ('31-45', '31-45'),
+AGES = [('','Please Select Response'),('<10', "Under 10"), ('10-20', '11-20'), ('21-30', '21-30'), ('31-45', '31-45'),
         ('46-65', '46-65'), ('>65', 'Over 65')]
 AGES_NUMERIC = [(None,'Please Select Response')] + [(i,i) for i in np.arange(18,100).astype(int)]
 EDUCATION = [('','Please Select Response'),('<highschool', "Some Highschool"), ('highschool', 'Highschool Graduate'),

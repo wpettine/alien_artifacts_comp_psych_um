@@ -566,7 +566,7 @@ def getAgeStr(age_numeric,age_list=None):
             age_min, age_max = int(age_[0].split('-')[0]), int(age_[0].split('-')[1])
         else:
             continue
-        if (age_numeric >= age_min) & (age_numeric < age_max):
+        if (age_numeric >= age_min) & (age_numeric <= age_max):
             age_str = age_[0]
             break
     return age_str
