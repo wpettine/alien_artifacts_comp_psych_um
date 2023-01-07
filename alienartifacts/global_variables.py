@@ -10,6 +10,7 @@ from .questionnaires_text import *
 #Choose task
 TASK = 'context-generalization_v2' # 'example-generalization', 'context-generalization_v1', 'context-generalization_v2', 'diagnostic'
 CG_RESTRICT_KEY_PATTERN = True
+val = 'val'
 
 #What we're using the webapp for
 WEBAPP_USE = 'screen' # 'screen', 'task', 'both'
