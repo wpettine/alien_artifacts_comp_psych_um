@@ -2864,3 +2864,13 @@ INFO "GET /media/images/no-spaceship_gold-planet_MSoSU1g.png HTTP/1.1" 200 11379
 INFO "GET /media/images/red-spaceship_space_oxrn8zW.png HTTP/1.1" 200 195879
 INFO "GET /media/images/reward_diamond_reward_stim_Uza0HcM.png HTTP/1.1" 200 1284663
 INFO "GET /media/images/green-spaceship_space_cRbAqp5.png HTTP/1.1" 200 152060
+INFO /Users/wwp9/Dropbox/_Murray/Code/comp_psych_state_inference_RL/alienArtifactsLearningCompPsychUM/alienartifacts/global_variables.py changed, reloading.
+INFO Watching for file changes with StatReloader
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123zaxwv&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4543
+INFO "GET /static/style_white.css HTTP/1.1" 304 0
+INFO In welcome function
+INFO "GET /welcome HTTP/1.1" 200 2209
+INFO In welcome function
+INFO In questionnaires function
+INFO "POST /welcome HTTP/1.1" 200 491943
