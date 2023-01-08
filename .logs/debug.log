@@ -2874,3 +2874,8 @@ INFO "GET /welcome HTTP/1.1" 200 2209
 INFO In welcome function
 INFO In questionnaires function
 INFO "POST /welcome HTTP/1.1" 200 491943
+INFO Watching for file changes with StatReloader
+INFO "GET /?PROLIFIC_PID=123zaxwv&SESSION_ID=456&STUDY_ID=789 HTTP/1.1" 200 4537
+INFO "GET /static/style.css HTTP/1.1" 304 0
+INFO In welcome function
+INFO "GET /welcome HTTP/1.1" 200 2310

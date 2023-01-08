@@ -861,7 +861,8 @@ if TASK == 'example-generalization':
     BLOCK_CATEGORIES = [['A', 'B', 'C','D'], ['A', 'B', 'C','D']]
     KEY_ACTIONS = [['Sing', 'Dance', 'Wave', 'Bite']] * 2
 
-    STRATEGIES = [('none', 'I DID NOT HAVE a strategy'), ('memorized', 'I MEMORIZED EACH individually'),
+    STRATEGIES = [('none', 'I DID NOT HAVE a strategy'), ('memory_aid', 'I WROTE DOWN the stimuli and rules'),
+                  ('memorized', 'I MEMORIZED EACH individually'),
                   ('shape', 'I used SHAPE to group them'),('color', 'I used COLOR to group them'),
                   ('texture', 'I used TEXTURE to group them'),('shape-color', 'I used SHAPE and COLOR to group them'),
                   ('shape-texture', 'I used SHAPE and TEXTURE to group them'),
