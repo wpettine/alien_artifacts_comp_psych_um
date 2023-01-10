@@ -1,7 +1,7 @@
 from .functions import *
 import json
 import urllib
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from .models import Stimulus, Session, Subject, Trial, TutorialStimulus, RewardStimulus
 from datetime import datetime
 import numpy as np
@@ -11,13 +11,21 @@ from .global_variables import *
 # Get an instance of a logger
 logger = logging.getLogger('django')
 
-# Views
+
 def index(request):
     try:
         return consentform(request)
     except:
-        logger.error('Something went wrong in the index function')
+        logger.error(f'Something went wrong in the index function')
 
+
+def health(request):
+    try:
+        return HttpResponse()
+    except Exception as e:
+        logger.error('Error in %s', 'consentformProlific', exc_info=e)
+
+# Views
 
 def consentform(request):
     if PROLIFIC:
@@ -34,8 +42,8 @@ def consentformStandard(request):
         return render(request, "alienartifacts/consentform.html", {
             "link_url": link_url,
         })
-    except:
-        logger.error('Something went wrong in the consentformStandard view function')
+    except Exception as e:
+        logger.error('Error in %s', 'consentformStandard', exc_info=e)
 
 
 def consentformProlific(request):
@@ -49,8 +57,8 @@ def consentformProlific(request):
         return render(request, "alienartifacts/consentform.html", {
             "link_url": link_url,
         })
-    except:
-        logger.error('Something went wrong in the consentformProlific view function')
+    except Exception as e:
+        logger.error('Error in %s', 'consentformProlific', exc_info=e)
 
 
 def welcome(request):

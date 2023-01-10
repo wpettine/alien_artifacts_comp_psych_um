@@ -9,6 +9,7 @@ urlpatterns = [
     #Example urls
     #Task-specific urls
     path("", views.index, name="index"),
+    path("health", views.health, name="health"),
     path("welcome", views.welcome, name="welcome"),
     path("attentionfailure", views.attentionfailure, name="attentionfailure"),
     path("consentform", views.consentform, name="consentform"),
